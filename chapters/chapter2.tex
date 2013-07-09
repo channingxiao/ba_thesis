@@ -1,0 +1,38 @@
+\chapter{Model building}
+
+\section{Building a model from registered face data}
+Model building is our motivation. We are going to great lengths to build a model
+In this chapter we explain how to go about building a 3D face model from 3D face scans.
+2.3 Building a Model from the registered data (short)
+cite morphable model, give a short overview how a model is built
+A set of faces parametrized by coefficients a, set of Textures parametrized by coefficients b
+Fit multivariate normal distribution to data set, based on average of faces and textures. Build covariance matrices over differences between the mean and face samples in surface and texture. => two distributions. Perform PCA to get orthogonal basis system
+In the MM three subspaces are morphed independently
+
+Eine Gruppe (G,◦) heisst abelsch [abelian] oder kommutativ wenn a◦b = b◦a gilt für
+alle a,b ∈ G.
+
+\section{Prerequisite Data}
+image with landmarks and line features
+a short overview what data we have given
+
+Facial Scans:
+face scans given as point clouds
+The data we have given is a set of about 300 face scans that have had a set of key points marked. Furthermore important and detailed regions like the eyes, ears and lips have been marked by contour lines known as line features. The scans have been obtained with a … scanner. The surface is very detailed, however the eyes and the nostrils are not recorded. From these scans we want to create fully textured 3D faces, which can be used to build a new face model.
+
+Mean Face:
+The mean face has been derived from a collection of 100 male and 100 female 3D face models.
+
+
+\section{Finding Correspondences}
+WE WANT POINT TO POINT CORRESPONDENCE BETWEEN THE TWO FACES
+in general: point to point correspondence between to images
+Are scans already in semantical correspondence? No semantical correspondence
+FINDING CORRESPONDENCE IS EXACTLY THE AIM OF REGISTRATION => HAVING SAME POINTS AS CLOSE TO ONE ANOTHER AS POSSIBLE
+Now in order to obtain a 3D representations of the face we need to transform the mean face so that it fits a particular 3D face scan. To find the transformation, however, we first have to find feature points in both 3D representations which correspond to the same semantical structure. Previous work has shown that point landmarks are not sufficient to preserve the level of detail which is imminent in the regions of the eyes, ears and lips and that the computed transformations are not able to preserve these regions. For this reason, additional line features have been introduced. In order to relate these 
+
+How registration works so far
+
+What we want to change
+
+

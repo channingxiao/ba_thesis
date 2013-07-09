@@ -1,0 +1,43 @@
+% ---------------------------
+%
+% Bachelor Thesis Style File
+% Fabian Brix 2013
+%
+%---------------------------
+
+% redefining stuff
+% using packages etc
+
+\usepackage{abstract} 
+% may be of use to float abstract to the right, or to narrow the text 
+
+\usepackage{color}
+\usepackage{graphicx}
+% for including images - eps format preferred
+
+\usepackage{subfig}
+
+\usepackage{amsmath, amssymb}
+% packages published by the american mathematical society
+% for more info visit http://tex.stackexchange.com/questions/32100/what-does-each-ams-package-do
+
+\DeclareMathSizes{11}{11}{11}{11}
+% < surrounding text size>, <math text size>, <math script size>, <math scriptscript size>
+
+\usepackage[top=3cm, bottom=3cm, left=4cm, right=4cm]{geometry}
+
+\newcommand{\viscomment}[1]{\textcolor{red}{\textbf{\textit{#1}}}}
+% command for adding comments to the thesis that are visible to the reader
+
+\newcommand{\vect}[1]{\textbf{#1}} %{\vec{#1}}
+% custom vector definition, makes it possible to change all vectors to bold notation
+
+\newcommand{\twopartdef}[4]
+{
+\left\{
+\begin{array}{ll}
+#1 & \mbox{if } #2 \\
+#3 & \mbox{if } #4 
+\end{array}
+\right.
+}
