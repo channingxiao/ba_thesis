@@ -1,25 +1,162 @@
 \chapter{Registration Pipeline using Line Features}
+In this chapter we follow up on the definition of the Vector-valued Gaussian Model for 3D Face Registration by describing the registration pipeline built to put this concept into practice. An emphasis on using line features 
+Blabla, incorporate practical challenges?
+This is also the actual core of the thesis explaining why and how we use line features in the Registration Pipeline. 
+Sequential Pipeline
 
-\section{Definition of Line Features}
-draw bézier curves
-\section{Why use Line Features for Registration}
+\section{Line Features}
+\subsection{Definition of Line Features}
+For every scan we want to register, 8 contours have been marked on three images of the face - taken from the front, the left and the right of the face - with a special GUI marking programme. These contours depict the eyebrows, eyes, ears and lips of a face and we call them ``line features''. They are made up of a set of segments, each of  which is modelled with a \textbf{B\'{e}zier curve} (parametric curve frequently used in computer graphics, bernstein basis polynomials, used for
+modelling smooth curves) of varying order. Due to the nature of the objects depicted, there are open as well as closed curves. 
+\begin{equation}
+    B(t)=\sum_{i=0}^{n}(1-t)^{n-i}t^iP_{i}
+\end{equation}
+The line features are saved in explicit files along with the face mesh of the scan.
 
-\section{Sampling 3D Points from 2D Line Features}
+\viscomment{Draw eye curve with TikZ, and maybe ear contour line for open curve}
+
+\def\eyebrow{(-2, .5) .. controls (1,1) and (4,0) .. (1.5, -1) .. (-2, -.5);}
+\begin{tikzpicture}
+    %\draw [black] (-2,.5) to[out=30,in=180] (1,1) to[out=0,in=110] (4,0) to[out=-90,in=15] (1.5,-1) to[out=180,in=-45] (-2,-.5);
+    \draw[black]\eyebrow 
+\end{tikzpicture}
+
+\def\eyepath{(-3,0) .. controls (-2,1.8) and (2,2.2) .. (2.7,0) .. controls (2,-1.2) and (-2,-1.4) .. (-3,0)--cycle;}
+
+\begin{tikzpicture}
+    \tikzset{
+            show curve controls/.style={
+                decoration={
+                    show path construction,
+                    curveto code={
+                        \draw [blue, dashed]
+                            (\tikzinputsegmentfirst) -- (\tikzinputsegmentsupporta)
+                            node [at end, cross out, draw, solid, red, inner sep=2pt]{};
+                        \draw [blue, dashed]
+                            (\tikzinputsegmentsupportb) -- (\tikzinputsegmentlast)
+                            node [at start, cross out, draw, solid, red, inner sep=2pt]{};
+                }
+            }, decorate
+        }
+    }
+    \draw[show curve controls, black]\eyepath
+\end{tikzpicture}
+
+draw an eye with help of http://tex.stackexchange.com/questions/94082/help-with-the-design-of-an-eye-in-tikz
+
+\subsection{Why use Line Features for Registration?} 
+Line features serve the purpose of augmenting the quality of registration by initiating it with a larger set of corresponding points (points which are on the lines). They are used to mark complex regions of the eyes, i.e. the eyes, ears etc., so that the registration process produces an accurate mapping of the contours of these organs which would otherwise not be possible.  Areas containing ``curves'' have a dense abundance of points/parameter changes, while straight areas only have scarce points.  
+
+\section{Sampling 3D Points from 2D Line Features} 
+In order to be able to use line features in the Vector-valued Gaussian Model, they have to be sampled at discrete intervals resulting in a set of additional landmarks $L_{Add} = \{l_{1}, \cdots, l_{N}\}$. These define the mapping $\Omega:L_{Add\mathcal{M}} \rightarrow L_{Add\mathcal{T}}$ of the contours - describing the different imporant features present in the faces - in the mean face mesh on those of the target face mesh. In order for the mapping $\Omega$ to be plausible, it is essential
+for the curves to have equidistant parametrization so that when curves undergo sampling of N points, these N points are all at equal parametric intervals.
+
 \subsection{Arc Length Parametrization}
+The first problem which becomes apparent when trying to sample the line features is that the b\'{e}zier curve segments don't allow for equidistant parametrization, because the underlying parameter $t \in \mathbb{R}$ is not linear in respect to the length of the curve. Consequently, the imperative must be to evaluate the curves based on their arc-length, which is defined as the length of the rectified curve, instead. The underlying parameter must then correspond - at every point of the curve - to the ratio of the curve length
+that has been traversed and the total curve length.
+\viscomment{draw two instances of the same shape, one with equidistant and one with bezier parametrization}
+
+\viscomment{make image with corresponding points on two different ears}
 \paragraph{In theory}
+It is possible to get the arc length $L(t)=\int_{t_{0}}^{t_{1}} \left|C'(t)\right| dt$ for given parameters $t_{0}, t_{1}$ where $C'(t)$ is the derivative of the curve $C:t \in [0,1] \rightarrow \mathbb{R}^2$. What we are in need of, however, is a reverse mapping from the length of a fraction of the curve to the curve parameter $t = L^{-1}(l)$. 
+\viscomment{Abbildung von Parameter auf Länge finden}
+This mapping can of course be derived analytically, but it is far easier to implement it using a numeric approximation. 
 
 \paragraph{In practice}
+As we are not in need of a subpixel accurate resolution, we can skip the formal math and use a lookup table to compute the arc-length.
+First, we calculate n=1000 points on each segment the curve - made up of b\'{e}zier curves using the normal parameter t. For each point we save the euclidean distance from the origin of the segment into a new slot in the lookup array. We get the euclidean distance for one point by summing up the distance to the predecessor points and its distance from the origin.
+\viscomment{draw a line with a few segments} 
+\viscomment{draw curve with points just off and lookup table beneath}
+In effect, we are provided with have a lookup array that contains the approximated distances of a large number of points from the origin of a curve segment. Assembling the segments' lookup arrays gives us the overall array for the curve with the last value presenting the arc-length of the whole curve.\\ 
+Second, finding points on the curve according to a linear parameter governed by the amount of points that we want to parametrize the curve with is quite easy. The curve can easily be sampled by computing the length of parametric intervals $\frac{L}{N}$ for a specified number of points N to be sampled. $l=k \cdot \frac{L}{N}$ returns the current length of the curve for the sampling point of index k, where $k=[0,\cdots,N]$ for open curves and $k=[0,\cdots,N-1]$ for closed curves.
+Then we simply perform a binary search on the lookup table (to get largest value smaller than n?) for this distance. We choose the index that returns the exact length we specified or the index with the next smaller length. The coordinates of the point with this index t are now the coordinates we use for the sampling point.
+We compute the distance we want to travel the curve using the length of equidistant sections and the point we want to get.
 
-\subsection{Projection on to the Mesh}
+\viscomment{reference lines in code or pseudo-code?}
+\viscomment{add green bar (for C++ code) on top with identifier}
+\begin{lstlisting}[label=some-code, caption=Equidistant Sampling]
+void getEquidistantPoints(int numSampleSegments = 20) {
+    // static members: 
+    // arcLookup - lookup table
+    // totalLength - total arc-length of curve
+    // auxiliaryPoints - ??? exact definition 
+
+    if(arcLookup.size() == 0) return;
+    int pointsToDraw = numSampleSegments+1; 
+    if(closed) pointsToDraw--;
+
+    T sectionLength = totalLength/numSampleSegments;
+
+    for(size_t i=0; i < pointsToDraw; ++i) {
+        T progress = i*sectionLength;
+        // perform c++ binary search on lookup table
+        int low = 0;
+        int currIndex = 0;
+        int high = arcLookup.size()-1;
+        T currPieceLength; 
+
+        while(low < high) {
+            currIndex = low + (high - low)/2; 
+            currPieceLength = arcLookup[currIndex];
+            if(currPieceLength < progress) {
+                low = currIndex+1;
+            } else {
+                high = currIndex;
+            }
+        }
+        // currPieceLength is now >= progress
+        if(currPieceLength > progress) {
+            currIndex--; // currPieceLength is now < progress
+        }
+        equidistantPoints.push_back(auxiliaryPoints[currIndex]);   
+    }
+ }
+\end{lstlisting}
+
+\subsection{Mesh Projection of Sampled Points}
+Having implemented arc length parametrization it is possible to draw an arbitrary amount of samples $x \in \mathbb{R}^2$ from the line features. They are thereby defined as a set of points $S \subset \mathbb{R}^2$. Our goal is, however, to have these additional landmarks describing the features on the mesh itself and not a 2-dimensional snapshot.
+We therefore 
+
 \paragraph{How registration worked so far?}
+In the previous registration method implemented by Dr. Brian Amberg, the
+points from line features constrained to 1D
+
+shells from the scanner are cleaned
+points are marked on the 3 images to the front, left and right of the person and are then projected on to the 3 shell meshs with the program points_from_surface. That is how the feature points are generated.
+Furthermore lines are marked also by hand on these 3 images using a bzier curves. However, they are not projected on to the mesh directly and by points which have been parametrized equidistantly. The progress of a parameter on a bzier curve is dictated by velocity and not by covered distance.
+Explain what program does, latex sketches:
+camera calibration is done by the scanner?
+meshs and camera settings are loaded into the software. For a lot of points per curve the direction their 3d representation is computed and their distance, normalized to give direction,  from the origin is saved. Distances and directions are further computed for all vertices in the mesh. Now for every point the dot product of its direction is formed with direction of every vertex in the mesh. Remember, the dot product results in 1 for similar directions and 0 for perpendicular directions.
+For an angle value larger than .9999 the parameters min_dist or max_dist are updated with the distance value of the projection of the distance vector to the nearest vertex on to the direction of the actual 3D representation of the point. min(min_dist, d), max(max_dist, d), so that at the end min_dist contains the distance to the point on the line nearest to the camera and max_dist the distance to the point farthest away from the camera. now min_dist is multiplied with a value < 1 and
+max_dist with a value > 1. 
+then a band of points is computed perpendicular to the line along the direction at each computed point that cuts through the mesh and serves as a horizontal constraint for the points to lie after the registration.
+picture of dot product
 
 \paragraph{Proposed "Solution"}
+Our little modification
+
+Due to the mesh area of the ears and the eyes containing large holes the projected sample points from the line features wheren't handy at all. Because of global angle comparisons between the direction from the camera towards the vertices and the direction towards the projection of a sampled point on the line, if there is a hole in the mesh at the destination of this direction vector on the mesh and the direction of vertex is used can be used which actually distorts the shape of line,
+so that we get a sort of point cloud around the eyes which is not distinguishable as a line and not useful at all for the face registration. On top of that another problem occured, because the mean face mesh of course doesn't have any line features projected on to it either. However, it contains about 60 feature points manually clicked, which are not present in newly scanned datasets. 
+On different data sets the performance of the projection of the line features varied enormously. Using only 5 sample points per curve some datasets rendered perfect results. As long as a method is dependent on the underlying data (size of holes in meshs) it is not applicable in general and that is exactly what we wanted to achieve.
+
+man, it's essentially the same
+
+\paragraph{Output}
+pipeline specifications
 
 \section{Preparing the Mean Mesh}
 rendering, marking line features, projecting back possible, because we know direction
 
 \section{Rigid Mesh Alignment}
 simple rigid transformation of the scanned face onto the mean, transformation computed from landmark vectors.
+To begin the registration we first have to align the two meshs. The floating mesh has to be clipped at the neck and around the ears where the scanner has left artifacts. Furthermore the mouth cavity of the mean face has to be removed. We then selected the 11 feature points present in the floating mesh in the mean face from the abundant 60. To achieve this we wrote a python script loading the feature point files. A feature point is described by its 3D coordinates, a visibility parameter
+in the range [-1,1] and a label denoting its exact location (mouth.inner.upper). All we had do to now was to create to dictionaries “label” : (x,y,z) and to compare them for labels. Then we passed the resulting point correspondencies to the python vtk api for the mean of computing a transformation comprised of simple translation and rotation (no scaling, only 3 point correspondencies needed). Note, we are not trying to map the meshs on to one another here. We are simply trying to
+align them through the use of the feature points. The computed transformation we applied to all points in the floating mesh. The resulting mesh was written to a file and then opened in paraview. We now had the meshs in a position from where we could start the actual mapping. The mean face was broader in shape than the scan and was perfectly coated in texture for the simple reason that hours of manual labour have been invested to render this important piece of data a perfect
+reference.
+Now in order to receive a perfect mapping of the floating mesh on to the mean/reference mesh we have to allow for 3 degrees of freedom, that is in all 3 dimensions x,y and z, for every pixel in the floating mesh except for the reference points we have used as correspondencies. The parameters having the most influence to the mapping will be those specified in the constraints we introduced into the equation via regularization. The idea behind the use of sampled points from
+the line features was to have more point correspondencies in complex regions as for example the eyes and the ears where there is a great abundancy of pixels and the algorithm isn’t likely to create a flow field which is accurate not enough to describe these regions, because of it’s smoothness constraint.
+For the actual registration we use the software framework statismo developed at the Computer Science Department of the University of Basel. It is a framework for PCA based statistical models. These are used to describe the variability of an object within a population, learned from a set of training samples. We use it to generate a statistical model from the floating mesh. Furthermore we use the software package gpfitting for the actual fitting. We generate a infinite row of
+faces from the statistical model using gaussian processes and then sample out a fixed number. Then the faces are left. Carry on.
 
 \section{Prior Model}
 what to say here? describe programme?

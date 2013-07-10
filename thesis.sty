@@ -8,12 +8,17 @@
 % redefining stuff
 % using packages etc
 
+\usepackage[top=3cm, bottom=3cm, left=4cm, right=4cm]{geometry}
+
 \usepackage{abstract} 
 % may be of use to float abstract to the right, or to narrow the text 
 
 \usepackage{color}
+
 \usepackage{graphicx}
 % for including images - eps format preferred
+\usepackage{tikz}
+% for drawing stuff
 
 \usepackage{subfig}
 
@@ -21,10 +26,44 @@
 % packages published by the american mathematical society
 % for more info visit http://tex.stackexchange.com/questions/32100/what-does-each-ams-package-do
 
+\usepackage{listings}
+% include source code of any programming language
+
+\definecolor{mybeige}{rgb}{1,1,.7}
+\definecolor{lightgray}{rgb}{.98,.98,.98}
+\newcommand{\numold}[1]{ {\addfontfeature{Numbers=OldStyle}#1}}
+%\lstnewenvironment{scode}
+%{
+\lstset{ 
+    language=c++,
+    backgroundcolor=\color{lightgray},
+    basicstyle=\small\normalfont,
+    numberstyle=\numold,
+    numbers=\left,
+    breaklines=true, % Zeilen umbrechen
+    xleftmargin=15pt,
+    framexleftmargin=15pt,
+    xrightmargin=5pt,
+    framexrightmargin=10pt,
+    framexbottommargin=10pt,
+    showstringspaces=false
+}%}
+%{}
+\lstloadlanguages{
+    C++
+    Java
+}
+
+\definecolor{mygreen}{rgb}{0.24,0.8,.16}
+
+\usepackage{caption}
+
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{mygreen}{\parbox{\textwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing, labelfont=white,textfont=white}
+
 \DeclareMathSizes{11}{11}{11}{11}
 % < surrounding text size>, <math text size>, <math script size>, <math scriptscript size>
-
-\usepackage[top=3cm, bottom=3cm, left=4cm, right=4cm]{geometry}
 
 \newcommand{\viscomment}[1]{\textcolor{red}{\textbf{\textit{#1}}}}
 % command for adding comments to the thesis that are visible to the reader
