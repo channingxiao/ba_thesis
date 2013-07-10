@@ -1,4 +1,4 @@
 latex-reading/
 missfont.log
 *.log
-*~.tex
+*.tex~

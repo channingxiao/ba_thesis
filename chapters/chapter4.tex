@@ -1,10 +1,8 @@
 \chapter{Registration Pipeline using Line Features}
 In this chapter we follow up on the definition of the Vector-valued Gaussian Model for 3D Face Registration by describing the registration pipeline built to put this concept into practice. The pipeline is of a sequential nature, where in each step the output of a data processing unit is the input for the next step. To enhance the registration outcome of this pipeline we use contour lines of key regions of the face to enhance the registration outcome. 
 
-shells from the scanner are cleaned
-points are marked on the 3 images to the front, left and right of the person\viscomment{put this under prerequisite data in model building}
+\viscomment{put this under prerequisite data in model building}
 
-Furthermore lines are marked also by hand on these 3 images using a bzier curves. However, they are not projected on to the mesh directly and by points which have been parametrized equidistantly. E
 \section{Line Features}
 \subsection{Definition of Line Features}
 For every scan we want to register, 8 contours have been marked on three images of the face - taken from the front, the left and the right of the face - with a special GUI for marking points and lines on images. These contours depict the eyebrows, eyes, ears and lips of a face and we call them ``line features''. They are made up of a set of segments, each of  which is modelled with a \textbf{B\'{e}zier curve} (parametric curve frequently used in computer graphics, bernstein basis polynomials, used for
@@ -122,7 +120,8 @@ We therefore need to use the camera callibration and some computer graphics to p
 In the previous registration method implemented by Dr. Brian Amberg, the
 points from line features constrained to 1D
  and are then projected on to the 3 shell meshs with the program points_from_surface. That is how the feature points are generated.
-
+shells from the scanner are cleaned
+points are marked on the 3 images to the front, left and right of the person\
 xplain what program does, latex sketches:
 camera calibration is done by the scanner?
 meshs and camera settings are loaded into the software. For a lot of points per curve the direction their 3d representation is computed and their distance, normalized to give direction,  from the origin is saved. Distances and directions are further computed for all vertices in the mesh. Now for every point the dot product of its direction is formed with direction of every vertex in the mesh. Remember, the dot product results in 1 for similar directions and 0 for perpendicular directions.
