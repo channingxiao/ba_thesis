@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  10 JUL 2013 11:58
+This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  10 JUL 2013 17:27
 entering extended mode
  %&-line parsing enabled.
 **thesis.tex
@@ -343,6 +343,25 @@ Package ifvtex Info: VTeX not detected.
 \Gm@dimlist=\toks23
 
 (/usr/share/texmf-texlive/tex/xelatex/xetexconfig/geometry.cfg))
+(/usr/share/texmf-texlive/tex/latex/lineno/lineno.sty
+Package: lineno 2005/11/02 line numbers on paragraphs v4.41
+Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.
+\linenopenalty=\count140
+\output=\toks24
+\linenoprevgraf=\count141
+\linenumbersep=\dimen151
+\linenumberwidth=\dimen152
+\c@linenumber=\count142
+\c@pagewiselinenumber=\count143
+\c@LN@truepage=\count144
+\c@internallinenumber=\count145
+\c@internallinenumbers=\count146
+\quotelinenumbersep=\dimen153
+\bframerule=\dimen154
+\bframesep=\dimen155
+\bframebox=\box28
+LaTeX Info: Redefining \\ on input line 3056.
+)
 (/usr/share/texmf-texlive/tex/latex/graphics/color.sty
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
@@ -369,17 +388,17 @@ File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: xetex.def on input line 91.
 )
-\Gin@req@height=\dimen151
-\Gin@req@width=\dimen152
+\Gin@req@height=\dimen156
+\Gin@req@width=\dimen157
 )
 (/usr/share/texmf/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texmf/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/share/texmf/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks24
+\pgfutil@everybye=\toks25
 )
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box28
+\pgfutil@abb=\box29
 
 (/usr/share/texmf-texlive/tex/latex/ms/everyshi.sty
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
@@ -395,26 +414,26 @@ Package: pgf 2008/01/15 v2.10 (rcs-revision 1.12)
 Package: pgfsys 2010/06/30 v2.10 (rcs-revision 1.37)
 
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks25
-\pgfkeys@temptoks=\toks26
+\pgfkeys@pathtoks=\toks26
+\pgfkeys@temptoks=\toks27
 
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
-\pgfkeys@tmptoks=\toks27
+\pgfkeys@tmptoks=\toks28
 ))
-\pgf@x=\dimen153
-\pgf@y=\dimen154
-\pgf@xa=\dimen155
-\pgf@ya=\dimen156
-\pgf@xb=\dimen157
-\pgf@yb=\dimen158
-\pgf@xc=\dimen159
-\pgf@yc=\dimen160
+\pgf@x=\dimen158
+\pgf@y=\dimen159
+\pgf@xa=\dimen160
+\pgf@ya=\dimen161
+\pgf@xb=\dimen162
+\pgf@yb=\dimen163
+\pgf@xc=\dimen164
+\pgf@yc=\dimen165
 \w@pgf@writea=\write4
 \r@pgf@reada=\read2
-\c@pgf@counta=\count140
-\c@pgf@countb=\count141
-\c@pgf@countc=\count142
-\c@pgf@countd=\count143
+\c@pgf@counta=\count147
+\c@pgf@countb=\count148
+\c@pgf@countc=\count149
+\c@pgf@countd=\count150
 
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
@@ -432,8 +451,8 @@ File: pgfsys-common-pdf-via-dvi.def 2008/05/19  (rcs-revision 1.7)
 )))
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2008/07/18  (rcs-revision 1.7)
-\pgfsyssoftpath@smallbuffer@items=\count144
-\pgfsyssoftpath@bigbuffer@items=\count145
+\pgfsyssoftpath@smallbuffer@items=\count151
+\pgfsyssoftpath@bigbuffer@items=\count152
 )
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
@@ -462,12 +481,12 @@ Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathcalc.code.tex
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen161
-\pgfmath@count=\count146
-\pgfmath@box=\box29
-\pgfmath@toks=\toks28
-\pgfmath@stack@operand=\toks29
-\pgfmath@stack@operation=\toks30
+\pgfmath@dimen=\dimen166
+\pgfmath@count=\count153
+\pgfmath@box=\box30
+\pgfmath@toks=\toks29
+\pgfmath@stack@operand=\toks30
+\pgfmath@stack@operation=\toks31
 )
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.code.tex
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex)
@@ -478,51 +497,51 @@ Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.round.code.tex)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)))
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count147
+\c@pgfmathroundto@lastzeros=\count154
 ))
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2010/04/09  (rcs-revision 1.20)
-\pgf@picminx=\dimen162
-\pgf@picmaxx=\dimen163
-\pgf@picminy=\dimen164
-\pgf@picmaxy=\dimen165
-\pgf@pathminx=\dimen166
-\pgf@pathmaxx=\dimen167
-\pgf@pathminy=\dimen168
-\pgf@pathmaxy=\dimen169
-\pgf@xx=\dimen170
-\pgf@xy=\dimen171
-\pgf@yx=\dimen172
-\pgf@yy=\dimen173
-\pgf@zx=\dimen174
-\pgf@zy=\dimen175
+\pgf@picminx=\dimen167
+\pgf@picmaxx=\dimen168
+\pgf@picminy=\dimen169
+\pgf@picmaxy=\dimen170
+\pgf@pathminx=\dimen171
+\pgf@pathmaxx=\dimen172
+\pgf@pathminy=\dimen173
+\pgf@pathmaxy=\dimen174
+\pgf@xx=\dimen175
+\pgf@xy=\dimen176
+\pgf@yx=\dimen177
+\pgf@yy=\dimen178
+\pgf@zx=\dimen179
+\pgf@zy=\dimen180
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2010/08/03  (rcs-revision 1.24)
-\pgf@path@lastx=\dimen176
-\pgf@path@lasty=\dimen177
+\pgf@path@lastx=\dimen181
+\pgf@path@lasty=\dimen182
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2008/04/22  (rcs-revision 1.12)
-\pgf@shorten@end@additional=\dimen178
-\pgf@shorten@start@additional=\dimen179
+\pgf@shorten@end@additional=\dimen183
+\pgf@shorten@start@additional=\dimen184
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2010/09/08  (rcs-revision 1.34)
-\pgfpic=\box30
-\pgf@hbox=\box31
-\pgf@layerbox@main=\box32
-\pgf@picture@serial@count=\count148
+\pgfpic=\box31
+\pgf@hbox=\box32
+\pgf@layerbox@main=\box33
+\pgf@picture@serial@count=\count155
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2008/04/22  (rcs-revision 1.9)
-\pgflinewidth=\dimen180
+\pgflinewidth=\dimen185
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
 File: pgfcoretransformations.code.tex 2009/06/10  (rcs-revision 1.11)
-\pgf@pt@x=\dimen181
-\pgf@pt@y=\dimen182
-\pgf@pt@temp=\dimen183
+\pgf@pt@x=\dimen186
+\pgf@pt@y=\dimen187
+\pgf@pt@temp=\dimen188
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
@@ -538,15 +557,15 @@ File: pgfcorearrows.code.tex 2008/04/23  (rcs-revision 1.11)
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2008/11/23  (rcs-revision 1.13)
-\pgf@max=\dimen184
-\pgf@sys@shading@range@num=\count149
+\pgf@max=\dimen189
+\pgf@sys@shading@range@num=\count156
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2010/03/25  (rcs-revision 1.16)
 
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2010/09/01  (rcs-revision 1.17)
-\pgfexternal@startupbox=\box33
+\pgfexternal@startupbox=\box34
 ))
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
 File: pgfcorelayers.code.tex 2010/08/27  (rcs-revision 1.2)
@@ -559,15 +578,15 @@ File: pgfcorepatterns.code.tex 2009/07/02  (rcs-revision 1.3)
 )))
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2010/09/09  (rcs-revision 1.13)
-\pgfnodeparttextbox=\box34
+\pgfnodeparttextbox=\box35
 )
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2010/10/22  (rcs-revision 1.8)
 )
 (/usr/share/texmf/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2007/07/03 v2.10 (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen185
-\pgf@nodesepend=\dimen186
+\pgf@nodesepstart=\dimen190
+\pgf@nodesepend=\dimen191
 )
 (/usr/share/texmf/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
@@ -577,39 +596,39 @@ Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfkeys.code.tex))
 (/usr/share/texmf/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2010/03/23 v2.10 (rcs-revision 1.18)
-\pgffor@iter=\dimen187
-\pgffor@skip=\dimen188
-\pgffor@stack=\toks31
-\pgffor@toks=\toks32
+\pgffor@iter=\dimen192
+\pgffor@skip=\dimen193
+\pgffor@stack=\toks32
+\pgffor@toks=\toks33
 ))
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
 
 (/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
-\pgf@plot@mark@count=\count150
-\pgfplotmarksize=\dimen189
+\pgf@plot@mark@count=\count157
+\pgfplotmarksize=\dimen194
 )
-\tikz@lastx=\dimen190
-\tikz@lasty=\dimen191
-\tikz@lastxsaved=\dimen192
-\tikz@lastysaved=\dimen193
-\tikzleveldistance=\dimen194
-\tikzsiblingdistance=\dimen195
-\tikz@figbox=\box35
-\tikz@tempbox=\box36
-\tikztreelevel=\count151
-\tikznumberofchildren=\count152
-\tikznumberofcurrentchild=\count153
-\tikz@fig@count=\count154
+\tikz@lastx=\dimen195
+\tikz@lasty=\dimen196
+\tikz@lastxsaved=\dimen197
+\tikz@lastysaved=\dimen198
+\tikzleveldistance=\dimen199
+\tikzsiblingdistance=\dimen200
+\tikz@figbox=\box36
+\tikz@tempbox=\box37
+\tikztreelevel=\count158
+\tikznumberofchildren=\count159
+\tikznumberofcurrentchild=\count160
+\tikz@fig@count=\count161
 
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
-\pgfmatrixcurrentrow=\count155
-\pgfmatrixcurrentcolumn=\count156
-\pgf@matrix@numberofcolumns=\count157
+\pgfmatrixcurrentrow=\count162
+\pgfmatrixcurrentcolumn=\count163
+\pgf@matrix@numberofcolumns=\count164
 )
-\tikz@expandcount=\count158
+\tikz@expandcount=\count165
 
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopat
 hs.code.tex
@@ -628,24 +647,24 @@ Package: caption 2009/10/09 v3.1k Customizing captions (AR)
 
 (/usr/share/texmf-texlive/tex/latex/caption/caption3.sty
 Package: caption3 2009/10/09 v3.1k caption3 kernel (AR)
-\captionmargin=\dimen196
-\captionmargin@=\dimen197
-\captionwidth=\dimen198
-\caption@indent=\dimen199
-\caption@parindent=\dimen200
-\caption@hangindent=\dimen201
+\captionmargin=\dimen201
+\captionmargin@=\dimen202
+\captionwidth=\dimen203
+\caption@indent=\dimen204
+\caption@parindent=\dimen205
+\caption@hangindent=\dimen206
 )
-\c@ContinuedFloat=\count159
+\c@ContinuedFloat=\count166
 )
-\c@KVtest=\count160
+\c@KVtest=\count167
 \sf@farskip=\skip173
-\sf@captopadj=\dimen202
+\sf@captopadj=\dimen207
 \sf@capskip=\skip174
 \sf@nearskip=\skip175
-\c@subfigure=\count161
-\c@subfigure@save=\count162
-\c@subtable=\count163
-\c@subtable@save=\count164
+\c@subfigure=\count168
+\c@subfigure@save=\count169
+\c@subtable=\count170
+\c@subtable@save=\count171
 \sf@top=\skip176
 \sf@bottom=\skip177
 )
@@ -659,51 +678,51 @@ Package: amstext 2000/06/29 v2.01
 
 (/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks33
-\ex@=\dimen203
+\@emptytoks=\toks34
+\ex@=\dimen208
 ))
 (/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen204
+\pmbraise@=\dimen209
 )
 (/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count165
+\inf@bad=\count172
 LaTeX Info: Redefining \frac on input line 211.
-\uproot@=\count166
-\leftroot@=\count167
+\uproot@=\count173
+\leftroot@=\count174
 LaTeX Info: Redefining \overline on input line 307.
-\classnum@=\count168
-\DOTSCASE@=\count169
+\classnum@=\count175
+\DOTSCASE@=\count176
 LaTeX Info: Redefining \ldots on input line 379.
 LaTeX Info: Redefining \dots on input line 382.
 LaTeX Info: Redefining \cdots on input line 467.
-\Mathstrutbox@=\box37
-\strutbox@=\box38
-\big@size=\dimen205
+\Mathstrutbox@=\box38
+\strutbox@=\box39
+\big@size=\dimen210
 LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
-\macc@depth=\count170
-\c@MaxMatrixCols=\count171
+\macc@depth=\count177
+\c@MaxMatrixCols=\count178
 \dotsspace@=\muskip10
-\c@parentequation=\count172
-\dspbrk@lvl=\count173
-\tag@help=\toks34
-\row@=\count174
-\column@=\count175
-\maxfields@=\count176
-\andhelp@=\toks35
-\eqnshift@=\dimen206
-\alignsep@=\dimen207
-\tagshift@=\dimen208
-\tagwidth@=\dimen209
-\totwidth@=\dimen210
-\lineht@=\dimen211
-\@envbody=\toks36
+\c@parentequation=\count179
+\dspbrk@lvl=\count180
+\tag@help=\toks35
+\row@=\count181
+\column@=\count182
+\maxfields@=\count183
+\andhelp@=\toks36
+\eqnshift@=\dimen211
+\alignsep@=\dimen212
+\tagshift@=\dimen213
+\tagwidth@=\dimen214
+\totwidth@=\dimen215
+\lineht@=\dimen216
+\@envbody=\toks37
 \multlinegap=\skip179
 \multlinetaggap=\skip180
-\mathdisplay@stack=\toks37
+\mathdisplay@stack=\toks38
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
@@ -718,24 +737,24 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 ))
 (/usr/share/texmf-texlive/tex/latex/listings/listings.sty
-\lst@mode=\count177
-\lst@gtempboxa=\box39
-\lst@token=\toks38
-\lst@length=\count178
-\lst@currlwidth=\dimen212
-\lst@column=\count179
-\lst@pos=\count180
-\lst@lostspace=\dimen213
-\lst@width=\dimen214
-\lst@newlines=\count181
-\lst@lineno=\count182
-\lst@maxwidth=\dimen215
+\lst@mode=\count184
+\lst@gtempboxa=\box40
+\lst@token=\toks39
+\lst@length=\count185
+\lst@currlwidth=\dimen217
+\lst@column=\count186
+\lst@pos=\count187
+\lst@lostspace=\dimen218
+\lst@width=\dimen219
+\lst@newlines=\count188
+\lst@lineno=\count189
+\lst@maxwidth=\dimen220
 
 (/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-\c@lstnumber=\count183
-\lst@skipnumbers=\count184
-\lst@framebox=\box40
+\c@lstnumber=\count190
+\lst@skipnumbers=\count191
+\lst@framebox=\box41
 )
 (/usr/share/texmf-texlive/tex/latex/listings/listings.cfg
 File: listings.cfg 2007/02/22 1.4 listings configuration
@@ -758,7 +777,7 @@ See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.50 }
+l.55 }
       %}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -779,7 +798,7 @@ See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.55 }
+l.60 }
       
 The following languages weren't loadable:
     ,c++java$
@@ -847,7 +866,7 @@ Package caption3 Info: subfig package 1.2 or 1.3 is loaded.
 LaTeX Info: Redefining \subref on input line 19.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count185
+\c@lstlisting=\count192
 LaTeX Font Info:    Try loading font information for U+msa on input line 22.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
@@ -902,11 +921,6 @@ m/n/10.95 )\OMS/cmsy/m/n/10.95 g$
 LaTeX Warning: Reference `' on page 10 undefined on input line 118.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 149--153
-
- []
-
-
 LaTeX Warning: Reference `chapter 4' on page 10 undefined on input line 156.
 
 [10] [11]
@@ -935,133 +949,38 @@ deleted material, e.g., by typing `I$}'.
 
 ) (./chapters/chapter4.tex [13] [14
 
-]
-! Undefined control sequence.
-\pgfutil@reserved@c ->\tikz@curveto@auto 
-                                         
-l.20     \draw[black]\eyebrow
-                             
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+] [15]
 
-Missing character: There is no ( in font nullfont!
-Missing character: There is no - in font nullfont!
-Missing character: There is no 2 in font nullfont!
-Missing character: There is no , in font nullfont!
-Missing character: There is no - in font nullfont!
-Missing character: There is no . in font nullfont!
-Missing character: There is no 5 in font nullfont!
-Missing character: There is no ) in font nullfont!
-Missing character: There is no ; in font nullfont!
-! Extra }, or forgotten \endgroup.
-\endpgfpicture ... \pgf@x }\endgroup \hss \egroup 
-                                                  \pgf@insertlayers \endgrou...
-l.21 \end{tikzpicture}
-                      
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-! Missing } inserted.
-<inserted text> 
-                }
-l.21 \end{tikzpicture}
-                      
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Extra }, or forgotten \endgroup.
-\endpgfpicture ...dpicture \endgroup \hss \egroup 
-                                                  \pgfsys@typesetpicturebox ...
-l.21 \end{tikzpicture}
-                      
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.21 \end{tikzpicture}
-                      
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-! Package pgfkeys Error: I do not know the key '/tikz/decoration' and I am goin
-g to ignore it. Perhaps you misspelled it.
-
-See the pgfkeys package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.41     \draw[show curve controls, black]
-                                          \eyepath
-This error message was generated by an \errmessage
-command, so I can't give any explicit help.
-Pretend that you're Hercule Poirot: Examine all clues,
-and deduce the truth by order and method.
-
-
-! Package tikz Error: You need to load a decoration library.
-
-See the tikz package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.41     \draw[show curve controls, black]
-                                          \eyepath
-(That was another \errmessage.)
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [15]
-Overfull \hbox (15.9775pt too wide) in paragraph at lines 44--45
-[]\OT1/cmr/m/n/10.95 draw an eye with help of http://tex.stackexchange.com/ques
-tions/94082/help-
- []
-
-Missing character: There is no ä in font cmbxti10!
 [16]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 76--76
+Overfull \hbox (6.0pt too wide) in paragraph at lines 107--107
 [][][][][][][] 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 77.
-(/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
+[17]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 108.
+
+ (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 77.
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 89.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 108.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 120.
+
 
 (/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 89.
- [17]
-LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 106.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 120.
+LaTeX Font Info:    Font shape `OML/cmr/bx/n' in size <10> not available
+(Font)              Font shape `OML/cmm/b/it' tried instead on input line 137.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.122 ...he 3 shell meshs with the program points_
+l.153 ...he 3 shell meshs with the program points_
                                                   from_surface. That is how ...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1069,13 +988,13 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.132 
+l.163 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (621.61919pt too wide) in paragraph at lines 120--132
+Overfull \hbox (621.61919pt too wide) in paragraph at lines 151--163
 \OT1/cmr/m/n/10.95 points$[]\OML/cmm/m/it/10.95 rom[]urface:Thatishowthefeature
 pointsaregenerated:shellsfromthescannerarecleanedpointsaremarkedonthe\OT1/cmr/m
 /n/10.95 3\OML/cmm/m/it/10.95 imagestothefront; leftandrightoftheperson xplainw
@@ -1083,7 +1002,7 @@ hatprogramdoes; latexsketches \OT1/cmr/m/n/10.95 :
  []
 
 
-Overfull \hbox (4094.32753pt too wide) in paragraph at lines 120--132
+Overfull \hbox (4094.32753pt too wide) in paragraph at lines 151--163
 \OML/cmm/m/it/10.95 cameracalibrationisdonebythescanner\OT1/cmr/m/n/10.95 ?\OML
 /cmm/m/it/10.95 meshsandcamerasettingsareloadedintothesoftware:Foralotofpointsp
 ercurvethedirectiontheir\OT1/cmr/m/n/10.95 3\OML/cmm/m/it/10.95 drepresentation
@@ -1104,7 +1023,7 @@ distancetothepointfarthestawayfromthecamera:nowmin[]istismultipliedwithavalue <
  []
 
 
-Overfull \hbox (795.04675pt too wide) in paragraph at lines 120--132
+Overfull \hbox (795.04675pt too wide) in paragraph at lines 151--163
 \OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 andmax[]istwithavalue > \OT1/cmr/m/n/10
 .95 1\OML/cmm/m/it/10.95 :thenabandofpointsiscomputedperpendiculartothelinealon
 gthedirectionateachcomputedpointthatcutsthroughthemeshandservesasahorizontalcon
@@ -1116,36 +1035,18 @@ Missing character: There is no “ in font cmr10!
 Missing character: There is no ” in font cmr10!
 Missing character: There is no ’ in font cmr10!
 Missing character: There is no ’ in font cmr10!
- [19]) [20]
-
-! LaTeX Error: \begin{tikzpicture} on input line 18 ended by \end{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.35 \end{document}
-                   
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-(./thesis.aux)
+ [19]) [20] (./thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
- )
-(\end occurred inside a group at level 1)
-
-### semi simple group (level 1) entered at line 18 (\begingroup)
-### bottom level 
+ ) 
 Here is how much of TeX's memory you used:
- 15925 strings out of 495724
- 271519 string characters out of 1189347
- 424761 words of memory out of 3000000
- 18777 multiletter control sequences out of 15000+50000
- 16895 words of font info for 63 fonts, out of 3000000 for 9000
+ 16199 strings out of 495724
+ 275829 string characters out of 1189347
+ 452108 words of memory out of 3000000
+ 19045 multiletter control sequences out of 15000+50000
+ 18454 words of font info for 69 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 69i,12n,60p,874b,1780s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 69i,12n,60p,874b,1300s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on thesis.pdf (20 pages).

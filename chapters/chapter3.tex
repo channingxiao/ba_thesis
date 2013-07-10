@@ -149,18 +149,18 @@ whilst the covariance depends only on the input points
 \viscomment{deformation field bold instead of calligraphic?}
 We strive to predict a deformation field $\mathcal{D}:\mathcal{M} \subset \mathbb{R}^3 \rightarrow \mathbb{R}^3$ which assigns a displacement vector to every vertex in a triangulated mesh. The mesh in question is called a floating or moving mesh $\mathcal{M}$. Adding the displacement field to the moving mesh should then render a mesh corresponding as closely as possible to a target mesh $\mathcal{T}$ and thereby performing a registration / should provide an accurate mapping on to
 the target mesh. The mean mesh of the Morphable Model serves
-as the moving mesh which we want to register with multiple triangulated meshs of scanned target faces.\\  
+as the moving mesh which we want to register with multiple triangulated meshs of scanned target faces.  
+
 \paragraph{Reference Mesh Prior}
-\viscomment{Prior consists of smooth deformations of the mean face}
 As defined by the deformation field the output the regression problem is in $\mathbb{R}^3$ calling for the use of a Vector-valued Gaussian Process with random variables $u \subseteq \mathbb{R}^3$. 
 After the reference and target have been aligned \ref{chapter 4} a Vector-valued Gaussian Process can be initialized by defining the prior over all vertices of mean mesh. For this purpose the covariance function has to be redefined to handle 3-dimensional vectors.
+\viscomment{Prior consists of smooth deformations of the mean face}
 \begin{equation}
     k\left(
     \begin{bmatrix}x_{1}\\x_{2}\\x_{3}\end{bmatrix},
     \begin{bmatrix}x'_{2}\\x'_{2}\\x'_{3}\end{bmatrix}
     \right) = x y^T \in M^{3 \times 3}
 \end{equation}
-
 Each covariance entails 9 relationships between the different components of the vectors, yielding a $3 \times 3$ matrix. The covariance matrix then grows to become: 
 \begin{equation}
     \Sigma_{\mathcal{X}} = 

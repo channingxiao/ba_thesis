@@ -12,37 +12,15 @@ modelling smooth curves) of varying order. Due to the nature of the objects depi
 \end{equation}
 The line features are saved in explicit files along with the face mesh of the scan.
 
-\viscomment{Draw eye curve with TikZ, and maybe ear contour line for open curve}
-
-\def\eyebrow{(-2, .5) .. controls (1,1) and (4,0) .. (1.5, -1) .. (-2, -.5);}
-\begin{tikzpicture}
-    %\draw [black] (-2,.5) to[out=30,in=180] (1,1) to[out=0,in=110] (4,0) to[out=-90,in=15] (1.5,-1) to[out=180,in=-45] (-2,-.5);
-    \draw[black]\eyebrow 
-\end{tikzpicture}
-
 \def\eyepath{(-3,0) .. controls (-2,1.8) and (2,2.2) .. (2.7,0) .. controls (2,-1.2) and (-2,-1.4) .. (-3,0)--cycle;}
+\def\eyebrowpath{(1,0.5) .. controls (3,1.5) and (6.5,1.5) .. (7,0.5) .. controls (5.5,0) and (2,-0.5) .. (4.8,0.5);}
 
 \begin{tikzpicture}
-    \tikzset{
-            show curve controls/.style={
-                decoration={
-                    show path construction,
-                    curveto code={
-                        \draw [blue, dashed]
-                            (\tikzinputsegmentfirst) -- (\tikzinputsegmentsupporta)
-                            node [at end, cross out, draw, solid, red, inner sep=2pt]{};
-                        \draw [blue, dashed]
-                            (\tikzinputsegmentsupportb) -- (\tikzinputsegmentlast)
-                            node [at start, cross out, draw, solid, red, inner sep=2pt]{};
-                }
-            }, decorate
-        }
-    }
-    \draw[show curve controls, black]\eyepath
+    \draw[black]\eyepath
+    \draw[black]\eyebrowpath
 \end{tikzpicture}
 
-draw an eye with help of http://tex.stackexchange.com/questions/94082/help-with-the-design-of-an-eye-in-tikz
-
+\viscomment{draw eye and eyebrow with bezier curves, first look at real world recorded images}
 \subsection{Why use Line Features for Registration?} 
 Line features serve the purpose of augmenting the quality of registration by initiating it with a larger set of corresponding points (points which are on the lines). They are used to mark complex regions of the eyes, i.e. the eyes, ears etc., so that the registration process produces an accurate mapping of the contours of these organs which would otherwise not be possible.  Areas containing ``curves'' have a dense abundance of points/parameter changes, while straight areas only have scarce points.  
 
@@ -50,29 +28,82 @@ Line features serve the purpose of augmenting the quality of registration by ini
 In order to be able to use line features in the Vector-valued Gaussian Model, they have to be sampled at discrete intervals resulting in a set of additional landmarks $L_{Add} = \{l_{1}, \cdots, l_{N}\}$. These define the mapping $\Omega:L_{Add\mathcal{M}} \rightarrow L_{Add\mathcal{T}}$ of the contours - describing the different imporant features present in the faces - in the mean face mesh on those of the target face mesh. In order for the mapping $\Omega$ to be plausible, it is essential
 for the curves to have equidistant parametrization so that when curves undergo sampling of N points, these N points are all at equal parametric intervals.
 
-\subsection{Arc Length Parametrization}
-The first problem which becomes apparent when trying to sample the line features is that the b\'{e}zier curve segments don't allow for equidistant parametrization, because the underlying parameter $t \in \mathbb{R}$ is not linear in respect to the length of the curve. The growth of the parameter of a b\'{e}zier curve is instead dictated by velocity. Consequently, the imperative must be to evaluate the curves based on their arc-length, which is defined as the length of the rectified curve, instead. The underlying parameter must then correspond - at every point of the curve - to the ratio of the curve length
-that has been traversed and the total curve length.
-\viscomment{draw two instances of the same shape, one with equidistant and one with bezier parametrization}
+\def\earpathf{(-1,1.5) .. controls (-1,2.3) and (1,2.8) .. (1,1.5) .. controls (1, -.2) and (0.3,-.1) .. (0.3,-1) .. controls (0.2,-1.5) and (-.5, -1.7) .. (-1,-1.25);}
+\def\earpathl{(3,2) .. controls (3,3.3) and (5.6,3.7) .. (5.6,2) .. controls (5.6, 0) and (4.6,0) .. (4.6,-1.3) .. controls (4.6,-2) and (3.5, -2) .. (3,-1.5);}
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+    \draw[black]\earpathf
+    \fill (-1,1.5) circle[radius=2pt];
+    \fill (0.1,2.3) circle[radius=2pt];
+    \fill (1,1.5) circle[radius=2pt];
+    \fill (0.8, 0.25) circle[radius=2pt]; 
+    \fill (0.3,-1) circle[radius=2pt];
+    \fill (-1,-1.25) circle[radius=2pt];
+    \draw[black]\earpathl
+    \fill (3,2) circle[radius=2pt];
+    \fill (4.3, 3.12) circle[radius=2pt];
+    \fill (5.6,2) circle[radius=2pt];
+    \fill (5.25,0.35) circle[radius=2pt];
+    \fill (4.6,-1.3) circle[radius=2pt];
+    \fill (3,-1.5) circle[radius=2pt];
+    \draw[ultra thick, blue, ->] (-.8,1.5) -- (2.8,2);
+    \draw[ultra thick, blue, ->] (1, 0.25) -- (5.1, 0.35);
+    \draw (1.8, .9) node {\Large\textcolor{blue}{$\Omega$}};
+    \draw (-1,.5) node {line feature of $\mathcal{M}$};
+    \draw (4,1.2) node {line feature of $\mathcal{T}$};
+\end{tikzpicture}
+\label{fig:DiffEars}
+\caption{Mapping of equidistant samples of \textbf{ear} line features from the reference (left) on to the target (right)}
+\end{figure}
 
-\viscomment{make image with corresponding points on two different ears}
+\subsection{Arc Length Parametrization}
+The first problem which becomes apparent when trying to sample the line features is that the b\'{e}zier curve segments don't allow for equidistant parametrization, because the underlying parameter $t \in \mathbb{R}$ is not linear in respect to the length of the curve. The growth of the parameter of a b\'{e}zier curve is instead dictated by velocity.
+
+\def\earpathf{(-1,1.5) .. controls (-1,2.3) and (1,2.8) .. (1,1.5) .. controls (1, -.2) and (0.3,-.1) .. (0.3,-1) .. controls (0.2,-1.5) and (-.5, -1.7) .. (-1,-1.25);}
+\def\earpaths{(3,1.5) .. controls (3,2.3) and (5,2.8) .. (5,1.5) .. controls (5, -.2) and (4.3,-.1) .. (4.3,-1) .. controls (4.2,-1.5) and (3.5, -1.7) .. (3,-1.25);}
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}
+    \draw[black]\earpathf
+    \draw[black]\earpaths
+    \fill (-1,1.5) circle[radius=2pt];
+    \fill (0.1,2.3) circle[radius=2pt];
+    \fill (1,1.5) circle[radius=2pt];
+    \fill (0.8, 0.25) circle[radius=2pt]; 
+    \fill (0.3,-1) circle[radius=2pt];
+    \fill (-1,-1.25) circle[radius=2pt];
+
+    \fill (3,1.5) circle[radius=2pt];   
+    \fill (3.3,2) circle[radius=2pt];
+    \fill (4.1, 2.3) circle[radius=2pt];
+    \fill (4.85, 2) circle[radius=2pt];
+    \fill (4.99, 1.4) circle[radius=2pt];
+    \fill (4.85, 0.4) circle[radius=2pt];
+    \fill (4.4, -.45) circle[radius=2pt]; 
+    \fill (4.3, -1.05) circle[radius=2pt]; 
+    \fill (3.9, -1.45) circle[radius=2pt]; 
+    \fill (3,-1.25) circle[radius=2pt];
+\end{tikzpicture}
+\end{figure}
+Consequently, the imperative must be to evaluate the curves based on their arc-length, which is defined as the length of the rectified curve, instead. The underlying parameter must then correspond - at every point of the curve - to the ratio of the curve length
+that has been traversed and the total curve length.
+\viscomment{figure out how to get points on these curves, have to do it manually}
+
 \paragraph{In theory}
 It is possible to get the arc length $L(t)=\int_{t_{0}}^{t_{1}} \left|C'(t)\right| dt$ for given parameters $t_{0}, t_{1}$ where $C'(t)$ is the derivative of the curve $C:t \in [0,1] \rightarrow \mathbb{R}^2$. What we are in need of, however, is a reverse mapping from the length of a fraction of the curve to the curve parameter $t = L^{-1}(l)$. 
-\viscomment{Abbildung von Parameter auf Länge finden}
 This mapping can of course be derived analytically, but it is far easier to implement it using a numeric approximation. 
 
 \paragraph{In practice}
 As we are not in need of a subpixel accurate resolution, we can skip the formal math and use a lookup table to compute the arc-length.
-First, we calculate n=1000 points on each segment the curve - made up of b\'{e}zier curves using the normal parameter t. For each point we save the euclidean distance from the origin of the segment into a new slot in the lookup array. We get the euclidean distance for one point by summing up the distance to the predecessor points and its distance from the origin.
+First, we calculate n=1000 points on each segment the curve - made up of b\'{e}zier curves using the normal parameter t. For each point we save the euclidean distance from the origin of the segment into a new slot in the lookup array. We get the euclidean distance for one point by summing up the distance to the predecessor/preceeding points and its distance from the origin.\\
 \viscomment{draw a line with a few segments} 
 \viscomment{draw curve with points just off and lookup table beneath}
 In effect, we are provided with have a lookup array that contains the approximated distances of a large number of points from the origin of a curve segment. Assembling the segments' lookup arrays gives us the overall array for the curve with the last value presenting the arc-length of the whole curve.\\ 
 Second, finding points on the curve according to a linear parameter governed by the amount of points that we want to parametrize the curve with is quite easy. The curve can easily be sampled by computing the length of parametric intervals $\frac{L}{N}$ for a specified number of points N to be sampled. $l=k \cdot \frac{L}{N}$ returns the current length of the curve for the sampling point of index k, where $k=[0,\cdots,N]$ for open curves and $k=[0,\cdots,N-1]$ for closed curves.
 Then we simply perform a binary search on the lookup table (to get largest value smaller than n?) for this distance. We choose the index that returns the exact length we specified or the index with the next smaller length. The coordinates of the point with this index t are now the coordinates we use for the sampling point.
 We compute the distance we want to travel the curve using the length of equidistant sections and the point we want to get.
-
-\viscomment{reference lines in code or pseudo-code?}
-\viscomment{add green bar (for C++ code) on top with identifier}
+\viscomment{reference lines in text above?}
 \begin{lstlisting}[label=some-code, caption=Equidistant Sampling]
 void getEquidistantPoints(int numSampleSegments = 20) {
     // static members: 
