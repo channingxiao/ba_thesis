@@ -1,12 +1,13 @@
 \chapter{Registration Pipeline using Line Features}
-In this chapter we follow up on the definition of the Vector-valued Gaussian Model for 3D Face Registration by describing the registration pipeline built to put this concept into practice. An emphasis on using line features 
-Blabla, incorporate practical challenges?
-This is also the actual core of the thesis explaining why and how we use line features in the Registration Pipeline. 
-Sequential Pipeline
+In this chapter we follow up on the definition of the Vector-valued Gaussian Model for 3D Face Registration by describing the registration pipeline built to put this concept into practice. The pipeline is of a sequential nature, where in each step the output of a data processing unit is the input for the next step. To enhance the registration outcome of this pipeline we use contour lines of key regions of the face to enhance the registration outcome. 
 
+shells from the scanner are cleaned
+points are marked on the 3 images to the front, left and right of the person\viscomment{put this under prerequisite data in model building}
+
+Furthermore lines are marked also by hand on these 3 images using a bzier curves. However, they are not projected on to the mesh directly and by points which have been parametrized equidistantly. E
 \section{Line Features}
 \subsection{Definition of Line Features}
-For every scan we want to register, 8 contours have been marked on three images of the face - taken from the front, the left and the right of the face - with a special GUI marking programme. These contours depict the eyebrows, eyes, ears and lips of a face and we call them ``line features''. They are made up of a set of segments, each of  which is modelled with a \textbf{B\'{e}zier curve} (parametric curve frequently used in computer graphics, bernstein basis polynomials, used for
+For every scan we want to register, 8 contours have been marked on three images of the face - taken from the front, the left and the right of the face - with a special GUI for marking points and lines on images. These contours depict the eyebrows, eyes, ears and lips of a face and we call them ``line features''. They are made up of a set of segments, each of  which is modelled with a \textbf{B\'{e}zier curve} (parametric curve frequently used in computer graphics, bernstein basis polynomials, used for
 modelling smooth curves) of varying order. Due to the nature of the objects depicted, there are open as well as closed curves. 
 \begin{equation}
     B(t)=\sum_{i=0}^{n}(1-t)^{n-i}t^iP_{i}
@@ -52,7 +53,7 @@ In order to be able to use line features in the Vector-valued Gaussian Model, th
 for the curves to have equidistant parametrization so that when curves undergo sampling of N points, these N points are all at equal parametric intervals.
 
 \subsection{Arc Length Parametrization}
-The first problem which becomes apparent when trying to sample the line features is that the b\'{e}zier curve segments don't allow for equidistant parametrization, because the underlying parameter $t \in \mathbb{R}$ is not linear in respect to the length of the curve. Consequently, the imperative must be to evaluate the curves based on their arc-length, which is defined as the length of the rectified curve, instead. The underlying parameter must then correspond - at every point of the curve - to the ratio of the curve length
+The first problem which becomes apparent when trying to sample the line features is that the b\'{e}zier curve segments don't allow for equidistant parametrization, because the underlying parameter $t \in \mathbb{R}$ is not linear in respect to the length of the curve. The growth of the parameter of a b\'{e}zier curve is instead dictated by velocity. Consequently, the imperative must be to evaluate the curves based on their arc-length, which is defined as the length of the rectified curve, instead. The underlying parameter must then correspond - at every point of the curve - to the ratio of the curve length
 that has been traversed and the total curve length.
 \viscomment{draw two instances of the same shape, one with equidistant and one with bezier parametrization}
 
@@ -115,16 +116,14 @@ void getEquidistantPoints(int numSampleSegments = 20) {
 
 \subsection{Mesh Projection of Sampled Points}
 Having implemented arc length parametrization it is possible to draw an arbitrary amount of samples $x \in \mathbb{R}^2$ from the line features. They are thereby defined as a set of points $S \subset \mathbb{R}^2$. Our goal is, however, to have these additional landmarks describing the features on the mesh itself and not a 2-dimensional snapshot.
-We therefore 
+We therefore need to use the camera callibration and some computer graphics to project the sampled points onto a face mesh for each line feature we want to obtain.
 
 \paragraph{How registration worked so far?}
 In the previous registration method implemented by Dr. Brian Amberg, the
 points from line features constrained to 1D
+ and are then projected on to the 3 shell meshs with the program points_from_surface. That is how the feature points are generated.
 
-shells from the scanner are cleaned
-points are marked on the 3 images to the front, left and right of the person and are then projected on to the 3 shell meshs with the program points_from_surface. That is how the feature points are generated.
-Furthermore lines are marked also by hand on these 3 images using a bzier curves. However, they are not projected on to the mesh directly and by points which have been parametrized equidistantly. The progress of a parameter on a bzier curve is dictated by velocity and not by covered distance.
-Explain what program does, latex sketches:
+xplain what program does, latex sketches:
 camera calibration is done by the scanner?
 meshs and camera settings are loaded into the software. For a lot of points per curve the direction their 3d representation is computed and their distance, normalized to give direction,  from the origin is saved. Distances and directions are further computed for all vertices in the mesh. Now for every point the dot product of its direction is formed with direction of every vertex in the mesh. Remember, the dot product results in 1 for similar directions and 0 for perpendicular directions.
 For an angle value larger than .9999 the parameters min_dist or max_dist are updated with the distance value of the projection of the distance vector to the nearest vertex on to the direction of the actual 3D representation of the point. min(min_dist, d), max(max_dist, d), so that at the end min_dist contains the distance to the point on the line nearest to the camera and max_dist the distance to the point farthest away from the camera. now min_dist is multiplied with a value < 1 and
