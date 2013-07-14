@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  11 JUL 2013 12:28
+This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  11 JUL 2013 20:02
 entering extended mode
  %&-line parsing enabled.
 **thesis.tex
@@ -777,7 +777,7 @@ See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.57 }
+l.55 }
       %}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -789,7 +789,7 @@ See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.57 }
+l.55 }
       %}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -810,7 +810,7 @@ See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.62 }
+l.60 }
       
 The following languages weren't loadable:
     ,c++java$
@@ -907,14 +907,72 @@ Underfull \vbox (badness 1210) has occurred while \output is active []
 ] [4
 
 ]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.18 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Display math should end with $$.
+<to be read again> 
+                   \@@@par 
+l.18 
+     
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.19 \end{equation}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! You can't use `\eqno' in vertical mode.
+\endmathdisplay@a ...\df@tag \@empty \else \veqno 
+                                                  \alt@tag \df@tag \fi \ifx ...
+l.19 \end{equation}
+                   
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.19 \end{equation}
+                   
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Display math should end with $$.
+<to be read again> 
+                   \endgroup 
+l.19 \end{equation}
+                   
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
 Missing character: There is no ◦ in font cmr10!
 Missing character: There is no ◦ in font cmr10!
 Missing character: There is no ◦ in font cmr10!
 Missing character: There is no ü in font cmr10!
 Missing character: There is no ∈ in font cmr10!
+[5]
 Missing character: There is no … in font cmr10!
- [5])
-(./chapters/chapter3.tex [6] [7
+) (./chapters/chapter3.tex [6] [7
 
 ]
 Missing character: There is no ’ in font cmr10!
@@ -1027,16 +1085,13 @@ LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <7> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 130.
 LaTeX Font Info:    Font shape `OML/cmr/bx/n' in size <7> not available
 (Font)              Font shape `OML/cmm/b/it' tried instead on input line 147.
-
-Underfull \vbox (badness 2050) has occurred while \output is active []
-
  [18]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 183--183
+Overfull \hbox (6.0pt too wide) in paragraph at lines 185--185
 [][][][][][][] 
  []
 
 LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <7> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 191.
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 193.
 [19] [20]
 Missing character: There is no “ in font cmr10!
 Missing character: There is no ” in font cmr10!
@@ -1057,7 +1112,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  16319 strings out of 495724
  277028 string characters out of 1189347
- 517146 words of memory out of 3000000
+ 517092 words of memory out of 3000000
  19156 multiletter control sequences out of 15000+50000
  19016 words of font info for 71 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191

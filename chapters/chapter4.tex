@@ -157,7 +157,9 @@ void getEquidistantPoints(int numSampleSegments = 20) {
 Having implemented arc length parametrization it is possible to draw an arbitrary amount of samples $x \in \mathbb{R}^2$ from the line features. They are thereby defined as a set of points $S \subset \mathbb{R}^2$. Our goal is, however, to have these additional landmarks describing the features on the mesh itself and not a 2-dimensional snapshot.
 We therefore need to use the camera callibration and some computer graphics to project the sampled points onto a face mesh for each line feature we want to obtain.
 
-\paragraph{Previous implementation}
+\paragraph{Projection}
+from camera to mesh? How? Knothe
+
 In the previously used registration method, a large number of points was used for each curve. These points were, however, not projected directly on to the 3/4 shells of the mesh. Instead their location was constrained by computing a 1-dimensional band of points before and after their approximate position, seen from the origin.
 
 Get direction of 3D representation of a curve, compute distance from origin to mesh, normalize to direction.
@@ -296,6 +298,7 @@ However, as long as the method is dependent on the data from the scans - the siz
 \end{lstlisting}
 
 \section{Preparing the Mean Mesh}
+Rendering, marking => Projection
 On top of that, another problem occured, because the mean face mesh of course doesn't have any line features projected on to it either.
 Rendering, marking line features, projecting back possible, because we know direction
 
