@@ -3,21 +3,21 @@ This chapter describes how to build a generative textured 3D face model from an 
 
 \section{3D Morphable Model}
 The 3D Morphable Model (3DMM) published by Blanz and Vetter in 1999 (bib) is a multidimensional function for modelling textured faces derived from a a large set of $m$ 3D face scans. A vector space can be constructed from the available data set where each face is represented by a shape-vector $S \in \mathbb{R}^{3n}$ that contains all three coordinates of its n vertices. The texture-vector $T \in \mathbb{T}^{3n}$ contains the corresponding RGB values. New shapes and textures can now be computed
-with a linear model parametrized by barycentric shape $\vect{\alpha} \in \mathbb{R}^{m}$ and texture coefficients $\vect{\beta} \in \mathbb{R}^{m}$.\\
-However, the goal of such a 3D face model is not to construct arbitrary faces, but plausible faces. This is achieved by estimating two multivariate normal distributions for the coefficients in $\vect{\alpha}$ and $\vect{\beta}$.
+with a linear model parametrized by barycentric shape $\vec\alpha \in \mathbb{R}^{m}$ and texture coefficients $\vec\beta \in \mathbb{R}^{m}$.\\
+However, the goal of such a 3D face model is not to construct arbitrary faces, but plausible faces. This is achieved by estimating two multivariate normal distributions for the coefficients in $\vec\alpha$ and $\vec\beta$.
 By observing the likelihood of the coefficients it is now possible to find out how likely the appearance of a corresponding face is.
 The multivariate normal distributions are constructed from the average shapes $\overline{S} \in \mathbb{R}^{3N}$ and textures $\overline{T} \in \mathbb{R}^{3N}$ of the datasets and the covariance matrices $K_{S}$ and $K_{T}$, which are defined over the differences between each example and the average in both shape and texture.
 The covariance matrices are then used to perform a Principal Component Analysis which defines a basis transformation to an orthogonal coordinate system the axis of which are the eigenvectors of the respective covariance matrices.
 
 \begin{equation}
-    \label{eq:MM}
-    \mathcal{S}(\vect{\alpha})=\overline{S}+S\vect{\alpha}, \quad \mathcal{T}(\vect{\beta})=\overline{T}+T\vect{\beta}
+\label{eq:MM}
+\mathcal{S}(\vec\alpha)=\overline{S}+S\vec\alpha, \quad \mathcal{T}(\vec\beta)=\overline{T}+T\vec\beta)
 \end{equation}
 
 In \eqref{eq:MM} the $N=m$ principal eigenvectors of $K_{S}$ and $K_{T}$ respectively are assembled column-wise in S and T and scaled in a way such that the prior distribution over the shape and texture parameters is given by a multivariate normal distribution with unit covariance (Amberg).
 
 \begin{equation}
-    \mathbb{p}(\vect{\alpha}, \vect{\beta}) = \mathcal{N}(\vect{\alpha}\vert|\vect{0}, \mathbb{I})\mathcal{N}(\vect{\beta}\vert|\vect{0}, \mathbb{I})
+    \mathbb{p}(\vec\alpha, \vec\beta) = \mathcal{N}(\vec\alpha\vert|\vect{0}, \mathbb{I})\mathcal{N}(\vec\beta\vert|\vect{0}, \mathbb{I})
 \end{equation}
 
 \section{Achieving Correspondence through Registration}

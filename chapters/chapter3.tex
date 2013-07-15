@@ -1,16 +1,15 @@
 \chapter{Gaussian Processes in 3D Face Registration}
-As described briefly in the introduction, the first of our two objectives is to build a face registration pipeline. In achieving this we use an algorithm which can handle arbitrary shapes for the registration of the 3D faces. It is derived from a stochastic process, more specifically a vector-valued Gaussian process or Gaussian random field. In this chapter we deal with the theory necessary for understanding the functionality of the registration pipeline. To begin with, we recapitulate the definition
-of stochastic processes and extend it to the definition of Gaussian processes. In the next step, we then delve into Gaussian process regression and finish by applying a vector-valued Gaussian process to our problem of 3D face mesh registration.
+The first of our two objectives is to build a face registration pipeline. 
+In this context we use a stochastic process, more specifically a vector-valued Gaussian process or Gaussian random field as the registration algorithm.  
+To begin with, we recapitulate the definition
+of stochastic processes and extend it to the definition of Gaussian processes. In the next step we introduce Gaussian Process Regression and finally explain it can be applied 3D face mesh registration. 
 
 \section{Stochastic Processes}
 \begin{comment}
 Assigns random variables to every point in time series or space 
 \end{comment}
 
-In probability theory a stochastic process consists of a collection of random variables $\{X(t)\}_{t \in \Omega}$ where $\Omega$ is an index set. It is used to model the change of a random value over time. The underlying parameter time is either real or integer valued. In our case, however, we use a collection of vector-valued random variables with indices in the $\mathbb{R}^{3}$ space because we want to model deformations of the vectors on the faces' surfaces. This
-generalization of a stochastic process -  
-which can handle multidimensional vectors - is called a random field. Defining the random variables on an index set in an n-dimensional space, allows for spatial correlation of the resulting values, which is an important aspect of the algorithm discussed later on.
-
+In probability theory a stochastic process consists of a collection of random variables $\{X(t)\}_{t \in \Omega}$ where $\Omega$ is an index set. It is used to model the change of a random value over time. The underlying parameter time is either real or integer valued. A generalization of a stochastic process, which can handle multidimensional vectors, is called a random field. 
 \begin{comment}
 A stochastic process is made up of a probability space (sample space, set of events, assignment of probabilities to events P: E → [0,1]) and a sigma-algebra (sample-space, €). It assigns a collection of random variables to an index set.
 \end{comment}
@@ -23,8 +22,10 @@ Definition taken from Stochastic Simulation p.306
 
 A Gaussian process is a stochastic process in which each finite collection $\Omega_{0} \subset \Omega$ of random variables has a joint normal distribution. More formally, we define the collection of random variables $\{X(t)\}_{t \in \Omega}$ to have a d-dimensional normal distribution if the collection $\{X(t)\}_{t \in \Omega_{0}}$ - for any finite subset $\Omega_{0}$ - has a joint $d\times \left| \Omega_{0} \right|$-dimensional normal distribution with mean
 $\mu (\Omega_{0})$ and covariance $\Sigma (\Omega_{0})$.  
-If $\Omega \not\subseteq \mathbb{R}$ holds, the process is a Gaussian random field, which holds true for our case, because we use an index set $\Omega \subseteq \mathbb{R}^{3}$. In the further proceedings the term ``Vector-valued Gaussian Processes'' will be used to refer to Gaussian random field'' will be used to refer to Gaussian random fields.
+If $\Omega \subseteq \mathbb{R}^{n}, n>1$ holds, the process is a Gaussian random field. In the further proceedings the term ``Vector-valued Gaussian Processes'' will be used to refer to Gaussian random fields. Defining the random variables on an index set in an n-dimensional space, allows for spatial correlation of the resulting values, which is an important aspect of the algorithm discussed later on.
 
+\begin{comment} move to 3.4!! In our case, however, we use a collection of vector-valued random variables with indices in the $\mathbb{R}^{3}$ space because we want to model deformations of the vectors on the faces' surfaces.
+\end{comment}
 \begin{comment}
 Now incorporate definition on p. 13 of Gaussian processes for machine learning
 \end{comment}
@@ -80,7 +81,9 @@ Key assumption: data can be represented as a sample from a multivariate gaussian
 P
 
 \paragraph{Regression Problem}
-Assume a training set $\mathcal{D} = \{(x_{1},y_{1}), (x_{2},y_{2}), \cdots, (x_{n},y_{n})\}$ where $x \in \mathbb{R}^{d}$ and y is a scalar output or target. Later on, in the case of the training set consisting of landmarks, a Vector-valued Gaussian Process must be used, because y is then also a vector $y \in \mathbb{R}^{d}$. The task is now to infer the conditional distribution of the targets for yet unseen inputs and given the training data $p(\textbf{f}_{*}\vert \textbf{x}_{*},
+Assume a training set $\mathcal{D} = \{(x_{1},y_{1}), (x_{2},y_{2}), \cdots, (x_{n},y_{n})\}$ where $x \in \mathbb{R}^{d}$ and y is a scalar output or target. 
+\begin{comment}Later on, in the case of the training set consisting of landmarks, a Vector-valued Gaussian Process must be used, because y is then also a vector $y \in \mathbb{R}^{d}$.\end{comment} 
+The task is now to infer the conditional distribution of the targets for yet unseen inputs and given the training data $p(\textbf{f}_{*}\vert \textbf{x}_{*},
 \mathcal{D})$
 
 \paragraph{Noise-free Prediction}
@@ -100,7 +103,7 @@ For every point we test, we extend the joint distribution by an input points, ad
 \right)
 \end{equation}
 
-We can now obtain the posterior samples illustrated in \ref{fig:GPPlot} b) by conditioning the above joint Gaussian prior distribution on the observations $\textbf{f}_{*}\vert\textbf{f}=\textbf{y}$ which results in the following distribution:
+We obtain the posterior samples illustrated in \ref{fig:GPPlot} b) by conditioning the above joint Gaussian prior distribution on the observations $\textbf{f}_{*}\vert\textbf{f}=\textbf{y}$ which results in the following distribution:
 
 \begin{comment}
 reference equations for the conditional distributions
@@ -111,12 +114,12 @@ for example rasmussen: A.2 Gaussian Identities, p.200
     \textbf{f}_{*}\vert X_{*},(X,\textbf{f}) \sim \mathcal{N}\left(\Sigma(X_{*},X)\Sigma(X)^{-1}\textbf{f},\\\Sigma(X_{*})-\Sigma(X_{*},X)\Sigma(X)^{-1}\Sigma(X,X_{*})\right)
 \end{equation}
 
-Later on, we will extend this definition to 3-dimensional inputs and outputs.
+\begin{comment}Later on, we will extend this definition to 3-dimensional inputs and outputs.\end{comment}
 
 \paragraph{Prediction with Gaussian Noise Model}
-In most real world applications as is the case for the problem we will look into later, however, observations from the training data are not free of noise. The landmarks clicked on the 3D face meshs, for example, can never be marked at the exact same feature location. These circumstances call for the incorporation of a noise model. We specify a simple additive i.i.d Gaussian noise model $y = f(x) + \varepsilon$ where $\varepsilon \sim \mathcal{N}(0, \sigma^2)$ for every input vector x. In section
-\ref{} the variances will be varied for every sole landmark.
-For now it is enough to add the variance of the noise model to the covariance of the training.
+In most real world applications\begin{comment}as is the case for the problem we will look into later\end{comment}, however, observations from the training data are not free of noise. The landmarks clicked on the 3D face meshs, for example, can never be marked at the exact same feature location. These circumstances call for the incorporation of a noise model. We specify a simple additive i.i.d Gaussian noise model $y = f(x) + \varepsilon$ where $\varepsilon \sim \mathcal{N}(0, \sigma^2)$ for every input vector x. 
+
+\begin{comment}In section \ref{} the variances will be varied for every sole landmark. For now it is enough to add the variance of the noise model to the covariance of the training.\end{comment}
 
 \begin{equation}
 \begin{bmatrix}\textbf{y}\\\textbf{y}_{*}\end{bmatrix}
@@ -146,14 +149,14 @@ whilst the covariance depends only on the input points
 \viscomment{Conclusion, how does this help us to proceed?}
   
 \section{Application to 3D Face Meshs} 
-\viscomment{deformation field bold instead of calligraphic?}
-We strive to predict a deformation field $\mathcal{D}:\mathcal{M} \subset \mathbb{R}^3 \rightarrow \mathbb{R}^3$ which assigns a displacement vector to every vertex in a triangulated mesh. The mesh in question is called a floating or moving mesh $\mathcal{M}$. Adding the displacement field to the moving mesh should then render a mesh corresponding as closely as possible to a target mesh $\mathcal{T}$ and thereby performing a registration / should provide an accurate mapping on to
-the target mesh. The mean mesh of the Morphable Model serves
-as the moving mesh which we want to register with multiple triangulated meshs of scanned target faces.  
+In this section of we adapt the above presented theory to our case of 3D face mesh registration. The task at hand is to register a reference or \textbb{template} face mesh with a scanned face mesh. \viscomment{registration and correspondence already explained in model building, deformation field bold instead of calligraphic?}
+We therefore strive to predict a deformation field $\mathcal{D}:\mathcal{M} \subset \mathbb{R}^3 \rightarrow \mathbb{R}^3$ which assigns a displacement vector to every vertex in the template mesh. During registration we refer to the template as the moving mesh $\mathcal{M}$. Adding the displacement field to the moving mesh should then provide an accurate mapping to the target mesh $\mathcal{T}$ and thereby perform the registration. Our objective is to register the template with
+multiple meshs of scanned faces. 
+\viscomment{Andreas: don't refer to 3DMM mean, because we haven't built a model yet! Leave out ``triangulated'', kind of mesh topology is not important in this thesis} 
 
 \paragraph{Reference Mesh Prior}
-As defined by the deformation field the output the regression problem is in $\mathbb{R}^3$ calling for the use of a Vector-valued Gaussian Process with random variables $u \subseteq \mathbb{R}^3$. 
-After the reference and target have been aligned \ref{chapter 4} a Vector-valued Gaussian Process can be initialized by defining the prior over all vertices of mean mesh. For this purpose the covariance function has to be redefined to handle 3-dimensional vectors.
+As defined by the deformation field the output the regression problem is in $\mathbb{R}^3$ calling for the use of a Vector-valued Gaussian Process with random variables $d \subseteq \mathbb{R}^3$ where d stands for deformation. 
+After the template and target have been aligned \ref{chapter 4} a Vector-valued Gaussian Process can be initialized by defining the prior over all vertices of the template mesh. For this purpose the covariance function has to be redefined to handle 3-dimensional vectors.
 \viscomment{Prior consists of smooth deformations of the mean face}
 \begin{equation}
     k\left(
@@ -170,17 +173,19 @@ Each covariance entails 9 relationships between the different components of the 
 k(\vect{x}_{n},\vect{x}_{1}) & \cdots & k(\vect{x}_{n},\vect{x}_{n})
 \end{bmatrix} \in M^{3n \times 3n}
 \end{equation}
-The mean mesh is defined by a set of vectors $\mathcal{X} \in \mathbb{R}^3$ and a set of landmarks $L_\mathcal{M}=\{l_{1}, \cdots, l_{n}\} \subset \mathbb{R}^3$.
-The mean vector $\mu$ is made up of the component-wise listing of vectors so that is has dimensionality $3n$. Setting the whole mean vector to zero, as discussed before, implies a mean deformation of zero and makes perfect sense in this setting, because we are modelling deformations of the mean face surface. 
-The prior distribution over the mean face mesh is therefore defined as 
+
+The template mesh is defined by a set of vectors $\mathcal{X} \in \mathbb{R}^3$ and a set of landmarks $L_\mathcal{M}=\{l_{1}, \cdots, l_{n}\} \subset \mathbb{R}^3$.
+\viscomment{Introduce landmarks in model building}
+The mean vector $\mu$ is made up of the component-wise listing of vectors so that it has dimensionality $3n$. Setting the whole mean vector to zero, as discussed before, implies a mean deformation of zero and makes perfect sense in this setting, because we are modelling deformations of the template surface. 
+The prior distribution over the template mesh is therefore defined as 
 \begin{equation}
     \mathcal{D} \sim \mathcal{N}(\vect{0}, \Sigma_{\mathcal{X}})
 \end{equation}
-meaning that a deformation field can be directly drawn as a sample from the prior distribution of the vertices of the mean mesh. \viscomment{show two or three samples of prior here, next to mean mesh}
+meaning that a deformation field can be directly drawn as a sample from the prior distribution of the vertices of the template mesh. \viscomment{show two or three samples of prior here, next to template/mean mesh}
 
 \paragraph{Reference Mesh Posterior}
 The target landmarks also consist of a set $L_{\mathcal{T}} = \{l_{\mathcal{M}1},\cdots, l_{\mathcal{M}N}\} \subset \mathbb{R}^3$. 
-Fixing the prior output to the deformation vectors $\mathcal{Y}=\{\vect{t}-\vect{m}\vert \vect{t} \in L_{\mathcal{T}}, \vect{m} \in L_{\mathcal{M}}\}$ defined by the distance between the reference and target landmarks and assuming additive i.i.d Gaussian noise the resulting posterior distribution is
+Fixing the prior output to the deformation vectors $\mathcal{Y}=\{\vect{t}-\vect{m}\vert \vect{t} \in L_{\mathcal{T}}, \vect{m} \in L_{\mathcal{M}}\}$ defined by the distance between the template and target landmarks and assuming additive i.i.d Gaussian noise the resulting posterior distribution is
 \begin{equation}
     \begin{bmatrix}\mathcal{Y_{\varepsilon}}\\\mathcal{D}\end{bmatrix}
 \sim \mathcal{N}\left(\textbf{0},
@@ -192,20 +197,19 @@ Fixing the prior output to the deformation vectors $\mathcal{Y}=\{\vect{t}-\vect
 \end{equation}
 \viscomment{Is this a correct definition for the distribution?}
 
-The deformation model is now rendered fixed at certain landmark points in the target mesh and the goal is to find valid deformations through the set of fixed targets, analogous to the case of eq. \ref{eq:3.5a}. The posterior model is defined as the joint distribution of all mean mesh points and the mean landmarks, conditioned on the output deformation vectors for every mean landmark with added noise.
+The deformation model is now rendered fixed at certain landmark points in the target mesh and the goal is to find valid deformations through the set of fixed targets, analogous to the case of eq. \ref{eq:3.5a}. The posterior model is defined as the joint distribution of all template mesh points and the template landmarks, conditioned on the output deformation vectors for every template landmark with added noise.
 \begin{center}
 \begin{equation}
     \mathcal{D}\vert \mathcal{X} \rightarrow \mathcal{Y}_{\varepsilon}. 
 \end{equation}
 \end{center}
-e now have defined a distribution over our mean face fesh. The variance of the gaussian kernel can thereby be described as a smoothing parameter
-P
-\viscomment{mean is now max aposteriori solution}
-
-Sampling the conditional distribution creates deformed 3D surfaces of the mean mesh which are fixed at the target landmarks.
+We now have defined a distribution over our template mesh. \viscomment{mean/template is now max aposteriori solution} Sampling the conditional distribution creates deformed 3D surfaces of the mean mesh which are fixed at the target landmarks.
 \viscomment{show images of mean, prior and posterior with added landmarks}
+\begin{comment}The variance of the gaussian kernel can thereby be described as a smoothing parameter P\end{comment}
 
 \section{Fitting \& Optimization}
+\label{optimization}
+
 Due to the fact that the posterior model is fixed at the target landmarks it is possible to perform the registration by drawing a shape from the posterior model. The sample, however, has to be optimized according to the shape of the target face. 
 In order to find the deformation corresponding to the optimal fit $d_{*}$ a linear optimization with the posterior process as a constraint is be employed/ regularization term. (small lambda) a bit of the posterior mean) 
 \begin{equation}
@@ -249,37 +253,4 @@ Defining the Gaussian Process
 Posterior Distribution - Landmarks (Referenz deformieren 
 From Gaussian Processes to Shape Models => by selected principal components of the covariance matrix
 
-\section{Robust Loss Functions}
-robust against outliers
-the Alignment of the mean face mesh and the target mesh causes overlaps on the forehead, the side of the head and the neck. Using a simple Mean Square error between the reference and target mesh for optimization penalizes the overlapping regions with a strong gradient and therefore causes strong distortions. Our approach to tackling this problem was to try out a range of different robust estimators, namely the Tukey, Huber, and Fair estimators. (table with formulas?) The
-        advantage is that these estimators are less sensitive to outliers, reducing the artefacts of registration considerably. However, as can be seen from the formulas, these techniques require finding appropriate parameters first which produce reasonable/acceptable  visual results
-Fair
-\begin{subequations}
-\begin{equation}
-\rho(x)=c^2\left[\frac{\left|x\right|}{c}-log(1+\frac{\left|x\right|}{c})\right]
-\end{equation}
-\begin{equation}
-    \psi(x)=\frac{x}{1+\frac{\left|x\right|}{c}}}
-\end{equation}
-\end{subequations}
-Huber
-\begin{subequations}
-\begin{equation}
-    \rho(x) = \twopartdef {\frac{x^2}{2}} {\left|x\right|<k} {k(\left|x\right|-\frac{k}{2})} {\left|x\right|\geq k}
-\end{equation}
-\begin{equation}
-    \psi(x) = \twopartdef {x} {} {k sgn(x)}{} 
-\end{equation}
-\end{subequations}
-Tukey
-\begin{subequations}
-\begin{equation}
-    \rho(x) = \twopartdef {\frac{c^2}{6}\left(1-\left[1-\left(\frac{x}{c}\right)^2\right]^3\right)} {\left|x\right|\leq c} {\frac{c^2}{6}} {\left|x\right| > c}
-\end{equation}
-\begin{equation}
-    \psi(x) = \twopartdef {x\left[1-\left(\frac{x}{c}\right)^2\right]^2} {} {0} {}
-\end{equation}
-\end{subequations}
-\paragraph{Rigid Alignment}
-This part is the theoretical part, alignment can follow in the Pipeline
-Therefore, we first have to perform a rigid transformation to align the meshs according to the feature/ landmark points.
+

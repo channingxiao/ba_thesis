@@ -309,6 +309,9 @@ Eliminate the ones, which are not clicked on scans
 
 pipeline specifications
 \section{Rigid Mesh Alignment}
+\paragraph{Rigid Alignment}
+We have to perform a rigid transformation to align the meshs according to the feature/ landmark points.
+
 simple rigid transformation of the scanned face onto the mean, transformation computed from landmark vectors.
 To begin the registration we first have to align the two meshs. The floating mesh has to be clipped at the neck and around the ears where the scanner has left artifacts. Furthermore the mouth cavity of the mean face has to be removed. We then selected the 11 feature points present in the floating mesh in the mean face from the abundant 60. To achieve this we wrote a python script loading the feature point files. A feature point is described by its 3D coordinates, a visibility parameter
 in the range [-1,1] and a label denoting its exact location (mouth.inner.upper). All we had do to now was to create to dictionaries “label” : (x,y,z) and to compare them for labels. Then we passed the resulting point correspondencies to the python vtk api for the mean of computing a transformation comprised of simple translation and rotation (no scaling, only 3 point correspondencies needed). Note, we are not trying to map the meshs on to one another here. We are simply trying to
@@ -319,13 +322,49 @@ in the range [-1,1] and a label denoting its exact location (mouth.inner.upper).
     For the actual registration we use the software framework statismo developed at the Computer Science Department of the University of Basel. It is a framework for PCA based statistical models. These are used to describe the variability of an object within a population, learned from a set of training samples. We use it to generate a statistical model from the floating mesh. Furthermore we use the software package gpfitting for the actual fitting. We generate a infinite row of
     faces from the statistical model using gaussian processes and then sample out a fixed number. Then the faces are left. Carry on.
 
-    \section{Prior Model}
+\section{Prior Model}
     what to say here? describe programme?
-    \section{Posterior Model}
-    what to say here? describe programme?
+\section{Posterior Model}
+what to say here? describe programme?
 
-    \section{Fitting}
+\section{Fitting}
 
-    \section{Optimizing the Loss Function}
+\section{Robust Loss Functions}\viscomment{Optimizing the loss function?}
+After the alignment of template and target mesh, the template protrudes over the target on the upper side of the head and the side of the neck.
+\viscomment{show an image with template and target on top of each other}
+Performing optimization as described in \ref{sec:optimization} using a simple Mean Square Error(MSE) as a distance measure between the template and target mesh penalizes the portruding regions of the template with a strong gradient towards the rims of the template and therefore causes strong distortions. 
+\viscomment{show image of failed fitting, next to target}
 
-    \section{Varying the Variances}
+Our approach to tackling this problem was to try out a range of different robust estimators, namely the Tukey, Huber, and Fair estimators. The advantage of these
+estimators lies therein that they are less sensitive to outliers, reducing registration artifacts considerably. (Outliers are in this case template mesh points that farther away than a certain threshold from the next point on the target mesh} However, as can be seen from the formulas, these techniques require finding appropriate parameters first which produce reasonable/acceptable visual results.
+
+Fair
+\begin{subequations}
+\begin{equation}
+\rho(x)=c^2\left[\frac{\left|x\right|}{c}-log(1+\frac{\left|x\right|}{c})\right]
+\end{equation}
+\begin{equation}
+    \psi(x)=\frac{x}{1+\frac{\left|x\right|}{c}}}
+\end{equation}
+\end{subequations}
+Huber
+\begin{subequations}
+\begin{equation}
+    \rho(x) = \twopartdef {\frac{x^2}{2}} {\left|x\right|<k} {k(\left|x\right|-\frac{k}{2})} {\left|x\right|\geq k}
+\end{equation}
+\begin{equation}
+    \psi(x) = \twopartdef {x} {} {k sgn(x)}{} 
+\end{equation}
+\end{subequations}
+Tukey
+\begin{subequations}
+\begin{equation}
+    \rho(x) = \twopartdef {\frac{c^2}{6}\left(1-\left[1-\left(\frac{x}{c}\right)^2\right]^3\right)} {\left|x\right|\leq c} {\frac{c^2}{6}} {\left|x\right| > c}
+\end{equation}
+\begin{equation}
+    \psi(x) = \twopartdef {x\left[1-\left(\frac{x}{c}\right)^2\right]^2} {} {0} {}
+\end{equation}
+\end{subequations}
+\viscomment{for each estimator show a sequence of fits for different parameters and 3 different meshs?}
+
+\section{Varying the Variances}
