@@ -1,13 +1,22 @@
 \chapter{Registration Pipeline using Line Features}
-In this chapter we follow up on the definition of the Vector-valued Gaussian Model for 3D Face Registration by describing the registration pipeline built to put this concept into practice. The pipeline is of a sequential nature, where in each step the output of a data processing unit is the input for the next step. To enhance the registration outcome of this pipeline we use contour lines of key regions of the face. 
+In this chapter we describe how the Vector-valued Gaussian Model is utilized in our implementation of a 3D Face Registration Pipeline. To additionally enhance the registration outcome of this pipeline we use face data where the key regions have been marked with contour lines. In the following we provide a description of line features and their use as well as a specification of the registration pipeline. 
+\viscomment{pipeline type important?}
+
 \section{Line Features}
-\subsection{Definition of Line Features}
-For every scan we want to register, 8 contours have been marked on three images of the face - taken from the front, the left and the right of the face - with a special GUI for marking points and lines on images. These contours depict the eyebrows, eyes, ears and lips of a face and we call them ``line features''. They are made up of a set of segments, each of  which is modelled with a \textbf{B\'{e}zier curve} (parametric curve frequently used in computer graphics, bernstein basis polynomials, used for
-modelling smooth curves) of varying order. Due to the nature of the objects depicted, there are open as well as closed curves. 
+Line features serve the purpose of augmenting the quality of registration by initiating it with a larger set of corresponding points, by sampling points from the lines themselves. They are used to mark complex regions of the face, i.e. the eyes and ears, so that the registration process produces an accurate mapping of the contours of these organs which would otherwise not be possible. Without the prior information provided by line features, an accurate mapping in these
+regions is hard to achieve, because they have a dense abundance of points, while regions like the cheeks are scarcely defined by points.\\
+
+For every scan we want to register, we have 8 contours given. These have been marked on three images of every face, see Fig section 1.3, with a special GUI for marking points and lines on images. The contours we call line features depict the eyebrows, eyes, ears and lips of a face. They are made up of a set of segments, each of which is modelled with a \textbf{B\'{e}zier curve} of a specified order. B\'{e}zier curves are often used in Computer
+Graphics for modelling smooth curves of varying order. Given a set of control points $\mathcal{P} = \{P_{0}, P_{1}, P_{2}, \ldots, P_{n}\}$ the B\'{e}zier curve through these points is given by
 \begin{equation}
-    B(t)=\sum_{i=0}^{n}(1-t)^{n-i}t^iP_{i}
+    C(t)=\sum_{i=0}^{n}P_{i}B_{i,n}(t)
 \end{equation}
-The line features are saved in explicit files along with the face mesh of the scan.
+where $B_{i,n}(t)$ is a Bernstain polynomial 
+\begin{equation}
+    B_{i,n}(t)=\begin{pmatrix} n \\ \\ i \end{pmatrix}(1-t)^{n-i}t^i
+\end{equation}
+and $t \in [0,1]$ is the curve parameter. The Bernstein polynomials of degree n form a basis for the power polynomials of degree n. 
+Due to the nature of the objects depicted, there are open as well as closed curves. 
 
 \begin{comment}
 \def\eyepath{(-3,0) .. controls (-2,1.8) and (2,2.2) .. (2.7,0) .. controls (2,-1.2) and (-2,-1.4) .. (-3,0)--cycle;}
@@ -20,20 +29,24 @@ The line features are saved in explicit files along with the face mesh of the sc
 
 \viscomment{draw eye and eyebrow with bezier curves, first look at real world recorded images}
 \end{comment}
+
 \begin{figure}[h!]
     \centering
 \includegraphics[width=\textwidth]{./resources/img/eyebrow_left.jpeg}
 \caption{Line Features of the left eyebrow and eye, consisting of b\'{e}zier curves defined by visible control points (white)}
 \end{figure}
-\subsection{Why use Line Features for Registration?} 
-Line features serve the purpose of augmenting the quality of registration by initiating it with a larger set of corresponding points (points which are on the lines). They are used to mark complex regions of the eyes, i.e. the eyes, ears etc., so that the registration process produces an accurate mapping of the contours of these organs which would otherwise not be possible.  Areas containing ``curves'' have a dense abundance of points/parameter changes, while straight areas only have scarce points.  
 
 \section{Sampling 3D Points from 2D Line Features} 
-In order to be able to use line features in the Vector-valued Gaussian Model, they have to be sampled at discrete intervals resulting in a set of additional landmarks $L_{Add} = \{l_{1}, \cdots, l_{N}\}$. These define the mapping $\Omega:L_{Add\mathcal{M}} \rightarrow L_{Add\mathcal{T}}$ of the contours - describing the different imporant features present in the faces - in the mean face mesh on those of the target face mesh. In order for the mapping $\Omega$ to be plausible, it is essential
-for the curves to have equidistant parametrization so that when curves undergo sampling of N points, these N points are all at equal parametric intervals.
-
+The line features provide us with additional prior information about the nature of the deformation field. In order to incorporate the line features in the Vector-valued Gaussian Model, we agreed to use them as additional point-wise information. In order to get this point-wise information the line features are sampled at discrete intervals resulting in a set of additional landmarks $L_{Add} = \{l_{1}, \cdots, l_{N}\}$. These
+define the mapping $\Omega:L_{Add\mathcal{M}} \rightarrow L_{Add\mathcal{T}}$ of the contours - describing the different important features present in the faces - in the template face mesh on those of the target face mesh. In order for the mapping $\Omega$ to be approximately plausible, we choose an equidistant parametrization. In effect, when a curve is sampled at N points, these N points are all at equal parametric intervals.
+\begin{comment}
+Bei den Ohren ist die Korrespondenz wirklich schwierig und auch als Mensch je nach Ohrenpaar kaum zu bestimmen. Gerade die Struktur der Ohrmuschel kann wohl nicht immer in korrespondenz gebracht werden. Jedoch sind alle Ohren durch eine äussere Linie begrenzt und die wollen wir matchen. Nun ist es in der Tat so, dass nicht immer alle Ohrläppchen gleich gross sind oder markante Krümungen der äusseren Ohrlinie an der gleichen Stelle auftreten. Wir ignorieren dies jedoch / bzw wir
+vereinfachen dies durch unsere Äquidistantz Annahme und sagen dies sei dann genügend gut registriert und störe das Model das wir bauen nicht zu sehr.
+\end{comment}
+\viscomment{equidistant parametrization is not a fact, it is a choice. Different ears have different topology?}
 \def\earpathf{(-1,1.5) .. controls (-1,2.3) and (1,2.8) .. (1,1.5) .. controls (1, -.2) and (0.3,-.1) .. (0.3,-1) .. controls (0.2,-1.5) and (-.5, -1.7) .. (-1,-1.25);}
 \def\earpathl{(3,2) .. controls (3,3.3) and (5.6,3.7) .. (5.6,2) .. controls (5.6, 0) and (4.6,0) .. (4.6,-1.3) .. controls (4.6,-2) and (3.5, -2) .. (3,-1.5);}
+
 \begin{figure}[h!]
     \centering
     \begin{tikzpicture}
@@ -90,18 +103,17 @@ The first problem which becomes apparent when trying to sample the line features
         \fill (3,-1.25) circle[radius=2pt];
     \end{tikzpicture}
 \end{figure}
-\viscomment{add another point to the right ear, so there are 11.}
+\viscomment{add another point to the right ear, so there are 11. Draw same graphics with inkscape so that they are easily customizable??}
 
-Consequently, the imperative must be to evaluate the curves based on their arc-length, which is defined as the length of the rectified curve, instead. The underlying parameter must then correspond - at every point of the curve - to the ratio of the curve length
-that has been traversed and the total curve length.
+Consequently, the imperative must be instead to evaluate the curves based on their arc-length, which is defined as the length of the rectified curve. The underlying parameter must then correspond - at every point of the curve - to the ratio between the length of the part of the curve that has been traversed and the total curve length.
 
 \paragraph{In theory}
-It is possible to get the arc length $L(t)=\int_{t_{0}}^{t_{1}} \left|C'(t)\right| dt$ for given parameters $t_{0}, t_{1}$ where $C'(t)$ is the derivative of the curve $C:t \in [0,1] \rightarrow \mathbb{R}^2$. What we are in need of, however, is a reverse mapping from the length of a fraction of the curve to the curve parameter $t = L^{-1}(l)$. 
+It is possible to get the arc length $L(t)=\int_{t_{0}}^{t_{1}} \left|C'(t)\right| dt$ for given parameters $t_{0}, t_{1}$ where $C'(t)$ is the derivative of the curve $C:t \in [0,1] \rightarrow \mathbb{R}^2$. We, however, want to find a reverse mapping from the length of a fraction of the curve to the curve parameter $t = L^{-1}(l)$. 
 This mapping can of course be derived analytically, but it is far easier to implement it using a numeric approximation. 
 
 \paragraph{In practice}
-As we are not in need of a subpixel accurate resolution, we can skip the formal math and use a lookup table to compute the arc-length.
-First, we calculate n=1000 points on each segment the curve - made up of b\'{e}zier curves using the normal parameter t. For each point we save the euclidean distance from the origin of the segment into a new slot in the lookup array. We get the euclidean distance for one point by summing up the distance to the predecessor/preceeding points and its distance from the origin.\\
+As we are not in need of a subpixel resolution, we can skip the formal math and use a lookup table to compute the arc-length.
+First, we calculate a large number of points on each segment of the curve using the parametrization of the corresponding b\'{e}zier curve. For each point we save its approximate distance from the origin of the segment as a key into a new slot in the lookup table of this segment, while its coordinates act as the slot value. The distance is approximated by summing up the euclidean distances of each point to its respective predecessor starting from the origin.\\
 \begin{figure}[h!]
     \begin{tikzpicture}
         \draw[black] (1,1) -- (1,3)
@@ -109,53 +121,13 @@ First, we calculate n=1000 points on each segment the curve - made up of b\'{e}z
 \end{figure}
 \viscomment{draw a line with a few segments} 
 \viscomment{draw curve with points just off and lookup table beneath}
-In effect, we are provided with have a lookup array that contains the approximated distances of a large number of points from the origin of a curve segment. Assembling the segments' lookup arrays gives us the overall array for the curve with the last value presenting the arc-length of the whole curve.\\ 
-Second, finding points on the curve according to a linear parameter governed by the amount of points that we want to parametrize the curve with is quite easy. The curve can easily be sampled by computing the length of parametric intervals $\frac{L}{N}$ for a specified number of points N to be sampled. $l=k \cdot \frac{L}{N}$ returns the current length of the curve for the sampling point of index k, where $k=[0,\cdots,N]$ for open curves and $k=[0,\cdots,N-1]$ for closed curves.
-Then we simply perform a binary search on the lookup table (to get largest value smaller than n?) for this distance. We choose the index that returns the exact length we specified or the index with the next smaller length. The coordinates of the point with this index t are now the coordinates we use for the sampling point.
-We compute the distance we want to travel the curve using the length of equidistant sections and the point we want to get.
-\viscomment{reference lines in text above?}
-\begin{lstlisting}[label=some-code, caption=Equidistant Sampling]
-void getEquidistantPoints(int numSampleSegments = 20) {
-    // static members: 
-    // arcLookup - lookup table
-    // totalLength - total arc-length of curve
-    // auxiliaryPoints - ??? exact definition 
-
-    if(arcLookup.size() == 0) return;
-    int pointsToDraw = numSampleSegments+1; 
-    if(closed) pointsToDraw--;
-
-    T sectionLength = totalLength/numSampleSegments;
-
-    for(size_t i=0; i < pointsToDraw; ++i) {
-        T progress = i*sectionLength;
-        // perform c++ binary search on lookup table
-        int low = 0;
-        int currIndex = 0;
-        int high = arcLookup.size()-1;
-        T currPieceLength; 
-
-        while(low < high) {
-            currIndex = low + (high - low)/2; 
-            currPieceLength = arcLookup[currIndex];
-            if(currPieceLength < progress) {
-                low = currIndex+1;
-            } else {
-                high = currIndex;
-            }
-        }
-        // currPieceLength is now >= progress
-        if(currPieceLength > progress) {
-            currIndex--; // currPieceLength is now < progress
-        }
-        equidistantPoints.push_back(auxiliaryPoints[currIndex]);   
-    }
-}
-\end{lstlisting}
+The resulting lookup table contains the approximative distances and coordinates of a large number of points from the origin of a curve segment. Assembling the segments' lookup tables gives us the table table for the whole curve with the last key representing its arc-length.\\ 
+Second, the curve can now easily be sampled by computing the length of parametric intervals $\frac{L}{N}$ for a specified number of points N. $l=k \cdot \frac{L}{N}$ returns the current length of the curve for the sampling point of index k, where $k=[0,\cdots,N]$ for open curves and $k=[0,\cdots,N-1]$ for closed curves.
+To get the point coordinates for a fraction of the curve we now simply perform a binary search on the lookup table for this distance. We choose index which returns the coordinates for the exact fraction length and if that is not the case the index with the next smaller length. The coordinates of the point either exactly or approximately computed for the given fraction length of the curve is used as the sampled point.
 
 \subsection{Mesh Projection of Sampled Points}
 Having implemented arc length parametrization it is possible to draw an arbitrary amount of samples $x \in \mathbb{R}^2$ from the line features. They are thereby defined as a set of points $S \subset \mathbb{R}^2$. Our goal is, however, to have these additional landmarks describing the features on the mesh itself and not a 2-dimensional snapshot.
-We therefore need to use the camera callibration and some computer graphics to project the sampled points onto a face mesh for each line feature we want to obtain.
+We therefore need to use the callibration of the camera and some techniques from Computer Graphics to project the sampled points onto a face mesh for each line feature we want to obtain.
 
 \paragraph{Projection}
 from camera to mesh? How? Knothe

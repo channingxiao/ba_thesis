@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  15 JUL 2013 17:52
+This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  16 JUL 2013 11:28
 entering extended mode
  %&-line parsing enabled.
 **thesis.tex
@@ -36,8 +36,8 @@ Package ifluatex Info: LuaTeX not detected.
 Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
 \et@xins=\count82
 )
-(/usr/share/texmf-texlive/tex/latex/memoir/mem11.clo
-File: mem11.clo 2008/01/30 v0.3 memoir class 11pt size option
+(/usr/share/texmf-texlive/tex/latex/memoir/mem12.clo
+File: mem12.clo 2008/01/30 v0.4 memoir class 12pt size option
 )
 \binding=\skip48
 \spinemargin=\skip49
@@ -343,6 +343,17 @@ Package ifvtex Info: VTeX not detected.
 \Gm@dimlist=\toks23
 
 (/usr/share/texmf-texlive/tex/xelatex/xetexconfig/geometry.cfg))
+! Undefined control sequence.
+<recently read> \onehalfspacing 
+                                
+l.19 \onehalfspacing
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 (/usr/share/texmf-texlive/tex/latex/lineno/lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
 Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.
@@ -777,7 +788,7 @@ See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.55 }
+l.63 }
       %}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -789,7 +800,7 @@ See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.55 }
+l.63 }
       %}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -810,17 +821,13 @@ See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.60 }
+l.68 }
       
 The following languages weren't loadable:
     ,c++java$
 This may cause errors in the sequel.
 
-) (./thesis.aux
-
-LaTeX Warning: Label `some-code' multiply defined.
-
-)
+) (./thesis.aux)
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
@@ -843,7 +850,7 @@ landscape: --
 twocolumn: --
 twoside: true
 asymmetric: --
-h-parts: 113.81102pt, 369.88583pt, 113.81102pt
+h-parts: 85.35826pt, 426.79135pt, 85.35826pt
 v-parts: 85.35826pt, 674.33032pt, 85.35826pt
 hmarginratio: --
 vmarginratio: --
@@ -858,15 +865,15 @@ driver: pdftex
 -------------------- Page layout dimensions and switches
 \paperwidth  597.50787pt
 \paperheight 845.04684pt
-\textwidth  369.88583pt
+\textwidth  426.79135pt
 \textheight 674.33032pt
-\oddsidemargin  41.54103pt
-\evensidemargin 41.54103pt
-\topmargin  -20.38553pt
-\headheight 13.6pt
+\oddsidemargin  13.08827pt
+\evensidemargin 13.08827pt
+\topmargin  -20.78552pt
+\headheight 14.0pt
 \headsep    19.8738pt
-\footskip   27.46295pt
-\marginparwidth 101.0pt
+\footskip   30.0pt
+\marginparwidth 92.0pt
 \marginparsep   7.0pt
 \columnsep  10.0pt
 \skip\footins  12.0pt plus 4.0pt minus 4.0pt
@@ -895,49 +902,47 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) (./abstract.tex
 Missing character: There is no ü in font cmr10!
 Missing character: There is no é in font cmr10!
-)
-(./thesis.toc
-Underfull \vbox (badness 1210) has occurred while \output is active []
-
  [1
 
 ])
-(./chapters/chapter1.tex [2]) (./chapters/chapter2.tex [3
-
-] [4
-
-] [5]
-Overfull \hbox (13.99321pt too wide) in paragraph at lines 31--34
-\OT1/cmr/m/n/10.95 se-man-ti-cally cor-re-spond-ing points are mapped onto each
- other. This parametriza-
- []
-
-) (./chapters/chapter3.tex [6] [7
+(./thesis.toc [2]) (./chapters/chapter1.tex [3] [4
 
 ]
-Missing character: There is no ’ in font cmr10!
+Missing character: There is no ö in font cmr12!
+Missing character: There is no ä in font cmr12!
+
+Overfull \hbox (10.29164pt too wide) in paragraph at lines 4--7
+\OT1/cmr/m/n/12 Beschreibung des Prob-lems chro-nol-o-gis-che, kurze Beschrei-b
+ung des Vorge-hens Fachter-
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5])
+(./chapters/chapter2.tex [6] [7
+
+] [8]
+Missing character: There is no … in font cmr12!
+File: ./resources/figures/scanner.eps Graphic file (type eps)
+ <./resources/figures/scanner.eps>)
+(./chapters/chapter3.tex [9] [10] [11
+
+]
+Missing character: There is no ’ in font cmr12!
+ [12]
 File: ./resources/figures/gp_prior.eps Graphic file (type eps)
  <./resources/figures/gp_prior.eps>
 File: ./resources/figures/gp_posterior.eps Graphic file (type eps)
 
 <./resources/figures/gp_posterior.eps>
+Underfull \vbox (badness 1895) has occurred while \output is active []
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[8]
-Overfull \hbox (23.90176pt too wide) in paragraph at lines 84--88
-\OT1/cmr/bx/n/10.95 Re-gres-sion Prob-lem[] \OT1/cmr/m/n/10.95 As-sume a train-
-ing set $\OMS/cmsy/m/n/10.95 D \OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OT1/c
-mr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]; y[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.
-95 ; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]; y[]\OT1/cmr/m/n/10.95 )\OML/c
-mm/m/it/10.95 ; []  ; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]; y[]\OT1/cmr/
-m/n/10.95 )\OMS/cmsy/m/n/10.95 g$
- []
-
-[9]
+ [13]
 
 LaTeX Warning: Characters dropped after `\end{comment}' on input line 120.
 
+[14]
 ! Undefined control sequence.
 l.152 ...and is to register a reference or \textbb
                                                   {template} face mesh with ...
@@ -948,9 +953,9 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `chapter 4' on page 10 undefined on input line 159.
+LaTeX Warning: Reference `chapter 4' on page 15 undefined on input line 159.
 
-[10] [11]
+[15] [16]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -964,18 +969,16 @@ l.219 \mathcal
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-) (./chapters/chapter4.tex [12]
-File: ./resources/img/eyebrow_left.jpeg Graphic file (type QTm)
- <use  "./resources/img/eyebrow_left.jpeg" >
+[17]) (./chapters/chapter4.tex [18]
+Underfull \hbox (badness 10000) in paragraph at lines 6--8
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+ []
 
-[13
+[19
 
 ]
-Underfull \vbox (badness 4266) has occurred while \output is active []
-
- [14]
+File: ./resources/img/eyebrow_left.jpeg Graphic file (type QTm)
+ <use  "./resources/img/eyebrow_left.jpeg" > [20] [21]
 
 ! Package tikz Error: Giving up on this path. Did you forget a semicolon?.
 
@@ -983,7 +986,7 @@ See the tikz package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.108     \end{tikzpicture}
+l.120     \end{tikzpicture}
                            
 This error message was generated by an \errmessage
 command, so I can't give any explicit help.
@@ -1001,54 +1004,47 @@ Missing character: There is no 5 in font nullfont!
 Missing character: There is no 6 in font nullfont!
 Missing character: There is no p in font nullfont!
 Missing character: There is no t in font nullfont!
-[15]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 117--117
+[22] [23]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 157--157
 [][][][][][][] 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 118.
-
-(/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <7> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 118.
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 130.
-
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 158.
 
 (/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <7> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 130.
-LaTeX Font Info:    Font shape `OML/cmr/bx/n' in size <7> not available
-(Font)              Font shape `OML/cmm/b/it' tried instead on input line 147.
- [16]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 185--185
-[][][][][][][] 
- []
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <8> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 158.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 158.
 
-LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <7> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 193.
-[17] [18]
-Missing character: There is no “ in font cmr10!
-Missing character: There is no ” in font cmr10!
-Missing character: There is no ’ in font cmr10!
-Missing character: There is no ’ in font cmr10!
- [19]
 
-LaTeX Warning: Reference `sec:optimization' on page 20 undefined on input line 
-335.
+(/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 158.
+LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 165.
+ [24] [25] [26]
+Missing character: There is no “ in font cmr12!
+Missing character: There is no ” in font cmr12!
+Missing character: There is no ’ in font cmr12!
+Missing character: There is no ’ in font cmr12!
+ [27]
+
+LaTeX Warning: Reference `sec:optimization' on page 28 undefined on input line 
+307.
 
 ! Too many }'s.
-l.339 ...d from the next point on the target mesh}
+l.311 ...d from the next point on the target mesh}
                                                    However, as can be seen f...
 You've closed more groups than you opened.
 Such booboos are generally harmless, so keep going.
 
-[20]
+[28]
 ! Extra }, or forgotten $.
-l.347 ...(x)=\frac{x}{1+\frac{\left|x\right|}{c}}}
+l.319 ...(x)=\frac{x}{1+\frac{\left|x\right|}{c}}}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1056,7 +1052,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-) [21]
+) [29]
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
@@ -1064,17 +1060,14 @@ deleted material, e.g., by typing `I$}'.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 16321 strings out of 495724
- 277065 string characters out of 1189347
- 517092 words of memory out of 3000000
- 19158 multiletter control sequences out of 15000+50000
- 19016 words of font info for 71 fonts, out of 3000000 for 9000
+ 16291 strings out of 495724
+ 276660 string characters out of 1189347
+ 482107 words of memory out of 3000000
+ 19130 multiletter control sequences out of 15000+50000
+ 17744 words of font info for 67 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 69i,12n,60p,874b,1630s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 69i,12n,60p,874b,1740s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on thesis.pdf (21 pages).
+Output written on thesis.pdf (29 pages).
