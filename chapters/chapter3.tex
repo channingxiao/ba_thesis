@@ -181,11 +181,11 @@ The prior distribution over the template mesh is therefore defined as
 \begin{equation}
     \mathcal{D} \sim \mathcal{N}(\vect{0}, \Sigma_{\mathcal{X}})
 \end{equation}
-meaning that a deformation field can be directly drawn as a sample from the prior distribution of the vertices of the template mesh. \viscomment{show two or three samples of prior here, next to template/mean mesh}
+meaning that a sample deformation field can be directly drawn from the prior distribution of the template mesh. \viscomment{show two or three samples of prior here, next to template/mean mesh or reference images in chapter4???}
 
 \paragraph{Reference Mesh Posterior}
 The target landmarks also consist of a set $L_{\mathcal{T}} = \{l_{\mathcal{M}1},\cdots, l_{\mathcal{M}N}\} \subset \mathbb{R}^3$. 
-Fixing the prior output to the deformation vectors $\mathcal{Y}=\{\vect{t}-\vect{m}\vert \vect{t} \in L_{\mathcal{T}}, \vect{m} \in L_{\mathcal{M}}\}$ defined by the distance between the template and target landmarks and assuming additive i.i.d Gaussian noise the resulting posterior distribution is
+Fixing the prior output to the deformation vectors $\mathcal{Y}=\{\vect{t}-\vect{m}\vert \vect{t} \in L_{\mathcal{T}}, \vect{m} \in L_{\mathcal{M}}\}$ - defined by the distance between the template and target landmarks - and assuming additive i.i.d Gaussian noise, the resulting posterior distribution is
 \begin{equation}
     \begin{bmatrix}\mathcal{Y_{\varepsilon}}\\\mathcal{D}\end{bmatrix}
 \sim \mathcal{N}\left(\textbf{0},
@@ -197,13 +197,13 @@ Fixing the prior output to the deformation vectors $\mathcal{Y}=\{\vect{t}-\vect
 \end{equation}
 \viscomment{Is this a correct definition for the distribution?}
 
-The deformation model is now rendered fixed at certain landmark points in the target mesh and the goal is to find valid deformations through the set of fixed targets, analogous to the case of eq. \ref{eq:3.5a}. The posterior model is defined as the joint distribution of all template mesh points and the template landmarks, conditioned on the output deformation vectors for every template landmark with added noise.
+The deformation model is now rendered fixed at certain landmark points in the target mesh and the goal is to find valid deformations through the set of fixed targets, analogous to the case of eq. \ref{eq:3.5a}. In other words the respective deformations at the template landmarks all co-define the distribution of possible deformations at all vertices of the template mesh. The posterior model is defined as the joint distribution of all template mesh points and the template landmarks, conditioned on the output deformation vectors for every template landmark with added noise.
 \begin{center}
 \begin{equation}
     \mathcal{D}\vert \mathcal{X} \rightarrow \mathcal{Y}_{\varepsilon}. 
 \end{equation}
 \end{center}
-We now have defined a distribution over our template mesh. \viscomment{mean/template is now max aposteriori solution} Sampling the conditional distribution creates deformed 3D surfaces of the mean mesh which are fixed at the target landmarks.
+We now have defined a distribution over our template mesh. \viscomment{mean/template is now max aposteriori solution} Sampling the conditional distribution and adding the resulting deformation onto the template creates deformed 3D surfaces of template mesh which are fixed at the target landmarks.
 \viscomment{show images of mean, prior and posterior with added landmarks}
 \begin{comment}The variance of the gaussian kernel can thereby be described as a smoothing parameter P\end{comment}
 
@@ -211,7 +211,7 @@ We now have defined a distribution over our template mesh. \viscomment{mean/temp
 \label{optimization}
 
 Due to the fact that the posterior model is fixed at the target landmarks it is possible to perform the registration by drawing a shape from the posterior model. The sample, however, has to be optimized according to the shape of the target face. 
-In order to find the deformation corresponding to the optimal fit $d_{*}$ a linear optimization with the posterior process as a constraint is be employed/ regularization term. (small lambda) a bit of the posterior mean) 
+In order to find the deformation corresponding to the optimal fit $d_{*}$ a linear optimization with the posterior process as a constraint/(incorporated in regularization term) is employed.((small lambda) a bit of the posterior mean) 
 \begin{equation}
 d_{*} = \underset{d \in \mathcal{D}}{\textbf{arg min}}\quad L[O_{\mathcal{T}}, O_{\mathcal{M}} \circ d]+\lambda R[d]
 \end{equation}

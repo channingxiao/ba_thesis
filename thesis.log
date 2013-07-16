@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  16 JUL 2013 18:54
+This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  17 JUL 2013 00:24
 entering extended mode
  %&-line parsing enabled.
 **thesis.tex
@@ -967,15 +967,14 @@ You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 [15]) (./chapters/chapter4.tex [16]
-Underfull \hbox (badness 10000) in paragraph at lines 6--8
-
- []
-
-[17
+Missing character: There is no ’ in font cmr12!
+Missing character: There is no ’ in font cmr12!
+ [17
 
 ]
 File: ./resources/img/eyebrow_left.jpeg Graphic file (type QTm)
- <use  "./resources/img/eyebrow_left.jpeg" > [18]
+
+<use  "./resources/img/eyebrow_left.jpeg" > [18]
 File: ./resources/figures/ears_diffparam.eps Graphic file (type eps)
 
 <./resources/figures/ears_diffparam.eps>
@@ -984,34 +983,30 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [19]
 File: ./resources/figures/lookup_table.eps Graphic file (type eps)
- <./resources/figures/lookup_table.eps> [20]
-File: ./resources/figures/projection.eps Graphic file (type eps)
+ <./resources/figures/lookup_table.eps>
 
-<./resources/figures/projection.eps> [21]
-Underfull \hbox (badness 10000) in paragraph at lines 148--154
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[20]
+File: ./resources/figures/projection.eps Graphic file (type eps)
+ <./resources/figures/projection.eps> [21]
+Underfull \hbox (badness 10000) in paragraph at lines 150--156
 
  []
 
-[22] [23]
-Missing character: There is no ’ in font cmr12!
-Missing character: There is no ’ in font cmr12!
+[22] [23] [24]
 
+LaTeX Warning: Reference `sec:optimization' on page 25 undefined on input line 
+205.
 
-LaTeX Warning: Reference `sec:optimization' on page 24 undefined on input line 
-199.
-
-
-Underfull \vbox (badness 5771) has occurred while \output is active []
-
- [24]
 ! Too many }'s.
-l.203 ...d from the next point on the target mesh}
+l.209 ...d from the next point on the target mesh}
                                                    However, as can be seen f...
 You've closed more groups than you opened.
 Such booboos are generally harmless, so keep going.
 
 ! Extra }, or forgotten $.
-l.211 ...(x)=\frac{x}{1+\frac{\left|x\right|}{c}}}
+l.217 ...(x)=\frac{x}{1+\frac{\left|x\right|}{c}}}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1019,7 +1014,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-) [25] [26]
+[25]) [26]
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
@@ -1031,7 +1026,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  16054 strings out of 495724
  274059 string characters out of 1189347
- 388218 words of memory out of 3000000
+ 388216 words of memory out of 3000000
  18895 multiletter control sequences out of 15000+50000
  16843 words of font info for 63 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191

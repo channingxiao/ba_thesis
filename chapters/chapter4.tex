@@ -5,6 +5,8 @@ In this chapter we describe how the Vector-valued Gaussian Model is utilized in 
 \section{Line Features}
 Line features serve the purpose of augmenting the quality of registration by initiating it with a larger set of corresponding points, by sampling points from the lines themselves. They are used to mark complex regions of the face, i.e. the eyes and ears, so that the registration process produces an accurate mapping of the contours of these organs which would otherwise not be possible. Without the prior information provided by line features, an accurate mapping in these
 regions is hard to achieve, because they have a dense abundance of points, while regions like the cheeks are scarcely defined by points.\\
+\viscomment{the following is some old text ready to incorporate}
+The idea behind the use of sampled points from the line features was to have more point correspondencies in complex regions as for example the eyes and the ears where there is a great abundancy of pixels and the algorithm isn’t likely to create a flow field which is accurate not enough to describe these regions, because of it’s smoothness constraint.
 
 For every scan we want to register, we have 8 contours given. These have been marked on three images of every face, see Fig section 1.3, with a special Graphical User Interface for marking points and lines on images. The contours we call line features depict the eyebrows, eyes, ears and lips of a face. They are made up of a set of segments, each of which is modelled with a \textbf{B\'{e}zier curve} of a specified order. B\'{e}zier curves are often used in Computer
 Graphics for modelling smooth curves of varying order. Given a set of control points $\mathcal{P} = \{P_{0}, P_{1}, P_{2}, \ldots, P_{n}\}$ the B\'{e}zier curve through these points is given by
@@ -121,7 +123,7 @@ First, we calculate a large number of points on each segment of the curve using 
 \centering
 \includegraphics[width=\textwidth]{./resources/figures/lookup_table.eps}
 \label{fig:lookup}
-\caption{Visualization of euclidean distances between points computed with b\'{e}zier curve parametrization}
+\caption{Visualization of euclidean distances between points computed with b\'{e}zier curve parametrization. This is an arbitrary line feature used solely for demonstration purposes.}
 \end{figure}
 The distance is approximated by summing up the euclidean distances of each point to its respective predecessor starting from the origin.
 
@@ -142,7 +144,7 @@ Finally, we project the distance of this vertex onto the direction of our sample
 \begin{figure}[h!]
     \includegraphics[width=\textwidth]{./resources/figures/projection.eps}
 \label{fig:projectio}
-\caption{shows the projection of a sample point - on a 2D line feature - from the viewport onto a 3D mesh. The distance vector of the vertex with the most similar direction vector (orange) is projected (red) onto the direction of the sample point, resulting in the projected vertex (green)}
+\caption{shows the projection of a sample point - on a 2D line feature - from the viewport onto a triangulated 3D mesh. The distance vector of the vertex with the most similar direction vector (orange) is projected (red) onto the direction of the sample point (black arrow), resulting in the projected vertex (green)}
 \end{figure}
 \paragraph{Problems \& Inacurracies}
 The face meshs used in the face registration pipeline contain large holes around the ears and the eyes. In effect, the projected sample points are off target, because now the mesh vertex with the most similar direction is likely farther away at a suboptimal location. This circumstance leads to the projected line not clearly being distinguishable as a contour line. On different data sets the performance of the projection of the line features for a large number of
@@ -164,10 +166,11 @@ Because of global angle comparisons between the direction from the camera toward
 if there is a hole in the mesh at the destination of this direction vector on the mesh and the direction of vertex is used can be used which actually distorts the shape of line
 \end{comment}
 
-After performing projection we have added line features to our list of landmarks. We therefore have provided the registration algorithm with additional prior information to define the deformation field by.
+After performing projection we have added samples from the line features to our set of landmarks. We therefore have provided the registration algorithm with additional prior information to define the deformation field by and to produce a better fitting result.
+
 \viscomment{add schema of pipeline here}
 \section{Rigid Mesh Alignment}
-Before we can start with the model building, we first have to ensure that template and target mesh are aligned in the same coordinate system. After all, we want to model the variability of different faces without incorporating an additional offset. We therefore have to perform a rigid transformation \viscomment{What kind of RT?} 
+Before we can start with initializing Gaussian Models, we first have to ensure that template and target mesh are aligned in the same coordinate system. After all, we want to model the variability of different faces without incorporating an additional offset. We therefore have to perform a rigid transformation \viscomment{What kind of RT?} 
 rotation + translation
 % http://www.math2k.com/pre-algebra/rigid-transformations-examples-and-worksheets/
 aligning the meshs according to their landmarks. \viscomment{Now in order to receive a perfect mapping of the floating mesh on to the mean/reference mesh we have to allow for 3 degrees of freedom, that is in all 3 dimensions x,y and z, for every pixel in the floating mesh except for the reference points we have used as correspondencies. The parameters having the most influence to the mapping will be those specified in the constraints we introduced into the equation via
@@ -178,22 +181,24 @@ The mean face was broader in shape than the scan and was perfectly coated in tex
 \viscomment{Show 3 images of overlap of mean with different scans}
 The aligned meshs serve as the starting point for the registration.
 
-\viscomment{Where to put this? Already rewritten}
-The idea behind the use of sampled points from the line features was to have more point correspondencies in complex regions as for example the eyes and the ears where there is a great abundancy of pixels and the algorithm isn’t likely to create a flow field which is accurate not enough to describe these regions, because of it’s smoothness constraint.
-
-
-For the actual registration we use the software framework statismo developed at the Computer Science Department of the University of Basel. It is a framework for PCA based statistical models. These are used to describe the variability of an object within a population, learned from a set of training samples. We use it to generate a statistical model from the floating mesh. Furthermore we use the software package gpfitting for the actual fitting. We generate a infinite row of
-    faces from the statistical model using gaussian processes and then sample out a fixed number. Then the faces are left. Carry on.
-Statistical Shape Models, blablaba
+We are now set for the actual registration involving the Prior and Posterior Gaussian Models and the Fitting. For the definition of the Gaussian Process distributions we use the software framework statismo developed at the Computer Science Department of the University of Basel. It is a framework for PCA based statistical models. These are used to describe the variability of an object within a population, learned from a set of training samples. We use it to generate a
+statistical model of the template mesh. Furthermore we use the software package gpfitting for the actual fitting. 
 
 \section{Prior Model}
-Build Model from template/mean mesh using Gaussian Prior
+imperative: build prior faces resulting from possible deformations of template
+The Gaussian Process Prior distribution of the template mesh is represented as an object and the parameters are saved on to disk. This allows for samples to be drawn from this representation of the Gaussian Process Prior Model. These samples are 3D face mesh that are the result of the deformations generated by the Gaussian Process Prior and then added to the template mesh. They are examples for possible deformations defined solely on the ground of the covariance of the template mesh points.
+\viscomment{show some examples here, or already in chapter 3}
+
 \section{Posterior Model}
-Build Model from mean and target landmarks
+imperative: build posterior model from combination of the prior model and the target landmarks. \viscomment{Landmarks are added to the distribution as additional points and co-define the deformation for the mesh vertices}
+Build Model from mean and target landmarks. This time we incorporate the mapping information of the landmarks and get a model where the
+We get valid face like meshs for different deformations, which are fixed at the target landmarks.
 
 \section{Fitting}
 Perform optimization
+Show some fits?
 
+What are we optimizing? L2??? --> not robust to outliers, protruding regions.
 \section{Robust Loss Functions}\viscomment{Optimizing the loss function?}
 After the alignment of template and target mesh, the template protrudes over the target on the upper side of the head and the side of the neck.
 \viscomment{show an image with template and target on top of each other}
