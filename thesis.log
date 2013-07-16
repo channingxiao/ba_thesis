@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  16 JUL 2013 17:39
+This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  16 JUL 2013 18:54
 entering extended mode
  %&-line parsing enabled.
 **thesis.tex
@@ -898,18 +898,18 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 22.
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) (./abstract.tex
-Missing character: There is no ü in font cmr10!
+Overfull \hbox (3.65013pt too wide) in paragraph at lines 5--6
+[]\OT1/cmr/m/n/10.95 In this bach-e-lor the-sis we dis-cuss the con-struc-tion 
+of a face reg-is-tra-tion pipeline.
+ []
+
 Missing character: There is no é in font cmr10!
- [1
+) [1
 
-])
-(./thesis.toc [2]) (./chapters/chapter1.tex [3] [4
-
-]
-Missing character: There is no ö in font cmr12!
+] (./thesis.toc) (./chapters/chapter1.tex [2]
 Missing character: There is no ä in font cmr12!
 
-Overfull \hbox (10.29164pt too wide) in paragraph at lines 4--7
+Overfull \hbox (10.29164pt too wide) in paragraph at lines 3--14
 \OT1/cmr/m/n/12 Beschreibung des Prob-lems chro-nol-o-gis-che, kurze Beschrei-b
 ung des Vorge-hens Fachter-
  []
@@ -917,27 +917,29 @@ ung des Vorge-hens Fachter-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5])
-(./chapters/chapter2.tex [6] [7
+ [3
 
-] [8]
+])
+(./chapters/chapter2.tex [4] [5
+
+] [6]
 Missing character: There is no … in font cmr12!
 File: ./resources/figures/scanner.eps Graphic file (type eps)
  <./resources/figures/scanner.eps>)
-(./chapters/chapter3.tex [9] [10] [11
+(./chapters/chapter3.tex [7] [8] [9
 
 ]
 Missing character: There is no ’ in font cmr12!
- [12]
+ [10]
 File: ./resources/figures/gp_prior.eps Graphic file (type eps)
  <./resources/figures/gp_prior.eps>
 File: ./resources/figures/gp_posterior.eps Graphic file (type eps)
 
-<./resources/figures/gp_posterior.eps> [13]
+<./resources/figures/gp_posterior.eps> [11]
 
 LaTeX Warning: Characters dropped after `\end{comment}' on input line 120.
 
-[14]
+[12]
 ! Undefined control sequence.
 l.152 ...and is to register a reference or \textbb
                                                   {template} face mesh with ...
@@ -948,9 +950,9 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `chapter 4' on page 15 undefined on input line 159.
+LaTeX Warning: Reference `chapter 4' on page 13 undefined on input line 159.
 
-[15] [16]
+[13] [14]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -964,48 +966,52 @@ l.219 \mathcal
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[17]) (./chapters/chapter4.tex [18]
+[15]) (./chapters/chapter4.tex [16]
 Underfull \hbox (badness 10000) in paragraph at lines 6--8
 
  []
 
-[19
+[17
 
 ]
 File: ./resources/img/eyebrow_left.jpeg Graphic file (type QTm)
- <use  "./resources/img/eyebrow_left.jpeg" > [20]
+ <use  "./resources/img/eyebrow_left.jpeg" > [18]
 File: ./resources/figures/ears_diffparam.eps Graphic file (type eps)
 
 <./resources/figures/ears_diffparam.eps>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[21]
+[19]
 File: ./resources/figures/lookup_table.eps Graphic file (type eps)
- <./resources/figures/lookup_table.eps> [22]
+ <./resources/figures/lookup_table.eps> [20]
 File: ./resources/figures/projection.eps Graphic file (type eps)
 
-<./resources/figures/projection.eps> [23] [24]
-Missing character: There is no “ in font cmr12!
-Missing character: There is no ” in font cmr12!
+<./resources/figures/projection.eps> [21]
+Underfull \hbox (badness 10000) in paragraph at lines 148--154
+
+ []
+
+[22] [23]
 Missing character: There is no ’ in font cmr12!
 Missing character: There is no ’ in font cmr12!
- [25]
-Underfull \vbox (badness 2495) has occurred while \output is active []
 
- [26]
 
-LaTeX Warning: Reference `sec:optimization' on page 27 undefined on input line 
-220.
+LaTeX Warning: Reference `sec:optimization' on page 24 undefined on input line 
+199.
 
+
+Underfull \vbox (badness 5771) has occurred while \output is active []
+
+ [24]
 ! Too many }'s.
-l.224 ...d from the next point on the target mesh}
+l.203 ...d from the next point on the target mesh}
                                                    However, as can be seen f...
 You've closed more groups than you opened.
 Such booboos are generally harmless, so keep going.
 
 ! Extra }, or forgotten $.
-l.232 ...(x)=\frac{x}{1+\frac{\left|x\right|}{c}}}
+l.211 ...(x)=\frac{x}{1+\frac{\left|x\right|}{c}}}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1013,7 +1019,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-[27]) [28]
+) [25] [26]
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
@@ -1023,12 +1029,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 16056 strings out of 495724
- 274082 string characters out of 1189347
- 390202 words of memory out of 3000000
- 18897 multiletter control sequences out of 15000+50000
+ 16054 strings out of 495724
+ 274059 string characters out of 1189347
+ 388218 words of memory out of 3000000
+ 18895 multiletter control sequences out of 15000+50000
  16843 words of font info for 63 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  69i,12n,60p,874b,661s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on thesis.pdf (28 pages).
+Output written on thesis.pdf (26 pages).
