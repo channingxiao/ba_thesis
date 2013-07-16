@@ -81,6 +81,10 @@ The first problem which becomes apparent when trying to sample the line features
 \def\earpaths{(3,1.5) .. controls (3,2.3) and (5,2.8) .. (5,1.5) .. controls (5, -.2) and (4.3,-.1) .. (4.3,-1) .. controls (4.2,-1.5) and (3.5, -1.7) .. (3,-1.25);}
 \begin{figure}[h!]
     \centering
+    \includegraphics{./resources/figures/ears_diffparam.eps}
+    \label{fig:diffparam}
+    \caption{a simplified - the depicted \textbf{ear} line feature is treated as one sole b\'{e}zier segment - illustration of the difference between b\'{e}zier (\textbf{left}) and equidistant (\textbf{right}) parametrization.}
+    \begin{comment}
     \begin{tikzpicture}
         \draw[black]\earpathf
         \draw[black]\earpaths
@@ -102,9 +106,8 @@ The first problem which becomes apparent when trying to sample the line features
         \fill (3.9, -1.45) circle[radius=2pt]; 
         \fill (3,-1.25) circle[radius=2pt];
     \end{tikzpicture}
+    \end{comment}
 \end{figure}
-\viscomment{add another point to the right ear, so there are 11. Draw same graphics with inkscape so that they are easily customizable??}
-
 Consequently, the imperative must be instead to evaluate the curves based on their arc-length, which is defined as the length of the rectified curve. The underlying parameter must then correspond - at every point of the curve - to the ratio between the length of the part of the curve that has been traversed and the total curve length.
 
 \paragraph{In theory}
@@ -113,161 +116,71 @@ This mapping can of course be derived analytically, but it is far easier to impl
 
 \paragraph{In practice}
 As we are not in need of a subpixel resolution, we can skip the formal math and use a lookup table to compute the arc-length.
-First, we calculate a large number of points on each segment of the curve using the parametrization of the corresponding b\'{e}zier curve. For each point we save its approximate distance from the origin of the segment as a key into a new slot in the lookup table of this segment, while its coordinates act as the slot value. The distance is approximated by summing up the euclidean distances of each point to its respective predecessor starting from the origin.\\
+First, we calculate a large number of points on each segment of the curve using the parametrization of the corresponding b\'{e}zier curve. For each point we save its approximate distance from the origin of the segment as a key into a new slot in the lookup table of this segment, while its coordinates act as the slot value. 
 \begin{figure}[h!]
-    \begin{tikzpicture}
-        \draw[black] (1,1) -- (1,3)
-    \end{tikzpicture}
+\centering
+\includegraphics[width=\textwidth]{./resources/figures/lookup_table.eps}
+\label{fig:lookup}
+\caption{Visualization of euclidean distances between points computed with b\'{e}zier curve parametrization}
 \end{figure}
-\viscomment{draw a line with a few segments} 
-\viscomment{draw curve with points just off and lookup table beneath}
+The distance is approximated by summing up the euclidean distances of each point to its respective predecessor starting from the origin.
+
 The resulting lookup table contains the approximative distances and coordinates of a large number of points from the origin of a curve segment. Assembling the segments' lookup tables gives us the table table for the whole curve with the last key representing its arc-length.\\ 
 Second, the curve can now easily be sampled by computing the length of parametric intervals $\frac{L}{N}$ for a specified number of points N. $l=k \cdot \frac{L}{N}$ returns the current length of the curve for the sampling point of index k, where $k=[0,\cdots,N]$ for open curves and $k=[0,\cdots,N-1]$ for closed curves.
 To get the point coordinates for a fraction of the curve we now simply perform a binary search on the lookup table for this distance. We choose index which returns the coordinates for the exact fraction length and if that is not the case the index with the next smaller length. The coordinates of the point either exactly or approximately computed for the given fraction length of the curve is used as the sampled point.
 
-\subsection{Mesh Projection of Sampled Points}
-Having implemented arc length parametrization it is possible to draw an arbitrary amount of samples $x \in \mathbb{R}^2$ from the line features. They are thereby defined as a set of points $S \subset \mathbb{R}^2$. Our goal is, however, to have these additional landmarks describing the features on the mesh itself and not a 2-dimensional snapshot.
-We therefore need to use the callibration of the camera and some techniques from Computer Graphics to project the sampled points onto a face mesh for each line feature we want to obtain.
-
-\paragraph{Projection}
-from camera to mesh? How? Knothe
-
-In the previously used registration method, a large number of points was used for each curve. These points were, however, not projected directly on to the 3/4 shells of the mesh. Instead their location was constrained by computing a 1-dimensional band of points before and after their approximate position, seen from the origin.
-
-Get direction of 3D representation of a curve, compute distance from origin to mesh, normalize to direction.
-
-Compute distances from origin for mesh vertices
-dot product (direction of point, for every vertex: direction of vertex) 
-dot product: 1 for similar directions, 0 for perpendicular directions.
-Angle value >.9999: mindist, maxdist are updated with the distance value of the distance vector to the nearest vertex on to the direction of the actual 3D representation of the point
-
-In the previous registration method implemented by Dr. Brian Amberg, the
-points from line features constrained to 1D
-and are then projected on to the 3 shell meshs with the program points\_from\_surface. That is how the feature points are generated.
-shells from the scanner are cleaned
-points are marked on the 3 images to the front, left and right of the person\
-xplain what program does, latex sketches:
-camera calibration is done by the scanner?
-meshs and camera settings are loaded into the software. For a lot of points per curve the direction their 3d representation is computed and their distance, normalized to give direction,  from the origin is saved. Distances and directions are further computed for all vertices in the mesh. Now for every point the dot product of its direction is formed with direction of every vertex in the mesh. Remember, the dot product results in 1 for similar directions and 0 for perpendicular directions.
-For an angle value larger than .9999 the parameters min\_dist or max\_dist are updated with the distance value of the projection of the distance vector to the nearest vertex on to the direction of the actual 3D representation of the point. min(min\_dist, d), max(max\_dist, d), so that at the end min\_dist contains the distance to the point on the line nearest to the camera and max\_dist the distance to the point farthest away from the camera. now min\_dist is multiplied with a value < 1 and
-max\_dist with a value > 1. 
-then a band of points is computed perpendicular to the line along the direction at each computed point that cuts through the mesh and serves as a horizontal constraint for the points to lie after the registration.
-picture of dot product
-
-\begin{lstlisting}[label=some-code, caption=Point Projection]
-for (size_t l=0; l<templates.size(); ++l) {
-    if (!templates[l].isSet)
-    continue;
-    {
-        vector<f3Vector> meanEqPoints3d;
-        templates[l].evaluate(512);
-        // Find min_dist and max_dist for this template
-        /* COMPUTE EQUIDISTANT LINE POINTS AND WRITE THEM TO FILE */ 
-
-        // computing 1000 points per curve segment
-        templates[l].curve.initializePoints();
-        // create arc length lookup table computed over all initalized segment points
-        templates[l].curve.approxTotLength();
-        // equidistant sampling
-        templates[l].curve.getEquidistantPoints(numPoints);
-        vector<d2Vector> eqPoints = templates[l].curve.equidistantPoints;
-        vector<d3Vector> eqDirs;
-
-        for (size_t i=0; i<eqPoints.size() ; ++i) {
-            // compute direction vector of 3d representation of points on curve from the point of origin
-            auto point = eqPoints[i];
-            d3Vector dir= -O + C.imageToWorld(point);
-            dir /= dir.normL2();
-            eqDirs.push_back(dir);
-        }
-        vector<double> selectedVecDist;
-        // go over all directions of points on the line template and compute the dotproduct with the current mesh vertex direction
-        for (size_t p=0; p < eqDirs.size(); ++p) {
-            const d3Vector &dir = eqDirs[p];
-            // save distances along the directions of near vertices and angles for every point
-            vector<double> remDistances;
-            vector<double> remAngles;
-            for(size_t i=0; i < meshes.size(); ++i) {
-                for(size_t j=0; j < meshes[i].vertex.size(); ++j) {
-                    // compute direction from origin for every vertex in the mesh
-                    d3Vector vert_dir = (d3Vector(meshes[i].vertex[j]) - O);
-                    d3Vector vert_dir_n = vert_dir / vert_dir.normL2();
-
-                    double a = vert_dir_n.dot(dir);
-                    // if direction likeness is bigger than 99.99%
-                    if(a > 0.9999) {
-                        // projection of distance vector of mesh vertex onto direction of 3d representation of true point on curve segment
-                        // project vert_dir onto dir and 
-                        double dist = vert_dir.dot(dir);
-                        remDistances.push_back(dist);
-                        remAngles.push_back(a);
-                    }
-                }
-            }
-            // choose distance via best angle match, PROBLEM: holes in mesh
-            if(remAngles.size() > 0) {
-                int index = std::max_element(remAngles.begin(), remAngles.end())-remAngles.begin();
-                selectedVecDist.push_back(remDistances[index]);      
-            } else {
-                selectedVecDist.push_back(0.0);
-            }
-        }
-        // save directions to equidistant points on all line features in 3D
-        for (size_t i=0; i<eqPoints.size(); ++i) {
-            d3Vector dir = -O + C.imageToWorld(eqPoints[i]);
-            dir /= dir.normL2();
-            float a = 0.5f;
-            f3Vector point;
-            if(selectedVecDist[i] != 0) {
-                f3Vector tmp(O + selectedVecDist[i] * dir);
-                point = tmp;
-            }
-            meanEqPoints3d.push_back(point);
-        }
-    }
-\end{lstlisting}
-
-\paragraph{Modification}
+\subsection{3D Mesh Projection of Sampled Points}
+Having implemented arc length parametrization it is possible to draw an arbitrary amount of samples $x \in \mathbb{R}^2$ from the line features. They are then defined as a set of points $S \subset \mathbb{R}^2$. Our goal is, however, to have these additional landmarks describing the features on the mesh of a face itself and not a 2-dimensional snapshot thereof.
+Because we have no information on the depth of the line features, we have to project the sampled points of each line feature onto a face mesh in order to obtain their approximate 3D representation. 
+\viscomment{Introduce camera model with schema here?}
+In the camera model the image is located on the viewing plane or viewport opposite of the focal point. (computes 3D direction of 2D sample point)
+The direction of the 3D representation of a point on a curve is given by the (normalized) vector defining the position of the point on the viewing plane from the perspective of the focal point of the camera.
+Given: diskrete mesh, how to choose point?
+We now a seek a mesh vertex that is the most accurate representation of a sample point on the 2D curve. The dot product of their normalized directions is used as a similarity measure. In order to find a corresponding vertex, we save all the distances of mesh vertices in a list which have a similarity measure that is higher than a specified threshold. We then select the distance of the vertex with the maximum similarity.
+Finally, we project the distance of this vertex onto the direction of our sample point and thereby obtain an approximation of the points position in the mesh.
+%\begin{wrapfigure}[]{o}[2cm]{\documentwidth}
+\begin{figure}[h!]
+    \includegraphics[width=\textwidth]{./resources/figures/projection.eps}
+\label{fig:projectio}
+\caption{shows the projection of a sample point - on a 2D line feature - from the viewport onto a 3D mesh. The distance vector of the vertex with the most similar direction vector (orange) is projected (red) onto the direction of the sample point, resulting in the projected vertex (green)}
+\end{figure}
+\paragraph{Problems \& Inacurracies}
+The face meshs used in the face registration pipeline contain large holes around the ears and the eyes. In effect, the projected sample points are off target, because now the mesh vertex with the most similar direction is likely farther away at a suboptimal location. This circumstance leads to the projected line not clearly being distinguishable as a contour line. On different data sets the performance of the projection of the line features for a large number of
+samples, i.e. 30, varied significantly. Overall one can say that the distortion of a projected line increases with the amount of sample points.
+\viscomment{Compute some landmarks with 30 samples}
 \viscomment{up close image of eye holes of face scan}
-The modification we introduced, was solely to the select the mesh vertex with the highest similarity of direction to the 3D representation of a 2D line feature sample. Due to the areas of the mesh around the ears and the eyes containing large holes the projected sample points from the line features can be off target, especially if a large number of points is sampled for every curve. This circumstance leads to the sampled line features being represented by more of a point cloud, for
-example around the eyes, (which is not distinguishable as a line) instead of clearly denoting a contour line.
-The direction of the vertex is used to find a point --> this distorts the shape (position of sampled points) of the line.
+An easy workaround was to reduce the number/amount of sample points. By using only 5-10 sample points per curve some datasets rendered near perfect results on a ``control dataset''. \viscomment{Compile list of datasets} 
+However, when the holes are too large this workaround also fails. Stoff for discussion
+what was not solved: when holes are too large, ``method'' fails --> treat projected points as outliers 
+However, as long as the method is dependent on the data from the scans - the size of the holes in the meshs - it lacks generality and generality is exactly the basis for feasible and reproducable registration results.
 \begin{comment}
 so that if 
 Because of global angle comparisons between the direction from the camera towards the vertices and the direction towards the projection of a sampled point on the line
 if there is a hole in the mesh at the destination of this direction vector on the mesh and the direction of vertex is used can be used which actually distorts the shape of line
 \end{comment}
-On different data sets the performance of the projection of the line features for a large number of samples varied enormously.
-\viscomment{Compute some landmarks with 30 samples}
-Using only 5-10 sample points per curve some datasets rendered near perfect results on a ``control sample''. \viscomment{Compile list of datasets} 
-However, as long as the method is dependent on the data from the scans - the size of the holes in the meshs - it lacks generality and generality is exactly the basis for feasible and reproducable registration results.
 
-\begin{lstlisting}
-    /**
-    * Returns the position in world coordinates lying on the focal plane
-    * which is corresponding to a pixel coordinate. The camera ray is
-    * c.imageToWorld(v_i) - c.origin()
-    **/
-    inline
-    t3Vector<T> imageToWorld(const t2Vector<T> &v_i) const {
-        /// Pixel to Distorted Image Plane
-        //
-        // Offset 
-        const t2Vector<T> v_i_o = v_i-C;
-        // Scale
-        const t2Vector<T> v_d(v_i_o.x/sx*d.x, v_i_o.y*d.y);
+\begin{comment}
+In the previously used registration method, a large number of points was used for each curve. These points were, however, not projected directly on to the 3/4 shells of the mesh. Instead their location was constrained by computing a 1-dimensional band of points before and after their approximate position, seen from the origin.
+then a band of points is computed perpendicular to the line along the direction at each computed point that cuts through the mesh and serves as a horizontal constraint for the points to lie after the registration.
+\end{comment}
 
-        /// Distorted Image to Pinhole
-        const t2Vector<T> v_p = v_d * (1.0 + k1*v_d.normL2sqr());
 
-        /// Pinhole to Camera
-        const t3Vector<T> v_c(v_p.x, v_p.y, f);
 
-        /// Camera to World
-        const t3Vector<T> v_w = Rinv * (v_c - t);
-        return v_w;
-    }
-\end{lstlisting}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section{Preparing the Mean Mesh}
 Rendering, marking => Projection

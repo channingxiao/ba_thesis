@@ -15,8 +15,12 @@
 %\usepackage{fontspec}
 %\setmainfont{Arial}
 
-\usepackage{setspace}
-\onehalfspacing
+% anything preceeded by a blank line or defined by \par.. is classified as a new paragraph and the first line is indented by default
+\setlength{\parindent}{0in}
+
+% wrap text around figures, let figure protrude into the margin
+\usepackage{wrapfig}
+% located in synaptic package: texlive-latex-extra
 
 \usepackage{abstract} 
 % may be of use to float abstract to the right, or to narrow the text 
