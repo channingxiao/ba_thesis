@@ -154,9 +154,8 @@ samples, i.e. 30, varied significantly. Overall one can say that the distortion 
 An easy workaround was to reduce the number/amount of sample points. By using only 5-10 sample points per curve some datasets rendered near perfect results on a ``control dataset''. \viscomment{Compile list of datasets, show samples} 
 However, when the holes are too large this workaround also fails. This circumstance leaves room for discussion. As long as the method is dependent on the data from the scans - the size of the holes in the meshs - it lacks generality and generality is exactly the basis for feasible and reproducable registration results.\\
 
-On top of that, another problem occured, because the mean face mesh of course doesn't have any line features projected on to it either.
-R
-Before being able to perform registration, the line features had to be also marked on the template mesh. As the template mesh we use the mean mesh of the 3DMM of the Graphics and Computer Vision Group at the University of Basel. In order to mark the features, the mean mesh first had to be rendered with three different camera callibrations. The 2D line features where then projected back onto the mesh using callibration parameters. The mean mesh already had 60 feature points
+\paragraph{Preparing the Template Mesh}
+In the next step, the line features also had to be marked on the template mesh. As the template mesh we use the mean mesh of the 3DMM of the Graphics and Computer Vision Group at the University of Basel. In order to mark the features, the mean mesh first had to be rendered with three different camera callibrations. The 2D line features where then projected back onto the mesh using these callibration parameters. The mean mesh already had 60 feature points
 clicked manually, many of which were not added to the face scans.
 \begin{comment}
 In the previously used registration method, a large number of points was used for each curve. These points were, however, not projected directly on to the 3/4 shells of the mesh. Instead their location was constrained by computing a 1-dimensional band of points before and after their approximate position, seen from the origin.
@@ -166,9 +165,8 @@ Because of global angle comparisons between the direction from the camera toward
 if there is a hole in the mesh at the destination of this direction vector on the mesh and the direction of vertex is used can be used which actually distorts the shape of line
 \end{comment}
 
-After performing projection we have added samples from the line features to our set of landmarks. We therefore have provided the registration algorithm with additional prior information to define the deformation field by and to produce a better fitting result.
+After the projetion, we have added samples from the line features to our set of landmarks. We therefore have provided the registration algorithm with additional prior information to define the deformation field by and to produce a better fitting result.
 
-\viscomment{add schema of pipeline here}
 \section{Rigid Mesh Alignment}
 Before we can start with initializing Gaussian Models, we first have to ensure that template and target mesh are aligned in the same coordinate system. After all, we want to model the variability of different faces without incorporating an additional offset. We therefore have to perform a rigid transformation \viscomment{What kind of RT?} 
 rotation + translation
@@ -180,6 +178,14 @@ The computed transformation is applied to all vertices of the respective face sc
 The mean face was broader in shape than the scan and was perfectly coated in texture for the simple reason that hours of manual labour have been invested to render this important piece of data a perfect reference.
 \viscomment{Show 3 images of overlap of mean with different scans}
 The aligned meshs serve as the starting point for the registration.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{./resources/figures/pipeline.pdf}
+\label{fig:pipeline}
+\vspace{-90pt}
+\caption{Fitting pipeline: blablabla}
+\end{figure}
 
 We are now set for the actual registration involving the Prior and Posterior Gaussian Models and the Fitting. For the definition of the Gaussian Process distributions we use the software framework statismo developed at the Computer Science Department of the University of Basel. It is a framework for PCA based statistical models. These are used to describe the variability of an object within a population, learned from a set of training samples. We use it to generate a
 statistical model of the template mesh. Furthermore we use the software package gpfitting for the actual fitting. 
