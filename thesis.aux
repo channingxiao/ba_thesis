@@ -4,8 +4,7 @@
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
 \@writefile{toc}{\contentsline {chapter}{\chapternumberline {1}Introduction}{4}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.1}Problem Statement}{4}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.2}Review Literature}{5}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Previous Work}{4}}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
 \@writefile{toc}{\contentsline {chapter}{\chapternumberline {2}3D Model Building}{6}}
@@ -13,7 +12,7 @@
 \newlabel{eq:MM}{{\M@TitleReference {2.1}{3D Morphable Model}}{6}}
 \newlabel{eq:MM}{{\M@TitleReference {2.2}{3D Morphable Model}}{7}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}Achieving Correspondence through Registration}{7}}
-\@writefile{toc}{\contentsline {paragraph}{Registration Algorithm}{7}}
+\@writefile{toc}{\contentsline {paragraph}{Registration Algorithms}{7}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.3}Available Data}{8}}
 \newlabel{SC@1}{{\M@TitleReference {2.3}{Available Data}}{8}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces schema of the structured light 3D scanning system employed to record the facial scans. It consists of two projectors that project triangle gradient patterns on to a face from opposing angles, three black-and-white cameras used for the triangulation and three digital cameras which record the facial skin.\relax }}{8}}
@@ -23,6 +22,7 @@
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {merged shells}}}{9}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:scan}{{\M@TitleReference {2.2}{Available Data}}{9}}
+\newlabel{fig:landmarks}{{\M@TitleReference {2.3}{Available Data}}{9}}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
 \@writefile{toc}{\contentsline {chapter}{\chapternumberline {3}Gaussian Processes in 3D Face Registration}{10}}
@@ -51,26 +51,26 @@
 \@writefile{toc}{\contentsline {section}{\numberline {4.1}Line Features}{18}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Line Features of the left eyebrow and eye, consisting of b\'{e}zier curves defined by visible control points (white)\relax }}{19}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.2}Sampling 3D Points from 2D Line Features}{20}}
-\newlabel{fig:DiffEars}{{\M@TitleReference {\caption@xref {fig:DiffEars}{ on input line 76}}{Sampling 3D Points from 2D Line Features}}{20}}
+\newlabel{fig:DiffEars}{{\M@TitleReference {\caption@xref {fig:DiffEars}{ on input line 77}}{Sampling 3D Points from 2D Line Features}}{20}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Mapping of equidistant samples of \textbf  {ear} line features from the reference (left) on to the target (right)\relax }}{20}}
 \@writefile{toc}{\contentsline {subsection}{Arc Length Parametrization}{20}}
-\newlabel{fig:diffparam}{{\M@TitleReference {\caption@xref {fig:diffparam}{ on input line 89}}{Arc Length Parametrization}}{21}}
+\newlabel{fig:diffparam}{{\M@TitleReference {\caption@xref {fig:diffparam}{ on input line 91}}{Arc Length Parametrization}}{21}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces a simplified - the depicted \textbf  {ear} line feature is treated as one sole b\'{e}zier segment - illustration of the difference between b\'{e}zier (\textbf  {left}) and equidistant (\textbf  {right}) parametrization.\relax }}{21}}
 \@writefile{toc}{\contentsline {paragraph}{In theory}{21}}
 \@writefile{toc}{\contentsline {paragraph}{In practice}{21}}
-\newlabel{fig:lookup}{{\M@TitleReference {\caption@xref {fig:lookup}{ on input line 127}}{In practice}}{22}}
+\newlabel{fig:lookup}{{\M@TitleReference {\caption@xref {fig:lookup}{ on input line 129}}{In practice}}{22}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Visualization of euclidean distances between points computed with b\'{e}zier curve parametrization. This is an arbitrary line feature used solely for demonstration purposes.\relax }}{22}}
 \@writefile{toc}{\contentsline {subsection}{3D Mesh Projection of Sampled Points}{22}}
-\newlabel{fig:projectio}{{\M@TitleReference {\caption@xref {fig:projectio}{ on input line 148}}{3D Mesh Projection of Sampled Points}}{23}}
+\newlabel{fig:projectio}{{\M@TitleReference {\caption@xref {fig:projectio}{ on input line 150}}{3D Mesh Projection of Sampled Points}}{23}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces shows the projection of a sample point - on a 2D line feature - from the viewport onto a triangulated 3D mesh. The distance vector of the vertex with the most similar direction vector (orange) is projected (red) onto the direction of the sample point (black arrow), resulting in the projected vertex (green)\relax }}{23}}
-\@writefile{toc}{\contentsline {paragraph}{Problems \& Inacurracies}{23}}
+\@writefile{toc}{\contentsline {paragraph}{Problems \& Inacurracies}{24}}
 \@writefile{toc}{\contentsline {paragraph}{Preparing the Template Mesh}{24}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.3}Rigid Mesh Alignment}{24}}
-\newlabel{fig:pipeline}{{\M@TitleReference {\caption@xref {fig:pipeline}{ on input line 190}}{Rigid Mesh Alignment}}{25}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Fitting pipeline: blablabla\relax }}{25}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Prior Model}{26}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Posterior Model}{26}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.6}Fitting}{26}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Prior Model}{25}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Posterior Model}{25}}
+\newlabel{fig:pipeline}{{\M@TitleReference {\caption@xref {fig:pipeline}{ on input line 192}}{Rigid Mesh Alignment}}{26}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Fitting pipeline: blablabla\relax }}{26}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}Fitting}{27}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.7}Robust Loss Functions}{27}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.8}Varying the Variances}{28}}
 \memsetcounter{lastsheet}{28}

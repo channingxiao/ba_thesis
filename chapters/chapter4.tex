@@ -40,13 +40,14 @@ Due to the nature of the objects depicted, there are open as well as closed curv
 \end{figure}
 
 \section{Sampling 3D Points from 2D Line Features} 
-The line features provide us with additional prior information about the nature of the deformation field. In order to incorporate the line features in the Vector-valued Gaussian Model, we agreed to use them as additional point-wise information. In order to get this point-wise information the line features are sampled at discrete intervals resulting in a set of additional landmarks $L_{Add} = \{l_{1}, \cdots, l_{N}\}$. These
-define the mapping $\Omega:L_{Add\mathcal{M}} \rightarrow L_{Add\mathcal{T}}$ of the contours - describing the different important features present in the faces - in the template face mesh on those of the target face mesh. In order for the mapping $\Omega$ to be approximately plausible, we choose an equidistant parametrization. In effect, when a curve is sampled at N points, these N points are all at equal parametric intervals.
+The line features provide us with additional prior information about the nature of the deformation field. In order to incorporate the line features in the Vector-valued Gaussian Model, we agreed to use them as additional point-wise information. The points are obtained by sampling the line features at discrete intervals resulting in a set of additional landmarks $L_{Add} = \{l_{1}, \cdots, l_{N}\}$. These define the mapping $\Omega:L_{Add\mathcal{M}} \rightarrow L_{Add\mathcal{T}}$ of the line features in the template face mesh on to those in the target face mesh.\\
+Now, establishing correspondence for a pair of ears for example is extremely difficult, even for
+experts, because of their very different topology. The structure of the concha is very
+complex. To define correspondence between lips, eyes and ears we move on to using contour lines of their rims. Further modelling the ratio between the different parts of these contours in would again be tedious. Therefore we simplify the assumptions for similarity to an equidistant parametrization of the line features so that the mapping $\Omega$ is approximately plausible. In effect, when a curve is sampled at N points, these N points are all at equal parametric intervals.
 \begin{comment}
 Bei den Ohren ist die Korrespondenz wirklich schwierig und auch als Mensch je nach Ohrenpaar kaum zu bestimmen. Gerade die Struktur der Ohrmuschel kann wohl nicht immer in korrespondenz gebracht werden. Jedoch sind alle Ohren durch eine äussere Linie begrenzt und die wollen wir matchen. Nun ist es in der Tat so, dass nicht immer alle Ohrläppchen gleich gross sind oder markante Krümungen der äusseren Ohrlinie an der gleichen Stelle auftreten. Wir ignorieren dies jedoch / bzw wir
 vereinfachen dies durch unsere Äquidistantz Annahme und sagen dies sei dann genügend gut registriert und störe das Model das wir bauen nicht zu sehr.
 \end{comment}
-\viscomment{equidistant parametrization is not a fact, it is a choice. Different ears have different topology?}
 \def\earpathf{(-1,1.5) .. controls (-1,2.3) and (1,2.8) .. (1,1.5) .. controls (1, -.2) and (0.3,-.1) .. (0.3,-1) .. controls (0.2,-1.5) and (-.5, -1.7) .. (-1,-1.25);}
 \def\earpathl{(3,2) .. controls (3,3.3) and (5.6,3.7) .. (5.6,2) .. controls (5.6, 0) and (4.6,0) .. (4.6,-1.3) .. controls (4.6,-2) and (3.5, -2) .. (3,-1.5);}
 
@@ -79,6 +80,7 @@ vereinfachen dies durch unsere Äquidistantz Annahme und sagen dies sei dann gen
 
 \subsection{Arc Length Parametrization}
 We decided to use equidistant parametrization, but bezier curves don't allow it.
+
 The first problem which becomes apparent when trying to sample the line features is that the b\'{e}zier curve segments don't allow for equidistant parametrization, because the underlying parameter $t \in \mathbb{R}$ is not linear in respect to the length of the curve. The growth of the parameter of a b\'{e}zier curve is instead dictated by velocity.
 
 \def\earpathf{(-1,1.5) .. controls (-1,2.3) and (1,2.8) .. (1,1.5) .. controls (1, -.2) and (0.3,-.1) .. (0.3,-1) .. controls (0.2,-1.5) and (-.5, -1.7) .. (-1,-1.25);}

@@ -1,23 +1,22 @@
 \chapter{Introduction}
-sadasdsad
-explain purpose of thesis
-\section{Problem Statement}
-Beschreibung des Problems
-chronologische, kurze Beschreibung des Vorgehens
-Fachterminologie so allgemein wie moglich wählen
-1. Use Gaussian Processes - 2. Use Line Features => prepare for Gaussian Process Regression
-In this bachelor thesis 
-Implement 3D face registration using Gaussian Processes and Line Features. One part of the problem is to sample equidistant 3D points from 2D line features marked on images of a 3D face scan. These line features should then be used as an additional input to a registration algorithm which is based on Gaussian Process Regression. The aim is to build a pipeline which starts off with the raw scan data as well as the landmarks and line features. The feature points are used to register the mean face of the MM/BFM (Basel Face Model) on to/with the raw scan thereby obtaining a fully defined and textured 3D model representation of the face in 3D. Registration is the technique of aligning to objects using a transformation, in this case the registration is performed by adding displacements to every points in the mean face model.
-A model is represented as vector N*d. What is a model? A vector representation of a 3D scan?
-For the morphing a Posterior Shape Model is used in combination with a Gaussian Process.
-Image registration is a process of aligning two images into a common coordinate system 
-thus aligning.
-(gaussian process + line features for accurate, reproducable registration)
-\section{Review Literature}
-	2. Definition of terms (morphable model, 3D face registration, Gaussian Process regression, posterior shape models)
-	3. Review of literature (papers)
-    Inputs: inspired by books Stochastic yada yada, Gaussian Processes in Machine Learning: Rasmussen et al, the work done by the Graphics and Vision Research Group Uni Basel, papers 
-    Using Landmarks as a Deformation Prior for Hybrid Image Registration (for GP), A unified formulation of statistical model fitting and non-rigid registration (Fitting and Optimization),
-Posterior Shape Models (Posterior Shape Models)
+Registration is the method of making data from different measurements or even sources comparable by applying a transformation. It has many applications, for example in computer vision and medically imaging.
+Registration is also the first step in building a 3D model of morphable faces using facial scans. It is used to establish a dense correspondence between the input scans with a transformation. This transformation is normally computed with the help of a set of corresponding points and assures that the vertices defining the surface of the scans are semantically structured in a way that they describe the same parts of the face. \begin{comment}Correspondence betweenk two faces is established by deforming a template face on to a target face.\end{comment} Defining a reproducable and accurate registration algorithm is therefore essential to obtaining a ``good'' 3D model. 
+In this thesis we present a registration algorithm which is novel to the problem of 3D  face registration in two ways: the transformation is modeled using Gaussian Process Regression (GPR), a method from the field of Machine Learning and the prior information used in the transformation is extended to parametric curves marking key regions of the face, refered to as line features. It covers Model Building bascis, the theory behind GPR Theory, the implementation of a
+face registration pipeline using GPR and line features. The registration results give a first expression of what registration results can be achieved with this approach
+
+\section{Previous Work}
+Rasmussen
+Luethi
+
+
+
+start with idea of how thesis will be structured. What will be covered in each subsequent chapter?
+start broad, explain purpose of thesis
+talk about specific things related to your niche
+something unexpected
+why does work matter? to help justify own work
+best work in the field, what gaps of knowledge remain? Brian ambergs registration method is not set in general theory, GPR is
+conclusion, but set up sense of anticipation
+summarise general principles, state problem or question that needs an answer and give quick hint how following chapters will help to answer question
 
 

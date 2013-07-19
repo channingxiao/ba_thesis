@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  19 JUL 2013 11:42
+This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  19 JUL 2013 17:29
 entering extended mode
  %&-line parsing enabled.
 **thesis.tex
@@ -944,22 +944,18 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 (./abstract.tex) [2] (./thesis.toc) (./chapters/chapter1.tex [3]
-Missing character: There is no ä in font cmr12!
 
-Overfull \hbox (10.29164pt too wide) in paragraph at lines 5--16
-\OT1/cmr/m/n/12 Beschreibung des Prob-lems chro-nol-o-gis-che, kurze Beschrei-b
-ung des Vorge-hens Fachter-
- []
+LaTeX Warning: Characters dropped after `\end{comment}' on input line 3.
 
+[4
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+]) (./chapters/chapter2.tex [5] [6
 
- [4
+]
 
-])
-(./chapters/chapter2.tex [5] [6
+LaTeX Warning: Characters dropped after `\end{comment}' on input line 42.
 
-] [7]
+[7]
 File: ./resources/figures/scanner.pdf Graphic file (type QTm)
  <use  "./resources/figures/scanner.pdf" >
 Underfull \hbox (badness 2119) in paragraph at lines 51--51
@@ -974,15 +970,14 @@ Underfull \hbox (badness 1354) in paragraph at lines 51--51
 File: ./resources/figures/shells.eps Graphic file (type eps)
 <./resources/figures/shells.eps>
 File: ./resources/figures/scan.eps Graphic file (type eps)
- <./resources/figures/scan.eps> [8]
+ <./resources/figures/scan.eps>
 File: ./resources/figures/schema_marked.eps Graphic file (type eps)
 
 <./resources/figures/schema_marked.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 63--69
-\OT1/cmr/m/n/12 nent points, so called land-marks, was given for ev-ery face.
- []
 
-) (./chapters/chapter3.tex [9] [10
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[8]) (./chapters/chapter3.tex [9] [10
 
 ]
 Missing character: There is no ’ in font cmr12!
@@ -1037,29 +1032,32 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [21]
 File: ./resources/figures/projection.eps Graphic file (type eps)
  <./resources/figures/projection.eps> [22]
-Underfull \hbox (badness 10000) in paragraph at lines 152--158
+Underfull \hbox (badness 10000) in paragraph at lines 154--160
 
  []
 
 [23] [24]
 File: ./resources/figures/pipeline.pdf Graphic file (type QTm)
- <use  "./resources/figures/pipeline.pdf" > [25]
+ <use  "./resources/figures/pipeline.pdf" >
 
-LaTeX Warning: Reference `sec:optimization' on page 26 undefined on input line 
-217.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-Underfull \vbox (badness 5771) has occurred while \output is active []
+[25]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [26]
+
+LaTeX Warning: Reference `sec:optimization' on page 27 undefined on input line 
+219.
+
 ! Too many }'s.
-l.221 ...d from the next point on the target mesh}
+l.223 ...d from the next point on the target mesh}
                                                    However, as can be seen f...
 You've closed more groups than you opened.
 Such booboos are generally harmless, so keep going.
 
 ! Extra }, or forgotten $.
-l.229 ...(x)=\frac{x}{1+\frac{\left|x\right|}{c}}}
+l.231 ...(x)=\frac{x}{1+\frac{\left|x\right|}{c}}}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1067,7 +1065,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-) [27] [28]
+[27]) [28]
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
@@ -1080,12 +1078,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16274 strings out of 495724
- 277456 string characters out of 1189347
+ 16275 strings out of 495724
+ 277471 string characters out of 1189347
  388991 words of memory out of 3000000
- 19099 multiletter control sequences out of 15000+50000
+ 19100 multiletter control sequences out of 15000+50000
  16543 words of font info for 62 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 69i,12n,60p,874b,655s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 69i,12n,60p,727b,655s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on thesis.pdf (28 pages).
