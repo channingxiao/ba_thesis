@@ -1,9 +1,14 @@
+\vspace*{\fill}
 \begin{abstract}
+In this bachelor thesis we present the construction of a 3D face registration pipeline in a two-facetted approach. Firstly, we derive the registration algorithm from Gaussian Process Regression. Secondly, we augment registration quality by passing line correspondences to the algorithm as prior information.
+Gaussian Process Regression can be used to sample deformation fields that map any two shapes on to one another using a set of corresponding prominent points on the shapes as prior information. In our approach we implemented registration of face scans using additional information gained by sampling 3D points from line features that define key features of the faces, i.e. the eyes and the ears. The deformation field is optimized with the prior information used as constraints to
+obtain a near-optimal mapping of the template on to the target. As will be shown the use of line features has a profound impact on the accuracy and quality of the registration results. In order to use this approach for model building, however, optimization of the expressiveness of the deformed template is still necessary.
 \begin{comment}
+In this bachelor thesis we discuss the construction of a face registration pipeline by using an algorithm based on a vector-valued gaussian process and at the same time attempting to ensure registration quality through the use of parametric curves - referred to as line features - that describe complex regions of the face.
 In this bachelor thesis we attempt to modify the existing face registration pipeline for the morphable face model of Prof. Thomas Vetter by using a registration algorithm developed by PD Marcel Lüthi at the University of Basel. ALTERNATIVE:
 \end{comment}
-In this bachelor thesis we discuss the construction of a face registration pipeline. The using an algorithm based on a vector-valued gaussian process and at the same time attempting to ensure registration quality through the use of contours marking important parts of the face - referred to as line features.
-
+\begin{comment}
+The algorithm, which is derived from Gaussian Process Regression is capable to map any two shapes on to one another without much modification. It uses prior information in the form of a set of corresponding points on the two shapes in order to predic 
 The algorithm is capable of mapping any two shapes on to one another. All that is needed is a set of corresponding points on the two shapes. Different constraints to the displacement field can be applied through regularisation. 
 
 The aim of this bachelor thesis is more specifically to apply this general algorithm for point correspondences to scanned face data, that is to implement feasible registration of face scans onto the mean face of the morphable model. 
@@ -13,5 +18,7 @@ Instead of using sparse points of key features points of the face we mark comple
 These line features are marked by hand using bézier curves on three 2D images to the front, left and right of the 3D face. 
 In order to utilize them, however, they have to be projected on to the computed mesh of the face that was recorded by a 3D scanner. These meshs have holes in the region of the eyes and the ears rendering the projected line features useless at first. This thesis first gives an overview over the morphable model and the face registration pipeline, then goes on to obtaining 3D points from the 2D line features, to explain the theory behind the general algorithm and in the main part discusses
 the problems and solutions we encountered trying to optimize the algorithm for and without line features for the face registration process.
-
+\end{comment}
 \end{abstract}
+\vspace*{\fill}
+\pagebreak

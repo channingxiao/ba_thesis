@@ -197,53 +197,61 @@ Fixing the prior output to the deformation vectors $\mathcal{Y}=\{\vect{t}-\vect
 \end{equation}
 \viscomment{Is this a correct definition for the distribution?}
 
-The deformation model is now rendered fixed at certain landmark points in the target mesh and the goal is to find valid deformations through the set of fixed targets, analogous to the case of eq. \ref{eq:3.5a}. In other words the respective deformations at the template landmarks all co-define the distribution of possible deformations at all vertices of the template mesh. The posterior model is defined as the joint distribution of all template mesh points and the template landmarks, conditioned on the output deformation vectors for every template landmark with added noise.
+The deformation model is now rendered fixed at certain landmark points in the target mesh and the goal is to find valid deformations through the set of fixed targets, analogous to the case of eq. \ref{eq:3.5a}. In other words the respective deformations at the template landmarks co-define the distribution of possible deformations at all vertices of the template mesh. The posterior model is defined as the joint distribution of all template mesh points and the template landmarks, conditioned on the output deformation vectors for every template landmark with added noise.
 \begin{center}
 \begin{equation}
     \mathcal{D}\vert \mathcal{X} \rightarrow \mathcal{Y}_{\varepsilon}. 
 \end{equation}
 \end{center}
-We now have defined a distribution over our template mesh. \viscomment{mean/template is now max aposteriori solution} Sampling the conditional distribution and adding the resulting deformation onto the template creates deformed 3D surfaces of template mesh which are fixed at the target landmarks.
+We now have defined a distribution over our template mesh. Sampling the conditional distribution and adding the resulting deformation onto the template creates deformed 3D surfaces of template mesh which are fixed at the target landmarks.
+\viscomment{What about maximum a posteriori estimate? Does it return mode, most likely sample of the distribution?}
 \viscomment{show images of mean, prior and posterior with added landmarks}
-\begin{comment}The variance of the gaussian kernel can thereby be described as a smoothing parameter P\end{comment}
 
 \section{Fitting \& Optimization}
 \label{optimization}
+In the previous paragraph we modelled the space of feasible deformations as a vector-valued Gaussian Process. Due to the fact that the posterior model is fixed at the target landmarks it is possible to perform the registration by drawing a shape from the posterior model. The sample, however, has to be optimized according to the shape of the target face. 
+In order to find the deformation corresponding to the optimal fit $d_{*}$ a linear optimization is employed. \begin{equation}
+    d_{*} = \underset{d \in \mathbb{D}}{\textbf{arg min}}\quad L[\mathcal{T}, \mathcal{M }\circ d]+\lambda R[d]
+\end{equation}
+Therein the deformation vectors of the landmarks and the posterior process act as constraints in the regularization term R. Minimizing the loss function L - for example the mean square error (MSE) - on the target and the deformed template should provide us with the optimal deformation under the given constraints. $\mathbb{D}$ denotes the space of possible deformations in the posterior model.\\ 
 
-Due to the fact that the posterior model is fixed at the target landmarks it is possible to perform the registration by drawing a shape from the posterior model. The sample, however, has to be optimized according to the shape of the target face. 
-In order to find the deformation corresponding to the optimal fit $d_{*}$ a linear optimization with the posterior process as a constraint/(incorporated in regularization term) is employed.((small lambda) a bit of the posterior mean) 
+The problem with the above approach to optimization is that the deformations are modelled by a distribution and are therefore non-parametric. In order to properly perform optimization, however, we need a representation that can be controlled through/ is governed by a set of parameters. For this purpose we would like to specify a parametric model $\mathbb{M}[\alpha](x)=\mu(x)+ \sum^{n}_{i=1} \alpha_{i}\lambda_{i}\phi_{i}(x)$ which is defined over a finite set of basis
+functions. The question remains how the Gaussian Posterior Model can be expressed as a linear model. Fortunately, the answer lies in Mercer's Theorem. It states that a symmetric, non-negative definite, continuous function $k$ can be expressed by the following linear combination of a countable sequence of functions $\{\phi_{i}\}_{i \in \mathbb{N}}$
 \begin{equation}
-d_{*} = \underset{d \in \mathcal{D}}{\textbf{arg min}}\quad L[O_{\mathcal{T}}, O_{\mathcal{M}} \circ d]+\lambda R[d]
+    k(x,x') = \sum^{\infty}_{i=1}\lambda_{i}\phi_{i}(x)\phi_{i}(x') \in \mathbb{R}^{3 \times 3}
 \end{equation}
-Minimizing a loss function L - mean square distance for example - on the target and the deformed mean provides a feasible deformation field. 
-\mathcal{D} denotes the space of possible deformations in the posterior model. The information needed is held by the covariance matrix of the posterior process. However, using Mercer's theorem (in short what it does, yada yada yada) a basis of functions corresponding to all possible deformations can be extracted. The kernel is thus described as a linear model of these basis functions.    
-\viscomment{whole matrix or simple kernel?}
-\viscomment{refer to paper ``a unified formulation of statistical model fitting and non-rigid registration}
-\begin{equation}
-k(x,x') = \sum^{\infty}_{i=1}\lambda_{i}\phi_{i}(x)\phi_{i}(x')
-\end{equation}
-$\lambda_{i}$ are the eigenvalues and $\phi_{i}$ the eigenvectors of K. They denote the deformation directions while the eigenvalues \ldots
-We are looking for a finite linear combination of eigenvectors that form a deformation field with $\exists \alpha_{1} \cdots \alpha_{n} \in \mathbb{R}$ as linear parameters.
+Through the theorem we can define the covariance function of the our Gaussian Process Posterior in an infinite dimensional space made up of its eigenvalues $\lambda_{i}$ and eigenvectors $\phi_{i}: \mathbb{R}^3 \rightarrow \mathbb{R}^3$ which are functions in this case.
+This infinite basis of functions corresponds to all possible deformations at a specific vertex in the template mesh. By evaluating a basis function at every vertex we receive a basis deformation field. We can further use Mercer's theorem to obtain the sought parametric model by estimating the covariance function. In order to achieve this a low-rank approximation of the covariance function - in terms of the first leading terms of its Mercer expansion - is performed $k(x,x') =
+\sum^{n}_{i=1}\lambda_{i}\phi_{i}(x)\phi_{i}(x')$. For this to work the modelled deformations have to be sufficiently smooth, because we are disregarding a number of basis functions. Smoothness is guaranteed by the square exponential covariance function.
+We can further express the deformation at a given mesh vertex by a linear combination of the selected basis functions and their eigenvalues with $\alpha_{1} \cdots \alpha_{n} \in \mathbb{R}$ as the linear parameters
 \begin{equation}
 f(x) = \sum^{n}_{i=1} \alpha_{i}\lambda_{i}\phi_{i}(x)
 \end{equation}
-
-f ~ GP(0, K) we take our gaussian process
-> f | x=y, 
-\viscomment{ask Marcel for a helping hand with the theory?}
-
-Next, we want to minimize residuals for the whole of our surface according to optimal parameter values $\alpha_{i}$ 
+In effect, we have formulated the Gaussian Process Registration problem in parametric form. Next, we want to minimize the residuals for all the points on the template surface according to optimal parameter values $\alpha_{i}$ 
 \begin{equation}
-    \underset{\alpha \in \mathbb{R}^n}{\textbf{arg min}}\quad \Sigma_{x_{i} \in \mathcal{T}_{R}} (f(x_{i}) - \phi_{T}(x_{i}))^2
+    \underset{\alpha \in \mathbb{R}^n}{\textbf{arg min}}\quad \Sigma_{x_{i} \in \mathcal{M}} (f(x_{i}) - \varphi_{T}(x_{i}))^2
 \end{equation}
-where $f(x_{i})$ is the deformation function and $\varphi_{T}(x_{i})$ returns the nearest point on the target mesh. Yields the overall loss function $\Phi_{L}$ 
+where $f(x_{i})$ is the deformation function and $\varphi_{T}(x_{i})$ returns the nearest point on the target mesh. The optimization problem therefore becomes
+\begin{equation}
+    \alpha_{*} = \underset{\alpha \in \mathbb{R}^n}{\textbf{arg min}}\quad L[\mathcal{T}, \mathcal{M }\circ \mathbb{M}[\alpha]]+\lambda R[\alpha]
+\end{equation}
+
+Write as statistical PCA based shape model
+
+\begin{comment}
+Yields the overall loss function $\Phi_{L}$ 
 \begin{equation}
 \Phi_{L}(f(x_{i})-\varphi_{T}(x_{i}))
 \end{equation}
-
+Mercer's theorem analogue to eigenvalue decomposition
+An alternative way of viewing the process is the eigenvalue decomposition of the whole covariance matrix
+The information needed is held by the covariance matrix of the posterior process. 
+K = sum over lambda times eigenvectors
+http://www.quora.com/Mathematics/Can-you-explain-Mercers-Theorem
+They denote the deformation directions while the eigenvalues \ldots
+ne eigenvalue function by itself returns a global basis deformation when applied to every vertex. 
 The eigen vectors - which are deformation vectors defining a deformation for every model vertex - of the covariance matrix define a basis space? 
 Shape Modell => select best eigenvectors via PCA in order to simplify computation.
-
 => Vorstellen wie wenn mehrere Wellbleche durch die Target"\_"landmarks gelegt werden und dann mit bestimmten parametern alpha zwischen ihnen interpoliert wird
 Alternative way to understand basis functions for gaussian process:
 sample from the GP(0, K)
@@ -252,5 +260,5 @@ Posterior Distribution of Landmarks
 Defining the Gaussian Process
 Posterior Distribution - Landmarks (Referenz deformieren 
 From Gaussian Processes to Shape Models => by selected principal components of the covariance matrix
-
+\end{comment}
 

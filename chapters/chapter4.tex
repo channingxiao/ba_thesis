@@ -3,12 +3,13 @@ In this chapter we describe how the Vector-valued Gaussian Model is utilized in 
 \viscomment{pipeline type important?}
 
 \section{Line Features}
+We use a large set of corresponding points\ldots
 Line features serve the purpose of augmenting the quality of registration by initiating it with a larger set of corresponding points, by sampling points from the lines themselves. They are used to mark complex regions of the face, i.e. the eyes and ears, so that the registration process produces an accurate mapping of the contours of these organs which would otherwise not be possible. Without the prior information provided by line features, an accurate mapping in these
 regions is hard to achieve, because they have a dense abundance of points, while regions like the cheeks are scarcely defined by points.\\
 \viscomment{the following is some old text ready to incorporate}
-The idea behind the use of sampled points from the line features was to have more point correspondencies in complex regions as for example the eyes and the ears where there is a great abundancy of pixels and the algorithm isn’t likely to create a flow field which is accurate not enough to describe these regions, because of it’s smoothness constraint.
+The idea behind the use of sampled points from the line features was to have more point correspondencies in complex regions as for example the eyes and the ears where there is a great abundancy of pixels and the algorithm isn’t likely to create a flow field which is accurate not enough to describe these regions \viscomment{Und sehr spezifische zuordnung, wenn die Augenkante versetzt ist, sieht man das sofort}, because of it’s smoothness constraint.
 
-For every scan we want to register, we have 8 contours given. These have been marked on three images of every face, see Fig section 1.3, with a special Graphical User Interface for marking points and lines on images. The contours we call line features depict the eyebrows, eyes, ears and lips of a face. They are made up of a set of segments, each of which is modelled with a \textbf{B\'{e}zier curve} of a specified order. B\'{e}zier curves are often used in Computer
+We have 8 contours given for every scan we want to register. These have been marked on three images of every face, see Fig section 1.3. The contours we call line features depict the eyebrows, eyes, ears and lips of a face. They are made up of a set of segments, each of which is modelled with a \textbf{B\'{e}zier curve} of a specified order. B\'{e}zier curves are often used in Computer
 Graphics for modelling smooth curves of varying order. Given a set of control points $\mathcal{P} = \{P_{0}, P_{1}, P_{2}, \ldots, P_{n}\}$ the B\'{e}zier curve through these points is given by
 \begin{equation}
     C(t)=\sum_{i=0}^{n}P_{i}B_{i,n}(t)
@@ -77,6 +78,7 @@ vereinfachen dies durch unsere Äquidistantz Annahme und sagen dies sei dann gen
 \end{figure}
 
 \subsection{Arc Length Parametrization}
+We decided to use equidistant parametrization, but bezier curves don't allow it.
 The first problem which becomes apparent when trying to sample the line features is that the b\'{e}zier curve segments don't allow for equidistant parametrization, because the underlying parameter $t \in \mathbb{R}$ is not linear in respect to the length of the curve. The growth of the parameter of a b\'{e}zier curve is instead dictated by velocity.
 
 \def\earpathf{(-1,1.5) .. controls (-1,2.3) and (1,2.8) .. (1,1.5) .. controls (1, -.2) and (0.3,-.1) .. (0.3,-1) .. controls (0.2,-1.5) and (-.5, -1.7) .. (-1,-1.25);}
@@ -171,8 +173,11 @@ After the projetion, we have added samples from the line features to our set of 
 Before we can start with initializing Gaussian Models, we first have to ensure that template and target mesh are aligned in the same coordinate system. After all, we want to model the variability of different faces without incorporating an additional offset. We therefore have to perform a rigid transformation \viscomment{What kind of RT?} 
 rotation + translation
 % http://www.math2k.com/pre-algebra/rigid-transformations-examples-and-worksheets/
-aligning the meshs according to their landmarks. \viscomment{Now in order to receive a perfect mapping of the floating mesh on to the mean/reference mesh we have to allow for 3 degrees of freedom, that is in all 3 dimensions x,y and z, for every pixel in the floating mesh except for the reference points we have used as correspondencies. The parameters having the most influence to the mapping will be those specified in the constraints we introduced into the equation via
-regularization.} We use the set of landmark whose identifiers are present in both meshs.
+aligning the meshs according to their landmarks.
+\begin{comment}\viscomment{Now in order to receive a perfect mapping of the floating mesh on to the mean/reference mesh we have to allow for 3 degrees of freedom, that is in all 3 dimensions x,y and z, for every pixel in the floating mesh except for the reference points we have used as correspondencies. The parameters having the most influence to the mapping will be those specified in the constraints we introduced into the equation via
+regularization.}
+\end{comment}
+We use the set of landmark whose identifiers are present in both meshs.
 \viscomment{The face scans have to be clipped at the neck and around the ears where the scanner has left artifacts.} 
 The computed transformation is applied to all vertices of the respective face scan. 
 The mean face was broader in shape than the scan and was perfectly coated in texture for the simple reason that hours of manual labour have been invested to render this important piece of data a perfect reference.
@@ -189,6 +194,7 @@ The aligned meshs serve as the starting point for the registration.
 
 We are now set for the actual registration involving the Prior and Posterior Gaussian Models and the Fitting. For the definition of the Gaussian Process distributions we use the software framework statismo developed at the Computer Science Department of the University of Basel. It is a framework for PCA based statistical models. These are used to describe the variability of an object within a population, learned from a set of training samples. We use it to generate a
 statistical model of the template mesh. Furthermore we use the software package gpfitting for the actual fitting. 
+\viscomment{gpfitting} is also statismo
 
 \section{Prior Model}
 imperative: build prior faces resulting from possible deformations of template
