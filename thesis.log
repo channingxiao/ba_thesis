@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  19 JUL 2013 17:29
+This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  20 JUL 2013 17:39
 entering extended mode
  %&-line parsing enabled.
 **thesis.tex
@@ -945,7 +945,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 (./abstract.tex) [2] (./thesis.toc) (./chapters/chapter1.tex [3]
 
-LaTeX Warning: Characters dropped after `\end{comment}' on input line 3.
+LaTeX Warning: Characters dropped after `\end{comment}' on input line 4.
 
 [4
 
@@ -1084,6 +1084,6 @@ Here is how much of TeX's memory you used:
  19100 multiletter control sequences out of 15000+50000
  16543 words of font info for 62 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 69i,12n,60p,727b,655s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 69i,12n,60p,677b,655s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on thesis.pdf (28 pages).

@@ -1,14 +1,33 @@
 \chapter{Introduction}
-Registration is the method of making data from different measurements or even sources comparable by applying a transformation. It has many applications, for example in computer vision and medically imaging.
-Registration is also the first step in building a 3D model of morphable faces using facial scans. It is used to establish a dense correspondence between the input scans with a transformation. This transformation is normally computed with the help of a set of corresponding points and assures that the vertices defining the surface of the scans are semantically structured in a way that they describe the same parts of the face. \begin{comment}Correspondence betweenk two faces is established by deforming a template face on to a target face.\end{comment} Defining a reproducable and accurate registration algorithm is therefore essential to obtaining a ``good'' 3D model. 
-In this thesis we present a registration algorithm which is novel to the problem of 3D  face registration in two ways: the transformation is modeled using Gaussian Process Regression (GPR), a method from the field of Machine Learning and the prior information used in the transformation is extended to parametric curves marking key regions of the face, refered to as line features. It covers Model Building bascis, the theory behind GPR Theory, the implementation of a
-face registration pipeline using GPR and line features. The registration results give a first expression of what registration results can be achieved with this approach
+\begin{comment}3D Face Models have a wide variety of applications. They are used in\end{comment}
+Face recognition from 2D images, 3D face reconstruction from 2D images and the determination of facial expressions in face image analysis are all applications of 3D Face Models. Registration is the first step in the process of deriving such 3D models of morphable faces from a set of facial scans. It is used to establish the required dense correspondence between the input scans via a transformation. This transformation is normally computed with the help of a set of corresponding
+points and assures that the vertices defining the surface of the scans are semantically structured such that they describe the same parts of the face. \begin{comment}Correspondence betweenk two faces is established by deforming a template face on to a target face.\end{comment} Defining a reproducable and accurate registration algorithm is therefore essential to obtaining a high-quality 3D model. 
+In this thesis we present a registration algorithm which tackles the problem of 3D face registration by modeling the transformation using Gaussian Process Regression (GPR) and extending the prior information used in the transformation to parametric curves - referred to as line features - which define key regions of the face.
 
-\section{Previous Work}
-Rasmussen
-Luethi
+\section{Prior Work}
+Gaussian Processes for Machine Learning were comprehensively introduced in [1]
+%(Gaussian Processes for Machine Learning - Carl Edward Rasmussen and Christopher K. I. Williams)
+as an approach for defining a prior distribution over a space of functions. A Gaussian Process (GP) is a stochastic process, which in turn can be seen as the generalization of probability distributions to functions. Computations prove to be straightforward because a GP is modelled by a multivariate normal distribution. In the Graphics and Vision Group at the University of Basel Gaussian Processes have so far been used to describe transformation priors in Image Registration
+[2] (Using Landmarks as a Deformation Prior for Hybrid Image Registration). In this context GP allows for defining a space of possible transformations of an image and further allows for incorporating point correspondences as additional information for inference of admissible deformations. The distinction in regard to other registration methods lies therein that the corresponding points are not hard-wired in the transformation, but instead modify the prior to include only the
+more feasible transformations. In [3] the process of
+formulating the fitting and optimization of the admissible transformations is described for image registration. GPR has further been used to infer shapes in statistical shape models [4]. In short, the reason for applying GPR is its reproducability in modelling a deformation prior for abritrary shapes.\\ 
+The registration methods used so far [5] in 3D face registration are specifically designed for this context are therefore not very well reproducable. Furthermore, these registration methods have to be directly constrained on point correspondences in the optimization process, whereas with GPR only admissible transformations have to be optimized. In effect, the advantage of applying GPR to the problem of 3D face registration is that it is based on Bayesian Machine Learning Theory, allows for
+the easy incorporation of a prior known correspondences and is therefore highly customizable.
 
+\section{Overview}
+In face registration the different a common parametrization has to be established for all face scans. Using a GP in 3D face registration models a space of possible prior
+deformations of a facial scan for the purpose of registering it with another scan. The given a priori point correspondences - called landmarks - are used as additional information constraining the space of possible deformations. The line features, introduced above, describe complex regions of the face that have a large abundance of surface vertices, which have to be brought into dense correspondence with those of the other scans. With the help of line features we want to infer
+deformations that result in a more accurate mapping of these regions and therefore better
+registration results. \begin{comment}As GPR is an inference technique we can further directly derive the optimization.\end{comment}
+Using GPR in the registration process results in a highly customizable algorithm, that is  dependent on the covariance of the surface points on the a priori given information. 
+The following chapters cover the basics of building 3D morphable models, GPR theory and the implementation of a face registration
+pipeline with the above-mentioned algorithm. The registration results shown in the last chapter give a first expression of what this method is capable of and how the incorporation of line features affects the registration outcome. 
+The question of how to incorporate the line features in the registration process will be answered in the course of this thesis.
 
+\begin{comment}
+One of the major questions beforehand was how to incorporate 
+One of the major problems was how to use line features in a way that they could be used by the algorithm to further constrain the space of admissible deformations.
+How to incorporate information of the 2D line features into the Gaussian Process?
 
 start with idea of how thesis will be structured. What will be covered in each subsequent chapter?
 start broad, explain purpose of thesis
@@ -19,4 +38,5 @@ best work in the field, what gaps of knowledge remain? Brian ambergs registratio
 conclusion, but set up sense of anticipation
 summarise general principles, state problem or question that needs an answer and give quick hint how following chapters will help to answer question
 
-
+Registration is the method of making data from different measurements or even sources comparable by applying a transformation. It has many applications, for example in computer vision and medically imaging.
+\end{comment}
