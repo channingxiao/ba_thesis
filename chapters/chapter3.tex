@@ -175,14 +175,18 @@ k(\vect{x}_{n},\vect{x}_{1}) & \cdots & k(\vect{x}_{n},\vect{x}_{n})
 \end{equation}
 
 The template mesh is defined by a set of vectors $\mathcal{X} \in \mathbb{R}^3$ and a set of landmarks $L_\mathcal{M}=\{l_{1}, \cdots, l_{n}\} \subset \mathbb{R}^3$.
-\viscomment{Introduce landmarks in model building}
 The mean vector $\mu$ is made up of the component-wise listing of vectors so that it has dimensionality $3n$. Setting the whole mean vector to zero, as discussed before, implies a mean deformation of zero and makes perfect sense in this setting, because we are modelling deformations of the template surface. 
 The prior distribution over the template mesh is therefore defined as 
 \begin{equation}
     \mathcal{D} \sim \mathcal{N}(\vect{0}, \Sigma_{\mathcal{X}})
 \end{equation}
-meaning that a sample deformation field can be directly drawn from the prior distribution of the template mesh. \viscomment{show two or three samples of prior here, next to template/mean mesh or reference images in chapter4???}
-
+meaning that a sample deformation field can be directly drawn from the prior distribution of the template mesh.
+\begin{figure}[h!]
+    \includegraphics[width=\textwidth]{./resources/img/prior_deformations.pdf}
+    \caption{a sample \textbf{prior} deformation field - depicted with a set of \textcolor{blue}{blue arrows} on the textured template face.}
+\label{fig:priordeformations}
+% reference in text by \ref{$figure-name}
+\end{figure}
 \paragraph{Reference Mesh Posterior}
 The target landmarks also consist of a set $L_{\mathcal{T}} = \{l_{\mathcal{M}1},\cdots, l_{\mathcal{M}N}\} \subset \mathbb{R}^3$. 
 Fixing the prior output to the deformation vectors $\mathcal{Y}=\{\vect{t}-\vect{m}\vert \vect{t} \in L_{\mathcal{T}}, \vect{m} \in L_{\mathcal{M}}\}$ - defined by the distance between the template and target landmarks - and assuming additive i.i.d Gaussian noise, the resulting posterior distribution is
@@ -197,15 +201,29 @@ Fixing the prior output to the deformation vectors $\mathcal{Y}=\{\vect{t}-\vect
 \end{equation}
 \viscomment{Is this a correct definition for the distribution?}
 
-The deformation model is now rendered fixed at certain landmark points in the target mesh and the goal is to find valid deformations through the set of fixed targets, analogous to the case of eq. \ref{eq:3.5a}. In other words the respective deformations at the template landmarks co-define the distribution of possible deformations at all vertices of the template mesh. The posterior model is defined as the joint distribution of all template mesh points and the template landmarks, conditioned on the output deformation vectors for every template landmark with added noise.
+The deformation model is now rendered approximately fixed at the landmarks in the target mesh and the goal is to find valid deformations through the set of fixed targets, analogous to the case of eq. \ref{eq:3.5a}. In other words the respective displacements at the template landmarks co-define the distribution of possible deformations of all vertices in the template mesh.
+\begin{figure}[h!]
+    \includegraphics[width=\textwidth]{./resources/img/posterior_deformations.pdf}
+    \caption{a sample \textbf{posterior} deformation field depicted with a set of \textcolor{blue}{blue arrows} on the textured template face. The white spheres are the landmarks of the template mesh which are mapped on to the \textcolor{red}{red landmarks} of the target.}
+\label{fig:posteriordeformations}
+\viscomment{make same images without line features and display instead}
+\end{figure}
+The posterior model is defined as the joint distribution of all template mesh points and the
+template landmarks, conditioned on the output displacement vectors for every template landmark with added noise. 
 \begin{center}
 \begin{equation}
     \mathcal{D}\vert \mathcal{X} \rightarrow \mathcal{Y}_{\varepsilon}. 
 \end{equation}
 \end{center}
-We now have defined a distribution over our template mesh. Sampling the conditional distribution and adding the resulting deformation onto the template creates deformed 3D surfaces of template mesh which are fixed at the target landmarks.
-\viscomment{What about maximum a posteriori estimate? Does it return mode, most likely sample of the distribution?}
-\viscomment{show images of mean, prior and posterior with added landmarks}
+\begin{figure}[h!]
+    \centering
+    \subfloat[Posterior mesh with target landmarks]{\includegraphics[width=.4\textwidth]{./resources/img/posterior_deformation_landmarks_front.pdf}}
+    \quad\quad
+    \subfloat[Prior mesh]{\includegraphics[width=.4\textwidth]{./resources/img/deformation_prior_msh.pdf}}
+    \caption{a) is a posterior mesh, obtained by adding a sample deformation field to the template. In comparison to the mesh in b) the mesh in a) is much more face-like. The reason for this that the displacement of the landmarks has constricted the space of deformations to solely admissible deformations}
+\label{fig:meshposterior}
+\end{figure}
+We now have defined a distribution over our template mesh. Sampling the conditional distribution and adding the resulting deformation onto the template creates deformed 3D surfaces of the template mesh which are fixed at the target landmarks \ref{fig:meshposterior}.
 
 \section{Fitting \& Optimization}
 \label{optimization}

@@ -1,1 +1,107 @@
 \chapter{Results}
+
+\section{Sampling}
+\paragraph{Problems \& Inacurracies}
+The face meshs used in the face registration pipeline contain large holes around the ears and the eyes. In effect, the projected sample points are off target, because now the mesh vertex with the most similar direction is likely farther away at a suboptimal location. This circumstance leads to the projected line not clearly being distinguishable as a contour line. On different data sets the performance of the projection of the line features for a large number of
+samples, i.e. 30, varied significantly. Overall one can say that the distortion of a projected line increases with the amount of sample points.
+\viscomment{Compute some landmarks with 30 samples}
+\viscomment{up close image of eye holes of face scan}
+An easy workaround was to reduce the number/amount of sample points. By using only 5-10 sample points per curve some datasets rendered near perfect results on a ``control dataset''. \viscomment{Compile list of datasets, show samples} 
+However, when the holes are too large this workaround also fails. This circumstance leaves room for discussion. As long as the method is dependent on the data from the scans - the size of the holes in the meshs - it lacks generality and generality is exactly the basis for feasible and reproducable registration results.\\
+
+
+\section{The effect of Line Features}
+00029
+\begin{figure}[h!]
+   \subfloat[without line features, with texture]{}
+    \subfloat[with line features, with texture]{}
+    \subfloat[target with texture]{}
+\caption{Eyes}
+\label{fig:fiteyes}
+% reference in text by \ref{$figure-name}
+\end{figure}
+
+\begin{figure}[h!]
+    \subfloat[without line features]{}
+    \subfloat[with line features]{}
+    \subfloat[target]{}
+    \subfloat[without line features, with texture]{}
+    \subfloat[with line features, with texture]{}
+    \subfloat[target with texture]{}
+
+\caption{Ears}
+\label{fig:fitears}
+% reference in text by \ref{$figure-name}
+\end{figure}
+
+\begin{figure}[h!]
+    \subfloat[without line features]{}
+    \subfloat[with line features]{}
+    \subfloat[without line features, with texture]{}
+    \subfloat[with line features, with texture]{}
+    \subfloat[target with texture]{}
+\caption{Nose}
+\label{fig:fitnose}
+% reference in text by \ref{$figure-name}
+\end{figure}
+
+\section{Registration quality}
+
+\subsection{Visualized Distance}
+with line features
+\begin{figure}[h!]
+    \centering
+    \subfloat[target front]{\includegraphics[width=.8\textwidth]{./resources/img/00029_textured_target.pdf}}\\
+    \subfloat[deformed mean]{\includegraphics[width=.8\textwidth]{./resources/img/00029_fit.pdf}}\\
+    \subfloat[distance]{\includegraphics[width=.8\textwidth]{./resources/img/00029_distmap.pdf}}
+    \caption{}
+\label{fig:distmap}
+% reference in text by \ref{$figure-name}
+\end{figure}
+
+\begin{figure}[h!]
+    \subfloat[target front]{}
+    \subfloat[deformed mean]{}
+    \subfloat[distance]{}
+
+    \subfloat[target left]{}
+    \subfloat[deformed mean]{}
+    \subfloat[distance]{}
+
+    \subfloat[target right]{}
+    \subfloat[deformed mean]{}
+    \subfloat[distance]{}
+    \caption{}
+\label{fig:distmap}
+% reference in text by \ref{$figure-name}
+\end{figure}
+
+\begin{figure}[h!]
+    \subfloat[target]{}
+    \subfloat[deformed mean]{}
+    \subfloat[distance]{}
+    \caption{}
+\label{fig:distmap}
+% reference in text by \ref{$figure-name}
+\end{figure}
+
+\subsection{Caricatures}
+Caricatures rendered by adding scaled displacement fields
+
+\begin{figure}[h!]
+    \centering
+    \subfloat[130\% scale]{\includegraphics[width=.8\textwidth]{./resources/img/00029_caricature_1_3.pdf}}\\
+    \subfloat[160\% scale]{\includegraphics[width=.8\textwidth]{./resources/img/00029_caricature_1_6.pdf}}\\
+    \subfloat[200\% scale]{\includegraphics[width=.8\textwidth]{./resources/img/00029_caricature_2.pdf}}\\
+    \subfloat[130\% scale]{\includegraphics[width=.8\textwidth]{./resources/img/00303_caricature_1_3.pdf}}\\
+    \subfloat[160\% scale]{\includegraphics[width=.8\textwidth]{./resources/img/00303_caricature_1_6.pdf}}\\
+    \subfloat[200\% scale]{\includegraphics[width=.8\textwidth]{./resources/img/00303_caricature_2.pdf}}
+   \caption{}
+\label{fig:caricature}
+% reference in text by \ref{$figure-name}
+\end{figure}
+
+
+
+
+00125 - scan of old man --> wrinkles can't be modelled through this smooth definition of covariance - adjust covariance function

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="780"
+   height="300"
+   id="svg3103"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="prior_sample_2_profile.pdf">
+  <defs
+     id="defs3105" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="375"
+     inkscape:cy="40"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     fit-margin-bottom="-2.7755576e-17"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     inkscape:window-width="1317"
+     inkscape:window-height="744"
+     inkscape:window-x="49"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3306"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true"
+       originx="0px"
+       originy="-760px" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata3108">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,7.6378174)">
+    <image
+       y="0.36218262"
+       x="260"
+       id="image3545"
+       xlink:href="file:///home/fab/mean_samples/prior_2.png"
+       height="285.87875"
+       width="267" />
+    <image
+       y="-11.637817"
+       x="530"
+       id="image3610"
+       xlink:href="file:///home/fab/mean_samples/prior_2_frontleft.png"
+       height="294.44443"
+       width="250" />
+    <image
+       y="-3.6378174"
+       x="0"
+       id="image3675"
+       xlink:href="file:///home/fab/mean_samples/prior_1_frontright.png"
+       height="287.957"
+       width="260" />
+  </g>
+</svg>
