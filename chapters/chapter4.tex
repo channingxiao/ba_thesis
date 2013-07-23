@@ -135,7 +135,7 @@ The mean mesh has to be rendered with three different camera callibrations for m
 \begin{figure}[h!]
 \centering
 \includegraphics[width=.8\textwidth]{./resources/img/overlap_mean_target.pdf}\\
-\caption{overlap of textured mean template with gray target scan}
+\caption{Overlap of textured mean template with gray target scan}
 \label{fig:overlap}
 \end{figure}
 
@@ -178,17 +178,16 @@ face-like.
 \caption{Posterior faces computed from samples drawn from the GP Posterior. The resulting faces are considerably more face-like than those in fig. \ref{priorprofile}}
 \end{figure}
 
-\section{Fitting}
-Using statismo to represent the parametric representation of the Gaussian Process Posterior Distribution
-Perform optimization
-\viscomment{Schema of ITK optimizer}
+\section{Optimization of the Posterior}
+Before starting the optimization we again use the statismo framework to obtain the parametric representation of the GP Posterior Model of the template. This part of statismo framework built on the Insight Toolkit (ITK) is used to optimize the parameters for the set of chosen basis functions. In each step the optimizer computes the parameters that cause a minimum in a specified similarity measure. We used the Mean Square Error (MSE) as a similarity measure. This process is reiterated until the similarity measure stays within a tolerance interval for a fixed
+number of iterations.
+\viscomment{Schema of ITK optimizer?}
 
-What are we optimizing? L2??? --> not robust to outliers, protruding regions.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=.8\textwidth]{./resources/img/00029_meansquares_fit.pdf}
 \label{fig:msquaresfit}
-\caption{Mean Squares as distance metric}
+\caption{A fit of the template mesh obtained using the Mean Squares Error as the distance metric. The deformation in the regions where template and target do not overlap cause major distortions in the resulting fit.}
 \end{figure}
 
 \section{Robust Loss Functions}

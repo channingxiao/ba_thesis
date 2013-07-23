@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  23 JUL 2013 12:07
+This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  23 JUL 2013 12:27
 entering extended mode
  %&-line parsing enabled.
 **thesis.tex
@@ -1244,23 +1244,24 @@ LaTeX Warning: Reference `priorprofile' on page 30 undefined on input line 178.
 LaTeX Warning: Reference `priorprofile' on page 30 undefined on input line 178.
 
 
+[30]
 File: ./resources/img/00029_meansquares_fit.pdf Graphic file (type QTm)
-<use  "./resources/img/00029_meansquares_fit.pdf" > [30]
+ <use  "./resources/img/00029_meansquares_fit.pdf" >
 
-LaTeX Warning: Reference `overlap' on page 31 undefined on input line 195.
+LaTeX Warning: Reference `overlap' on page 31 undefined on input line 194.
 
 
 LaTeX Warning: Reference `sec:optimization' on page 31 undefined on input line 
-196.
+195.
 
 ! Too many }'s.
-l.198 ...d from the next point on the target mesh}
+l.197 ...d from the next point on the target mesh}
                                                    However, as can be seen f...
 You've closed more groups than you opened.
 Such booboos are generally harmless, so keep going.
 
 ! Extra }, or forgotten $.
-l.206 ...(x)=\frac{x}{1+\frac{\left|x\right|}{c}}}
+l.205 ...(x)=\frac{x}{1+\frac{\left|x\right|}{c}}}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1273,7 +1274,11 @@ File: ./resources/img/00029_textured_target.pdf Graphic file (type QTm)
  <use  "./resources/img/00029_textured_target.pdf" >
 File: ./resources/img/00029_fit.pdf Graphic file (type QTm)
 
-<use  "./resources/img/00029_fit.pdf" >) (./chapters/chapter5.tex [32]
+<use  "./resources/img/00029_fit.pdf" >
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (./chapters/chapter5.tex [32] [33]
 ! Undefined control sequence.
 <argument> ...ternumberline {\thechapter }\f@rtoc 
                                                   }{\thepage }}
@@ -1790,7 +1795,7 @@ File: ./resources/img/00029_distmap.pdf Graphic file (type QTm)
 <use  "./resources/img/00029_distmap.pdf" >
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [33
+ [34
 
 ]
 
@@ -2137,7 +2142,7 @@ it was not a recognized image format.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [34] [35] [36] [37]
+) [35] [36] [37] [38]
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
@@ -2158,4 +2163,4 @@ Here is how much of TeX's memory you used:
  28 hyphenation exceptions out of 8191
  69i,12n,60p,701b,659s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on thesis.pdf (37 pages).
+Output written on thesis.pdf (38 pages).
