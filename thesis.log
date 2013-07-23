@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  22 JUL 2013 22:55
+This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  23 JUL 2013 12:07
 entering extended mode
  %&-line parsing enabled.
 **thesis.tex
@@ -976,7 +976,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [1
 
 ]
-(./abstract.tex) [2] (./thesis.toc [3]) (./chapters/chapter1.tex [4]
+(./abstract.tex) [2] (./thesis.toc
+Underfull \vbox (badness 1596) has occurred while \output is active []
+
+ [3])
+(./chapters/chapter1.tex [4]
 ! Undefined control sequence.
 <argument> ...ternumberline {\thechapter }\f@rtoc 
                                                   }{\thepage }}
@@ -1069,19 +1073,16 @@ and I'll forget about whatever was undefined.
 [11
 
 ]
-Missing character: There is no ’ in font cmr12!
- [12]
 File: ./resources/figures/gp_prior.eps Graphic file (type eps)
  <./resources/figures/gp_prior.eps>
 File: ./resources/figures/gp_posterior.eps Graphic file (type eps)
+ <./resources/figures/gp_posterior.eps>
 
-<./resources/figures/gp_posterior.eps> [13]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Warning: Characters dropped after `\end{comment}' on input line 120.
-
-[14]
+[12] [13] [14]
 ! Undefined control sequence.
-l.152 ...and is to register a reference or \textbb
+l.141 ...and is to register a reference or \textbb
                                                   {template} face mesh with ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1090,33 +1091,38 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `chapter 4' on page 15 undefined on input line 159.
+Overfull \hbox (0.3216pt too wide) in paragraph at lines 146--148
+\OT1/cmr/bx/n/12 Vector-valued Gaus-sian Pro-cesses[] \OT1/cmr/m/n/12 In or-der
+ to use Gaus-sian Pro-cesses to model
+ []
+
+
+LaTeX Warning: Reference `chapter 4' on page 15 undefined on input line 151.
 
 [15]
 File: ./resources/img/prior_deformations.pdf Graphic file (type QTm)
  <use  "./resources/img/prior_deformations.pdf" >
-File: ./resources/img/posterior_deformations.pdf Graphic file (type QTm)
-
-<use  "./resources/img/posterior_deformations.pdf" >
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[16]
+File: ./resources/img/posterior_deformations.pdf Graphic file (type QTm)
+<use  "./resources/img/posterior_deformations.pdf" > [16]
 File: ./resources/img/posterior_deformation_landmarks_front.pdf Graphic file (t
 ype QTm)
- <use  "./resources/img/posterior_deformation_landmarks_front.pdf" >
+
+<use  "./resources/img/posterior_deformation_landmarks_front.pdf" >
 File: ./resources/img/deformation_prior_msh.pdf Graphic file (type QTm)
 
 <use  "./resources/img/deformation_prior_msh.pdf" >
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--235
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 223--225
 
  []
 
-[17] [18]) (./chapters/chapter4.tex [19]
+[18] [19]) (./chapters/chapter4.tex [20]
 ! Undefined control sequence.
 <argument> ...ternumberline {\thechapter }\f@rtoc 
                                                   }{\thepage }}
@@ -1140,32 +1146,32 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `section:' on page 20 undefined on input line 2.
+LaTeX Warning: Reference `section:' on page 21 undefined on input line 2.
 
 
 Underfull \vbox (badness 4492) has occurred while \output is active []
 
- [20
+ [21
 
 ]
 File: ./resources/img/eyebrow_left.jpeg Graphic file (type QTm)
 
-<use  "./resources/img/eyebrow_left.jpeg" > [21]
+<use  "./resources/img/eyebrow_left.jpeg" > [22]
 File: ./resources/figures/ears_diffparam.pdf Graphic file (type QTm)
 
 <use  "./resources/figures/ears_diffparam.pdf" >
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[22]
+[23]
 File: ./resources/figures/distance_computation.pdf Graphic file (type QTm)
  <use  "./resources/figures/distance_computation.pdf" >
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[23]
+[24]
 File: ./resources/figures/projection.pdf Graphic file (type QTm)
- <use  "./resources/figures/projection.pdf" > [24]
+ <use  "./resources/figures/projection.pdf" > [25]
 File: ./resources/img/mean_msh.pdf Graphic file (type QTm)
 
 <use  "./resources/img/mean_msh.pdf" >
@@ -1178,7 +1184,7 @@ Underfull \hbox (badness 5022) in paragraph at lines 131--131
 |\OT1/cmr/m/n/12 mean mesh of
  []
 
-[25]
+[26]
 File: ./resources/img/overlap_mean_target.pdf Graphic file (type QTm)
  <use  "./resources/img/overlap_mean_target.pdf" >
 Underfull \hbox (badness 10000) in paragraph at lines 143--146
@@ -1196,17 +1202,17 @@ File: ./resources/figures/pipeline.pdf Graphic file (type QTm)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Reference `bib:statismo' on page 26 undefined on input line 155.
+LaTeX Warning: Reference `bib:statismo' on page 27 undefined on input line 155.
 
 
 
-LaTeX Warning: Reference `sec:optimization' on page 26 undefined on input line 
+LaTeX Warning: Reference `sec:optimization' on page 27 undefined on input line 
 156.
 
-[26]
+[27]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [27]
+ [28]
 File: ./resources/img/prior_sample_2_profile.pdf Graphic file (type QTm)
 
 <use  "./resources/img/prior_sample_2_profile.pdf" >
@@ -1214,37 +1220,37 @@ File: ./resources/img/prior_sample_3_profile.pdf Graphic file (type QTm)
 
 <use  "./resources/img/prior_sample_3_profile.pdf" >
 
-LaTeX Warning: Reference `chapter:GP' on page 28 undefined on input line 167.
+LaTeX Warning: Reference `chapter:GP' on page 29 undefined on input line 167.
 
 
 Package caption Warning: \label before \caption on input line 162.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:priorprofile' on page 28 undefined on input line 
+LaTeX Warning: Reference `fig:priorprofile' on page 29 undefined on input line 
 167.
 
-[28]
+[29]
 File: ./resources/img/posterior_sample_17.pdf Graphic file (type QTm)
  <use  "./resources/img/posterior_sample_17.pdf" >
 File: ./resources/img/posterior_sample_23.pdf Graphic file (type QTm)
 
 <use  "./resources/img/posterior_sample_23.pdf" >
 
-LaTeX Warning: Reference `priorprofile' on page 29 undefined on input line 178.
+LaTeX Warning: Reference `priorprofile' on page 30 undefined on input line 178.
 
 
 
-LaTeX Warning: Reference `priorprofile' on page 29 undefined on input line 178.
+LaTeX Warning: Reference `priorprofile' on page 30 undefined on input line 178.
 
 
 File: ./resources/img/00029_meansquares_fit.pdf Graphic file (type QTm)
-<use  "./resources/img/00029_meansquares_fit.pdf" > [29]
+<use  "./resources/img/00029_meansquares_fit.pdf" > [30]
 
-LaTeX Warning: Reference `overlap' on page 30 undefined on input line 195.
+LaTeX Warning: Reference `overlap' on page 31 undefined on input line 195.
 
 
-LaTeX Warning: Reference `sec:optimization' on page 30 undefined on input line 
+LaTeX Warning: Reference `sec:optimization' on page 31 undefined on input line 
 196.
 
 ! Too many }'s.
@@ -1262,12 +1268,12 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-[30]
+[31]
 File: ./resources/img/00029_textured_target.pdf Graphic file (type QTm)
  <use  "./resources/img/00029_textured_target.pdf" >
 File: ./resources/img/00029_fit.pdf Graphic file (type QTm)
 
-<use  "./resources/img/00029_fit.pdf" >) (./chapters/chapter5.tex [31]
+<use  "./resources/img/00029_fit.pdf" >) (./chapters/chapter5.tex [32]
 ! Undefined control sequence.
 <argument> ...ternumberline {\thechapter }\f@rtoc 
                                                   }{\thepage }}
@@ -1784,7 +1790,7 @@ File: ./resources/img/00029_distmap.pdf Graphic file (type QTm)
 <use  "./resources/img/00029_distmap.pdf" >
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [32
+ [33
 
 ]
 
@@ -2131,7 +2137,7 @@ it was not a recognized image format.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [33] [34] [35] [36]
+) [34] [35] [36] [37]
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
@@ -2144,12 +2150,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16415 strings out of 495724
- 280255 string characters out of 1189347
+ 16413 strings out of 495724
+ 280234 string characters out of 1189347
  397310 words of memory out of 3000000
- 19209 multiletter control sequences out of 15000+50000
- 16543 words of font info for 62 fonts, out of 3000000 for 9000
+ 19208 multiletter control sequences out of 15000+50000
+ 16196 words of font info for 61 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  69i,12n,60p,701b,659s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on thesis.pdf (36 pages).
+Output written on thesis.pdf (37 pages).
