@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  25 JUL 2013 14:40
+This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  25 JUL 2013 15:50
 entering extended mode
  %&-line parsing enabled.
 **thesis.tex
@@ -987,12 +987,6 @@ or  <return>  to continue without it.
 
 LaTeX Warning: Label `eq:MM' multiply defined.
 
-
-LaTeX Warning: Label `fig:distmap' multiply defined.
-
-
-LaTeX Warning: Label `fig:distmap' multiply defined.
-
 )
 \openout1 = `thesis.aux'.
 
@@ -1384,11 +1378,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--16
 
  []
 
-[32
+File: ./resources/img/00029_eyes_comparison.pdf Graphic file (type QTm)
+<use  "./resources/img/00029_eyes_comparison.pdf" > [32
 
 ]
-File: ./resources/img/00029_eyes_comparison.pdf Graphic file (type QTm)
- <use  "./resources/img/00029_eyes_comparison.pdf" >
 File: ./resources/img/00029_left_ear_comparison.pdf Graphic file (type QTm)
 
 <use  "./resources/img/00029_left_ear_comparison.pdf" >
@@ -1405,26 +1398,61 @@ File: ./resources/img/00303_textured_target.pdf Graphic file (type QTm)
 File: ./resources/img/00303_fit.pdf Graphic file (type QTm)
 
 <use  "./resources/img/00303_fit.pdf" >
-File: ./resources/img/00029_distmap.pdf Graphic file (type QTm)
 
-<use  "./resources/img/00029_distmap.pdf" > [33]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: File `./resources/img/00303_distmap.pdf' not found on input line
+ 48.
 
- [34]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+! Unable to load picture or PDF file './resources/img/00303_distmap.pdf'.
+<to be read again> 
+                   }
+l.48 ...width]{./resources/img/00303_distmap.pdf}}
+                                                  
+The requested image couldn't be read because 
+it was not a recognized image format.
 
- [35]
+
+! Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.48 ...width]{./resources/img/00303_distmap.pdf}}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+File: ./resources/img/00303_distmap.pdf Graphic file (type QTm)
+<use  "./resources/img/00303_distmap.pdf" >
+! Unable to load picture or PDF file './resources/img/00303_distmap.pdf'.
+<to be read again> 
+                   \GXT@clipend 
+l.48 ...width]{./resources/img/00303_distmap.pdf}}
+                                                  
+The requested image couldn't be read because 
+it was not a recognized image format.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[33]
+Overfull \vbox (21.06696pt too high) has occurred while \output is active []
+
+
+[34]
 File: ./resources/img/00029_caricature_1_3.pdf Graphic file (type QTm)
-
-<use  "./resources/img/00029_caricature_1_3.pdf" >
+ <use  "./resources/img/00029_caricature_1_3.pdf" >
 File: ./resources/img/00029_caricature_1_6.pdf Graphic file (type QTm)
 
 <use  "./resources/img/00029_caricature_1_6.pdf" >
 File: ./resources/img/00029_caricature_2.pdf Graphic file (type QTm)
 
 <use  "./resources/img/00029_caricature_2.pdf" >
-File: ./resources/img/00303_caricature_1_3.pdf Graphic file (type QTm)
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: ./resources/img/00303_caricature_1_3.pdf Graphic file (type QTm)
 <use  "./resources/img/00303_caricature_1_3.pdf" >
 File: ./resources/img/00303_caricature_1_6.pdf Graphic file (type QTm)
 
@@ -1435,7 +1463,7 @@ File: ./resources/img/00303_caricature_2.pdf Graphic file (type QTm)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [36] [37]
+) [35] [36] [37]
 \tf@toc=\write6
 \openout6 = `thesis.toc'.
 
