@@ -15,9 +15,9 @@ These multivariate normal distributions are constructed from the average face sh
 which defines a basis transformation to an orthogonal coordinate systems. The axes are defined by the eigenvectors of the respective covariance matrix.
 \begin{equation}
 \label{eq:MM}
-\mathcal{S}(\vec\alpha)=\overline{S}+S\vec\alpha, \quad \mathcal{T}(\vec\beta)=\overline{T}+T\vec\beta
+\mathcal{S}(\vec\alpha)=\overline{S}+M_{S}\vec\alpha, \quad \mathcal{T}(\vec\beta)=\overline{T}+M_{T}\vec\beta
 \end{equation}
-In \eqref{eq:MM} the $N=m$ principal eigenvectors of $K_{S}$ and $K_{T}$ respectively are assembled column-wise in S and T and scaled in a way such that the prior distribution over the face shape and texture parameters is given by a multivariate normal distribution with unit covariance (Amberg).
+In \eqref{eq:MM} the $N=m$ principal eigenvectors of $K_{S}$ and $K_{T}$ respectively are assembled column-wise in $M_{S}$ and $M_{T}$ and scaled in a way such that the prior distribution over the face shape and texture parameters is given by a multivariate normal distribution with unit covariance (Amberg).
 \begin{equation}
     p(\vec\alpha, \vec\beta) = \mathcal{N}(\vec\alpha\vert|\vect{0}, \mathbb{I})\mathcal{N}(\vec\beta\vert|\vect{0}, \mathbb{I})
 \end{equation}
@@ -28,7 +28,7 @@ By observing the likelihood of the coefficients it is now possible to find out h
 \end{comment}
 
 \section{Achieving Correspondence through Registration}
-In order for a 3D Morphable Model to generate plausible faces we have to make sure that all faces share the same representation, so that only the same parts of the respective faces are combined with oneanother. For example a nose is combined with another nose and not with a mouth. For this reason, the meshs first have to be brought into correspondence. In fact, we need dense correspondence between all mesh points. This is the case when vertices at the same semantical position in
+In order for a 3D Morphable Model to generate plausible faces we have to make sure that all faces share the same representation, so that only the same parts of the respective faces are combined with one another. For example a nose is combined with another nose and not with a mouth. For this reason, the meshs first have to be brought into correspondence. In fact, we need dense correspondence between all mesh points. This is the case when vertices at the same semantical position in
 different meshs have the same vertex number, i.e the left corner of the left eye. The process of calculating a dense point-to-point correspondence between two meshs is called registration.  
 \begin{comment}
 meaning that all faces share the same mesh triangulation, respectively the vertices at the same semantical position, i.e. the corner of the eye, have a similar vertex number. Correspondence is achieved/accomplished through the process of registration.

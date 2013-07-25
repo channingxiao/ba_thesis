@@ -1,9 +1,9 @@
 \chapter{Registration Pipeline using Line Features}
-In this chapter we describe how the Vector-valued Gaussian Model is utilized in our implementation of a 3D Face Registration Pipeline. To enhance the registration outcome of this pipeline we use additional annotations to extend the prior correspondences given by the landmarks described in \ref{section:}. These annotations are parametric curves, we call line features, that mark key regions on the 2D colored images of a face scan. In the following we provide a description of line features and their use
+In this chapter we describe how the Vector-valued Gaussian Model is utilized in our implementation of a 3D Face Registration Pipeline. To enhance the registration outcome of this pipeline we use additional annotations to extend the prior correspondences given initially by the landmarks described in \ref{section:}. The additional annotations are parametric curves, we call line features, that mark key regions on the 2D colored images of a face scan. In the following we provide a description of line features and their use
 as well as a description of the registration pipeline. 
 
 \section{Line Features}
-Line features serve the purpose of augmenting the quality of registration by initiating it with a set of corresponding lines. They define correspondence in feature regions of the given face scans, i.e. the eyes and ears and lips. These regions have to be accurately mapped on to one another for the registration to produce acceptable results. For this purpose we model their contour lines with parametric curves. 
+Line features serve the purpose of augmenting the quality of registration by initiating it with a set of corresponding lines. They define correspondence in feature regions of the given face scans, i.e. the eyes and ears and lips. These regions have to be accurately mapped on to one another for the registration to produce acceptable results. For this purpose we mark their contour lines with parametric curves. 
 \begin{comment}so that the registration process produces an accurate mapping of the contour lines of these regions which would otherwise not be possible. Without this
 information deformation fields found by the algorithm are accurate enough to produce a correct mapping and the resulting deformed templates aren't feasible substitutes for the targets. \viscomment{Und sehr spezifische zuordnung, wenn die Augenkante versetzt ist, sieht man das sofort}, because of it’s smoothness constraint.\end{comment}
 
@@ -16,7 +16,7 @@ where $B_{i,n}(t)$ is a Bernstein polynomial
 \begin{equation}
     B_{i,n}(t)=\begin{pmatrix} n \\ \\ i \end{pmatrix}(1-t)^{n-i}t^i
 \end{equation}
-and $t \in [0,1]$ is the curve parameter. The line features consists of multiple segments of B\'{e}zier curves. Due to the nature of the objects depicted, there are open - eyebrow -as well as closed - eye - curves. 
+and $t \in [0,1]$ is the curve parameter. The line features consists of multiple segments of B\'{e}zier curves. Due to the nature of the objects depicted there are open as well as closed curves, see fig. \ref{linefeatures}. 
 
 \begin{figure}[h!]
     \centering
@@ -26,10 +26,10 @@ and $t \in [0,1]$ is the curve parameter. The line features consists of multiple
 \end{figure}
 
 \section{Sampling 3D Points from 2D Line Features} 
-The line features provide us with additional prior information about the nature of the deformation field. In order to incorporate the line features in the Vector-valued Gaussian Model, we agreed to use them as additional point-wise information. The points are obtained by sampling the line features at discrete intervals resulting in a set of additional landmarks $L_{Add} = \{l_{1}, \cdots, l_{N}\}$. These define the mapping $\Omega:L_{Add\mathcal{M}} \rightarrow L_{Add\mathcal{T}}$ of the line features in the template face mesh on to those in the target face mesh.\\
+The line features provide us with additional prior information about the nature of the deformation field. In order to incorporate the line features in the Vector-valued Gaussian Model, we transform them to additional point-wise information. The points are obtained by sampling the line features at discrete intervals resulting in a set of additional landmarks $L_{Add} = \{l_{1}, \cdots, l_{N}\}$. These define the mapping $\Omega:L_{Add\mathcal{M}} \rightarrow L_{Add\mathcal{T}}$ of the line features in the template face mesh on to those in the target face mesh.\\
 Establishing correspondence for a pair of ears for example is very difficult, even for
-the trained eye, because of their very different topology. The structure of the concha is very
-complex. For this reason, we define correspondence between lips, eyes and ears we through the contour lines of their rims. Further modelling the ratio between the different parts of these contours would again be tedious. Therefore, we simplify the assumptions for similarity to an equidistant parametrization of the line features so that the mapping $\Omega$ is approximately plausible. In effect, when a curve is sampled at $n$ points, these $n$ points are all at equal parametric intervals.
+experts, because of their very different topology. The structure of the concha is very
+complex. For this reason, we define correspondence between lips, eyes and ears through the contour lines of their rims. Further modelling the ratio between the different parts of these contours would again be tedious. Therefore, we simplify the assumptions for similarity to an equidistant parametrization of the line features so that the mapping $\Omega$ is approximately plausible. In effect, when a curve is sampled at $n$ points, these $n$ points are all at equal parametric intervals.
 \begin{comment}
 Bei den Ohren ist die Korrespondenz wirklich schwierig und auch als Mensch je nach Ohrenpaar kaum zu bestimmen. Gerade die Struktur der Ohrmuschel kann wohl nicht immer in korrespondenz gebracht werden. Jedoch sind alle Ohren durch eine äussere Linie begrenzt und die wollen wir matchen. Nun ist es in der Tat so, dass nicht immer alle Ohrläppchen gleich gross sind oder markante Krümungen der äusseren Ohrlinie an der gleichen Stelle auftreten. Wir ignorieren dies jedoch / bzw wir
 vereinfachen dies durch unsere Äquidistantz Annahme und sagen dies sei dann genügend gut registriert und störe das Model das wir bauen nicht zu sehr.
@@ -101,8 +101,7 @@ The solution to this problem is based on the respective curve's arc-length, whic
 
 \paragraph{In theory}
 It is possible to get the arc length $L(t)=\int_{t_{0}}^{t_{1}} \left|C'(t)\right| dt$ for given parameters $t_{0}, t_{1}$ where $C'(t)$ is the derivative of the curve $C:t \in [0,1] \rightarrow \mathbb{R}^2$. We, however, want to find a reverse mapping from the length of a fraction of the curve $l$ to the curve parameter $t = L^{-1}(l)$. 
-This mapping can of course be derived analytically, but it is far easier to implement it using a numeric approximation. 
-
+Instead of deriving this function analytically we decided to use a numeric approximation.
 \paragraph{In practice}
 As we are not in need of a subpixel resolution, we can skip the formal math and use a lookup table to compute the arc-length. First, we calculate a large number of points on each segment of the curve using the parametrization of the corresponding B\'{e}zier curve. For each sampled point, we save a key-value-pair to a new entry of the lookup table. The approximate distance of the point from the origin of the segment is the key, while the point's coordinates is the value. 
 \begin{figure}[h!]
@@ -125,12 +124,13 @@ Finally, we project the distance of this vertex onto the direction of our sample
 \caption{shows the projection of a sample point - on a 2D line feature - from the viewport onto a triangulated 3D mesh. The distance vector of the vertex with the most similar direction vector (orange) is projected (red) onto the direction of the sample point (black arrow), resulting in the projected vertex (green)}
 \end{figure}
 \subsection{Preparing the Template Mesh}
-For the line features projected on to the scans to be of use, line features also have to be marked on the template mesh. We use the mean mesh of the 3D Morphable Model of the Graphics and Computer Vision Group at the University of Basel as the template mesh. It has had its holes manually filled in and has had a texture applied to it. With it comes a set of landmarks larger than that of the scans. 
+For the line features projected on to the scans to be of use, line features also have to be marked on the template mesh. We use the mean mesh of a 3D Morphable Model [http://gravis.cs.unibas.ch/publications/2009/BFModel09.pdf] as the template mesh.
+We render three different images, similar to those taken during the scanning of the faces, for marking the line features.
+The 2D line features can then be projected back onto the mesh using the rendering parameters. With the projection we obtain the corresponding, equidistant samples of the line features on the template. We therefore have provided the registration algorithm with additional prior information to define the deformation field by and to produce better fitting results.
 \begin{wrapfigure}{r}{.2\textwidth}
     \includegraphics[width=.2\textwidth]{./resources/img/mean_msh.pdf}
     \caption{mean mesh of the 3DMM}
 \end{wrapfigure}
-The mean mesh has to be rendered with three different camera callibrations for marking the line features. The 2D line features can then be projected back onto the mesh using these callibration parameters. Through the projection process equidistant line feature samples to the set of landmarks. We therefore have provided the registration algorithm with additional prior information to define the deformation field by and to produce better fitting results.
 
 \begin{figure}[h!]
 \centering
@@ -140,8 +140,8 @@ The mean mesh has to be rendered with three different camera callibrations for m
 \end{figure}
 
 \section{Rigid Mesh Alignment}
-Before we can start creating Gaussian Models, we first have to ensure that for each registration template and target mesh are aligned in the same coordinate system. After all, we want to model the variability of different faces without incorporating an additional offset. We therefore have to perform a rigid transformation constisting of a translation and a rotation to align the template and target meshs according to their landmarks. To compute the transformation we use the set
-landmarks pairs whose identifiers exist for both meshs. Before the transformation is applied the targets have to be clipped at the neck and around the ears where the scanner has left artifacts. The computed transformation is then applied to all vertices of the respective face scan to align it with the template. The aligned mesh pair serves, see fig. \ref{fig:overlap}, as the starting point for the actual registration.\newline
+Before we can start creating Gaussian Models, we first have to ensure that each target is aligned with the template. After all, we want to model the variability of different faces without incorporating an additional offset. We therefore have to perform a rigid transformation constisting of a translation and a rotation to align the template and target meshs according to their landmarks. To compute the transformation we use the set
+of landmarks pairs whose identifiers exist for both meshs. The targets are clipped at the neck and around the ears where the scanner has produced artifacts. The computed transformation is then applied to all vertices of the respective face scan to align it with the template. The aligned mesh pair serves as the starting point for the actual registration, see fig. \ref{fig:overlap}.\newline
 \newline
 
 \begin{figure}[h!]
@@ -149,10 +149,10 @@ landmarks pairs whose identifiers exist for both meshs. Before the transformatio
 \includegraphics[width=.9\textwidth]{./resources/figures/pipeline.pdf}
 \label{fig:pipeline}
 \vspace{-20pt}
-\caption{an overview of the different stages of the registration pipeline with an examplory visualization of face mesh at every stage.}
+\caption{An overview of the different stages of the registration pipeline with an examplary visualization of face meshs at every stage.}
 \end{figure}
 
-We are now set for the actual registration involving the computation of the Prior and Posterior Gaussian Models and the Fitting of the Posterior Model to a face scan. For the definition of the Gaussian Process distributions we use the software framework statismo \ref{bib:statismo}. It is a framework for PCA based statistical models. These are used to describe the variability of an object within a population, learned from a set of training samples. We use it to generate a statistical
+We are now set for the actual registration involving the computation of the Prior and Posterior Gaussian Models and the Fitting of the Posterior Model to a face scan. For the definition of the Gaussian Process distributions we use statismo \ref{bib:statismo}. It is a framework for PCA based statistical models. These are used to describe the variability of an object within a population, learned from a set of training samples. We use it to generate a statistical
 model of the template mesh equaling the parametric representation of the Gaussian Process Posterior described in sec. \ref{sec:optimization}. 
 
 \begin{figure}[h]
@@ -164,11 +164,10 @@ model of the template mesh equaling the parametric representation of the Gaussia
 \end{figure}
 
 \section{Prior Model}
-After aligning the target with the template mesh, we want define a distribution of possible deformations of the template mesh, as described in \ref{chapter:GP}. This Gaussian Process (GP) Prior distribution is represented as a statistical model and the parameters are saved on to disk. This allows for samples to be drawn from this representation. These samples are 3D face meshs, prior faces in fig. \ref{fig:priorprofile}, that are the result of the deformations generated by the GP Prior and then added to the template mesh. The deformations are up until now defined solely on the ground of the covariance of the template mesh points.
+After aligning the target with the template mesh, we define a distribution of possible deformations of the template mesh, as described in \ref{chapter:GP}. This Gaussian Process (GP) Prior distribution is represented as a statistical model. This allows for samples to be drawn from this representation. These samples are 3D face meshs that are the result of the deformations generated by the GP Prior and added to the template mesh for visualizations, some of these prior faces are displayed in fig. \ref{fig:priorprofile}. The deformations are up until now defined solely on the ground of the covariance of the template mesh points.
 
 \section{Posterior Model}
-The deformations generated by the GP Prior are of course not admissible. We receive admissible deformations by adding the target landmarks and the additional set of sampled line features to the GP Prior distribution. Using statismo we create a statistical model, which is partially fixed at the target landmarks, from the template mesh. This time we have incorporated the fixed displacements of the landmarks and in return get obtain a model that leads to meshs that a more
-face-like.
+The deformations generated by the GP Prior are of course not admissible. We receive admissible deformations by adding the target landmarks and the additional set of sampled line features to the GP Prior distribution. Using statismo we create a statistical model, which is partially fixed at the target landmarks, from the template mesh. This time we have incorporated the fixed displacements of the landmarks and in return get obtain a model that leads to meshs that are more face-like.
 
 \begin{figure}[h]
 \centering
@@ -179,7 +178,8 @@ face-like.
 \end{figure}
 
 \section{Optimization of the Posterior}
-Before starting the optimization we again use the statismo framework to obtain the parametric representation of the GP Posterior Model of the template. This part of statismo framework built on the Insight Toolkit (ITK) is used to optimize the parameters for the set of chosen basis functions. In each step the optimizer computes the parameters that cause a minimum in a specified similarity measure. We used the Mean Square Error (MSE) as a similarity measure. This process is reiterated until the similarity measure stays within a tolerance interval for a fixed
+\viscomment{Überarbeiten}
+Before starting the optimization we again use the statismo framework to obtain the parametric representation of the GP Posterior Model of the template. This part of statismo framework built on the Insight Toolkit (ITK) is used to optimize the parameters for the set of chosen basis functions. In each step the optimizer computes the parameters that cause a minimum in a specified similarity measure. We used the mean squared error (MSE) as a similarity measure. This process is reiterated until the similarity measure stays within a tolerance interval for a fixed
 number of iterations.
 \viscomment{Schema of ITK optimizer?}
 
@@ -189,10 +189,10 @@ number of iterations.
 \label{fig:msquaresfit}
 \caption{A fit of the template mesh obtained using the Mean Squares Error as the distance metric. The deformation in the regions where template and target do not overlap cause major distortions in the resulting fit.}
 \end{figure}
-
-\section{Robust Loss Functions}
 After the alignment of template and target mesh, the template protrudes over the target on the side of the head, as can be seen in fig. \ref{overlap}.
 Performing optimization as described in \ref{sec:optimization} using a simple Mean Square Error(MSE) as a distance measure between the template and target mesh penalizes the portruding regions of the template with a strong gradient towards the rims of the template and therefore causes strong distortions. 
+
+\section{Robust Loss Functions}
 Our approach to tackling this problem was to try out a range of different robust estimators, namely the Tukey, Huber, and Fair estimators. The advantage of these
 estimators lies therein that they are less sensitive to outliers, reducing registration artifacts considerably. (Outliers are in this case template mesh points that farther away than a certain threshold from the next point on the target mesh} However, as can be seen from the formulas, these techniques require finding appropriate parameters first which produce reasonable/acceptable visual results.
 

@@ -51,6 +51,62 @@
 \definecolor{mybeige}{rgb}{1,1,.7}
 \definecolor{lightgray}{rgb}{.98,.98,.98}
 \definecolor{myred}{rgb}{.86,.22,.22}
+
+%% parameters to set
+\newcommand*{\supervisor}[1]{\def\supname{#1}}
+\newcommand*{\examiner}[1]{\def\examname{#1}}
+\newcommand*{\authors}[1]{\def\authornames{#1}}
+\newcommand*{\email}[1]{\def\emailaddr{#1}}
+\newcommand*{\universitylogo}[1]{\def\unilogo{#1}}
+\newcommand*{\universitysignet}[1]{\def\unisignet{#1}}
+\newcommand*{\department}[1]{\def\deptname{#1}}
+\newcommand*{\faculty}[1]{\def\facname{#1}}
+\newcommand*{\group}[1]{\def\groupname{#1}}
+\newcommand*{\thesistype}[1]{\def\typename{#1}}
+\newcommand*{\matrnr}[1]{\def\matrnumber{#1}}
+
+\renewcommand\maketitle{
+    \hypersetup{pdftitle={\@title}}
+    \hypersetup{pdfauthor=\authornames}
+    \thispagestyle{empty}
+    \begin{titlepage}
+        \begin{center}
+            \vspace*{\fill}
+            {\HUGE \textbf{\@title} \par}
+            \vfill
+            {by\\ \large \textit{\authornames} \par}
+            \bigskip
+            \bigskip
+            { {\Large\textsf\typename} \par}
+            \bigskip
+            {submitted in partial fulfillment\\ of the requirements for the degree of \par}
+            \bigskip
+            {\Large \textsf{BSc in Computer Science} \par}
+            \bigskip
+            {at the\quad\includegraphics{\unilogo} \par}
+            \bigskip
+            \bigskip
+            {\large \par}
+            \bigskip
+            \textbf{Examiner}\\ \examname \\
+            \bigskip
+            \textbf{Supervisors}\\ \supname \\
+            \bigskip
+            {\groupname \par}
+            {\deptname \par}
+            {\facname \par}
+            \vfill
+            {\@date \par}
+            \bigskip
+
+            \bigskip
+            {\includegraphics[width=1.5cm]{\unisignet} }
+        \end{center}
+        \par
+        \vspace*{\fill}
+    \end{titlepage}
+}
+
 \newcommand{\numold}[1]{ {\addfontfeature{Numbers=OldStyle}#1}}
 %\lstnewenvironment{scode}
 %{
@@ -94,12 +150,47 @@
 
 \newcommand{\twopartdef}[4]
 {
-\left\{
-\begin{array}{ll}
-#1 & \mbox{if } #2 \\
-#3 & \mbox{if } #4 
-\end{array}
-\right.
-}
+    \left\{
+        \begin{array}{ll}
+            #1 & \mbox{if } #2 \\
+            #3 & \mbox{if } #4 
+        \end{array}
+        \right.
+    }
 
-\RequirePackage[helvetica]{quotchap}
+    \renewcommand*{\contentsname}{Table of Contents}
+    \usepackage[pdftex]{hyperref}
+    \chapterstyle{ell}
+
+
+
+%% Count footnotes through whole document
+    \counterwithout{footnote}{chapter}
+
+%% Load up fancy headers and footers package
+    \RequirePackage{fancyhdr}
+    \pagestyle{fancy}
+
+%% Now reset the headers and footers
+    \fancyhead{}
+    \fancyfoot{}
+    \cfoot{}
+
+    \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+    \renewcommand{\sectionmark}[1]{\markright{#1}{}}
+
+%% bring the style into effect
+%% make the odd pages have the section name on the top right
+    \fancyhead[LO]{\nouppercase\leftmark}
+    \fancyhead[RO]{\thepage}
+%% make the even pages have the chapter name on the top left
+    \fancyhead[RE]{\nouppercase\leftmark}
+    \fancyhead[LE]{\thepage}
+
+%% now redefine the plain style pages (chapter pages, contents pages)
+    \fancypagestyle{plain}{
+        \fancyhf{}
+        \fancyfoot[RO]{}
+        \renewcommand{\headrulewidth}{0pt}
+        \renewcommand{\footrulewidth}{0pt}
+    }

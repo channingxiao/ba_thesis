@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  23 JUL 2013 12:27
+This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  25 JUL 2013 12:27
 entering extended mode
  %&-line parsing enabled.
 **thesis.tex
@@ -809,8 +809,8 @@ See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.71 }
-      %}
+l.127 }
+       %}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -821,8 +821,8 @@ See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.71 }
-      %}
+l.127 }
+       %}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -842,31 +842,148 @@ See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.76 }
-      
+l.132 }
+       
 The following languages weren't loadable:
     ,c++java$
 This may cause errors in the sequel.
 
-) (/usr/share/texmf-texlive/tex/latex/quotchap/quotchap.sty
-Package: quotchap 1998/02/09 v0.9f Decorative Chapter Headings with Quotes
-\@quotebox=\box46
+(/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2009/10/09 v6.79a Hypertext links for LaTeX
+
+(/usr/share/texmf-texlive/tex/latex/oberdiek/hycolor.sty
+Package: hycolor 2009/10/02 v1.5 Code for color options of hyperref/bookmark (H
+O)
+
+(/usr/share/texmf-texlive/tex/latex/oberdiek/xcolor-patch.sty
+Package: xcolor-patch 2009/10/02 xcolor patch
+))
+\@linkdim=\dimen227
+\Hy@linkcounter=\count195
+\Hy@pagecounter=\count196
+
+(/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2009/10/09 v6.79a Hyperref: PDFDocEncoding definition (HO)
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2007/12/12 v1.2 Prefix for e-TeX command names (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2007/09/09 v1.2 Providing info/warning/message (HO)
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)
+(/usr/share/texmf-texlive/tex/xelatex/xetexconfig/hyperref.cfg
+File: hyperref.cfg 2008/07/11 v1.2 hyperref configuration for XeLaTeX
+)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2009/08/13 v3.4 Keyval support for LaTeX options (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2009/07/30 v1.5 Key value parser with default handler suppor
+t (HO)
+))
+Package hyperref Info: Hyper figures OFF on input line 2975.
+Package hyperref Info: Link nesting OFF on input line 2980.
+Package hyperref Info: Hyper index ON on input line 2983.
+Package hyperref Info: Plain pages OFF on input line 2990.
+Package hyperref Info: Backreferencing OFF on input line 2995.
+
+Implicit mode ON; LaTeX internals redefined
+Package hyperref Info: Bookmarks ON on input line 3191.
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/url.sty
+\Urlmuskip=\muskip11
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 3428.
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/bitset.sty
+Package: bitset 2007/09/28 v1.0 Data type bit set (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/intcalc.sty
+Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
+)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/bigintcalc.sty
+Package: bigintcalc 2007/11/11 v1.1 Expandable big integer calculations (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2009/09/23 v0.6 LuaTeX support for pdfTeX utility functions
+ (HO)
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2009/08/05 v1.0 Some LaTeX kernel commands for general use (HO
+)
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: pdfTeX >= 1.30 not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+)))
+\Fld@menulength=\count197
+\Field@Width=\dimen228
+\Fld@charsize=\dimen229
+\Field@toks=\toks43
+Package hyperref Info: Hyper figures OFF on input line 4377.
+Package hyperref Info: Link nesting OFF on input line 4382.
+Package hyperref Info: Hyper index ON on input line 4385.
+Package hyperref Info: backreferencing OFF on input line 4392.
+Package hyperref Info: Link coloring OFF on input line 4397.
+Package hyperref Info: Link coloring with OCG OFF on input line 4402.
+Package hyperref Info: PDF/A mode OFF on input line 4407.
+
+(/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
+)
+\Hy@abspage=\count198
+\c@Item=\count199
+)
+(/usr/share/texmf-texlive/tex/latex/memoir/memhfixc.sty
+Package: memhfixc 2009/02/06 v1.12 nameref/hyperref package fixes for memoir cl
+ass
+\c@memhycontfloat=\count200
 )
 
-! LaTeX Error: Command \chapnumfont already defined.
+Package hyperref Warning: Wrong driver `hpdftex.def';
+(hyperref)                pdfTeX is not running in PDF mode.
+(hyperref)                Using default driver.
+
+*hyperref using default driver hdvipdfm*
+(/usr/share/texmf-texlive/tex/latex/hyperref/hdvipdfm.def
+File: hdvipdfm.def 2009/10/09 v6.79a Hyperref driver for dvipdfm
+\pdfm@box=\box46
+\c@Hy@AnnotLevel=\count201
+\HyField@AnnotCount=\count202
+\Fld@listcount=\count203
+)
+(/usr/share/texmf-texlive/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip181
+\f@ncyO@elh=\skip182
+\f@ncyO@erh=\skip183
+\f@ncyO@olh=\skip184
+\f@ncyO@orh=\skip185
+\f@ncyO@elf=\skip186
+\f@ncyO@erf=\skip187
+\f@ncyO@olf=\skip188
+\f@ncyO@orf=\skip189
+
+
+! LaTeX Error: Command \footruleskip already defined.
                Or name \end... illegal, see p.192 of the manual.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.14 
-     
+l.302 ...and{\footruleskip}{.3\normalbaselineskip}
+                                                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-(./thesis.aux
+)) (./thesis.aux
 
 LaTeX Warning: Label `eq:MM' multiply defined.
 
@@ -879,18 +996,20 @@ LaTeX Warning: Label `fig:distmap' multiply defined.
 )
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
 
 *geometry detected driver: pdftex*
 -------------------- Geometry parameters
@@ -939,99 +1058,117 @@ Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
 Package: everysel 1999/06/08 v1.03 EverySelectfont Package (MS)
 LaTeX Info: Redefining \selectfont on input line 125.
 )
-\CenteringLeftskip=\skip181
-\RaggedLeftLeftskip=\skip182
-\RaggedRightLeftskip=\skip183
-\CenteringRightskip=\skip184
-\RaggedLeftRightskip=\skip185
-\RaggedRightRightskip=\skip186
-\CenteringParfillskip=\skip187
-\RaggedLeftParfillskip=\skip188
-\RaggedRightParfillskip=\skip189
-\JustifyingParfillskip=\skip190
-\CenteringParindent=\skip191
-\RaggedLeftParindent=\skip192
-\RaggedRightParindent=\skip193
-\JustifyingParindent=\skip194
+\CenteringLeftskip=\skip190
+\RaggedLeftLeftskip=\skip191
+\RaggedRightLeftskip=\skip192
+\CenteringRightskip=\skip193
+\RaggedLeftRightskip=\skip194
+\RaggedRightRightskip=\skip195
+\CenteringParfillskip=\skip196
+\RaggedLeftParfillskip=\skip197
+\RaggedRightParfillskip=\skip198
+\JustifyingParfillskip=\skip199
+\CenteringParindent=\skip200
+\RaggedLeftParindent=\skip201
+\RaggedRightParindent=\skip202
+\JustifyingParindent=\skip203
 )
 ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
 Package caption3 Info: subfig package 1.2 or 1.3 is loaded.
-LaTeX Info: Redefining \subref on input line 19.
+LaTeX Info: Redefining \subref on input line 29.
+Package caption Info: Incompatible package detected (regarding \caption).
+(caption)             \caption = \long macro:->\donemaincaptiontrue \m@moldhypc
+aption .
+
+
+Package caption Warning: \caption will not be redefined since it's already
+(caption)                redefined by a document class or package which is
+(caption)                unknown to the caption package.
+See the caption package documentation for explanation.
+
+Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count195
-LaTeX Font Info:    Try loading font information for U+msa on input line 22.
+\c@lstlisting=\count204
+Package hyperref Info: Link coloring OFF on input line 29.
+(/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
+Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
+
+(/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
+Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
+)
+\c@section@level=\count205
+)
+LaTeX Info: Redefining \ref on input line 29.
+LaTeX Info: Redefining \pageref on input line 29.
+ (./thesis.out)
+(./thesis.out)
+\@outlinefile=\write5
+\openout5 = `thesis.out'.
+
+\AtBeginShipoutBox=\box47
+
+Redoing nameref's sectioning
+Redoing nameref's label
+
+! LaTeX Error: Environment titlepage undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.32 \maketitle
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+File: ./resources/img/LogoUniBasel.pdf Graphic file (type QTm)
+<use  "./resources/img/LogoUniBasel.pdf" >
+File: ./resources/img/SignetUniBasel.pdf Graphic file (type QTm)
+
+<use  "./resources/img/SignetUniBasel.pdf" >
+
+! LaTeX Error: \begin{document} ended by \end{titlepage}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.32 \maketitle
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[1
+
+] (./abstract.tex) [2] (./thesis.toc
+LaTeX Font Info:    Try loading font information for U+msa on input line 1.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 22.
+LaTeX Font Info:    Try loading font information for U+msb on input line 1.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [1
-
-]
-(./abstract.tex) [2] (./thesis.toc
-Underfull \vbox (badness 1596) has occurred while \output is active []
-
- [3])
+) [3])
 (./chapters/chapter1.tex [4]
-! Undefined control sequence.
-<argument> ...ternumberline {\thechapter }\f@rtoc 
-                                                  }{\thepage }}
-l.1 \chapter{Introduction}
-                          
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> \f@rtoc 
-                   
-l.1 \chapter{Introduction}
-                          
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 
 LaTeX Warning: Characters dropped after `\end{comment}' on input line 10.
 
 [5
 
-]) (./chapters/chapter2.tex [6]
-! Undefined control sequence.
-<argument> ...ternumberline {\thechapter }\f@rtoc 
-                                                  }{\thepage }}
-l.1 \chapter{3D Model Building}
-                               
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+]) (./chapters/chapter2.tex
 
-! Undefined control sequence.
-<argument> \f@rtoc 
-                   
-l.1 \chapter{3D Model Building}
-                               
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+Package Fancyhdr Warning: \headheight is too small (14.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
-[7
+[6] [7
 
 ]
 
@@ -1047,42 +1184,20 @@ File: ./resources/figures/scan.eps Graphic file (type eps)
 <./resources/figures/scan.eps>
 File: ./resources/figures/schema_marked.eps Graphic file (type eps)
  <./resources/figures/schema_marked.eps> [9])
-(./chapters/chapter3.tex [10]
-! Undefined control sequence.
-<argument> ...ternumberline {\thechapter }\f@rtoc 
-                                                  }{\thepage }}
-l.1 ...Gaussian Processes in 3D Face Registration}
-                                                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> \f@rtoc 
-                   
-l.1 ...Gaussian Processes in 3D Face Registration}
-                                                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[11
+(./chapters/chapter3.tex [10] [11
 
 ]
 File: ./resources/figures/gp_prior.eps Graphic file (type eps)
  <./resources/figures/gp_prior.eps>
 File: ./resources/figures/gp_posterior.eps Graphic file (type eps)
- <./resources/figures/gp_posterior.eps>
+
+<./resources/figures/gp_posterior.eps>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [12] [13] [14]
 ! Undefined control sequence.
-l.141 ...and is to register a reference or \textbb
+l.140 ...and is to register a reference or \textbb
                                                   {template} face mesh with ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1091,7 +1206,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (0.3216pt too wide) in paragraph at lines 146--148
+Overfull \hbox (0.3216pt too wide) in paragraph at lines 145--148
 \OT1/cmr/bx/n/12 Vector-valued Gaus-sian Pro-cesses[] \OT1/cmr/m/n/12 In or-der
  to use Gaus-sian Pro-cesses to model
  []
@@ -1101,12 +1216,10 @@ LaTeX Warning: Reference `chapter 4' on page 15 undefined on input line 151.
 
 [15]
 File: ./resources/img/prior_deformations.pdf Graphic file (type QTm)
- <use  "./resources/img/prior_deformations.pdf" >
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+ <use  "./resources/img/prior_deformations.pdf" > [16]
 File: ./resources/img/posterior_deformations.pdf Graphic file (type QTm)
-<use  "./resources/img/posterior_deformations.pdf" > [16]
+
+<use  "./resources/img/posterior_deformations.pdf" >
 File: ./resources/img/posterior_deformation_landmarks_front.pdf Graphic file (t
 ype QTm)
 
@@ -1118,73 +1231,55 @@ File: ./resources/img/deformation_prior_msh.pdf Graphic file (type QTm)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 223--225
+Underfull \hbox (badness 10000) in paragraph at lines 224--226
 
  []
 
-[18] [19]) (./chapters/chapter4.tex [20]
-! Undefined control sequence.
-<argument> ...ternumberline {\thechapter }\f@rtoc 
-                                                  }{\thepage }}
-l.1 ...{Registration Pipeline using Line Features}
-                                                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+[18]) (./chapters/chapter4.tex [19]
 
-! Undefined control sequence.
-<argument> \f@rtoc 
-                   
-l.1 ...{Registration Pipeline using Line Features}
-                                                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+LaTeX Warning: Reference `section:' on page 20 undefined on input line 2.
 
 
-LaTeX Warning: Reference `section:' on page 21 undefined on input line 2.
+LaTeX Warning: Reference `linefeatures' on page 20 undefined on input line 19.
 
-
-Underfull \vbox (badness 4492) has occurred while \output is active []
-
- [21
+[20
 
 ]
 File: ./resources/img/eyebrow_left.jpeg Graphic file (type QTm)
-
-<use  "./resources/img/eyebrow_left.jpeg" > [22]
+ <use  "./resources/img/eyebrow_left.jpeg" > [21]
 File: ./resources/figures/ears_diffparam.pdf Graphic file (type QTm)
 
 <use  "./resources/figures/ears_diffparam.pdf" >
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[23]
 File: ./resources/figures/distance_computation.pdf Graphic file (type QTm)
- <use  "./resources/figures/distance_computation.pdf" >
+<use  "./resources/figures/distance_computation.pdf" >
+Underfull \vbox (badness 1097) has occurred while \output is active []
+
+ [22]
+[23]
+File: ./resources/figures/projection.pdf Graphic file (type QTm)
+ <use  "./resources/figures/projection.pdf" >
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[24]
-File: ./resources/figures/projection.pdf Graphic file (type QTm)
- <use  "./resources/figures/projection.pdf" > [25]
 File: ./resources/img/mean_msh.pdf Graphic file (type QTm)
-
 <use  "./resources/img/mean_msh.pdf" >
-Underfull \hbox (badness 10000) in paragraph at lines 131--131
+Underfull \hbox (badness 10000) in paragraph at lines 132--132
 []\OT1/cmr/m/n/12 Figure 4.6:
  []
 
 
-Underfull \hbox (badness 5022) in paragraph at lines 131--131
-|\OT1/cmr/m/n/12 mean mesh of
+Underfull \hbox (badness 5022) in paragraph at lines 132--132
+|[]\OT1/cmr/m/n/12 mean mesh of
  []
 
-[26]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [24]
+[25]
 File: ./resources/img/overlap_mean_target.pdf Graphic file (type QTm)
  <use  "./resources/img/overlap_mean_target.pdf" >
 Underfull \hbox (badness 10000) in paragraph at lines 143--146
@@ -1202,58 +1297,65 @@ File: ./resources/figures/pipeline.pdf Graphic file (type QTm)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Reference `bib:statismo' on page 27 undefined on input line 155.
+LaTeX Warning: Reference `bib:statismo' on page 26 undefined on input line 155.
 
 
 
-LaTeX Warning: Reference `sec:optimization' on page 27 undefined on input line 
+LaTeX Warning: Reference `sec:optimization' on page 26 undefined on input line 
 156.
 
-[27]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [28]
+[26]
 File: ./resources/img/prior_sample_2_profile.pdf Graphic file (type QTm)
-
-<use  "./resources/img/prior_sample_2_profile.pdf" >
+ <use  "./resources/img/prior_sample_2_profile.pdf" >
 File: ./resources/img/prior_sample_3_profile.pdf Graphic file (type QTm)
 
 <use  "./resources/img/prior_sample_3_profile.pdf" >
 
-LaTeX Warning: Reference `chapter:GP' on page 29 undefined on input line 167.
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `chapter:GP' on page 27 undefined on input line 167.
 
 
 Package caption Warning: \label before \caption on input line 162.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:priorprofile' on page 29 undefined on input line 
+LaTeX Warning: Reference `fig:priorprofile' on page 27 undefined on input line 
 167.
 
-[29]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [27]
+[28]
 File: ./resources/img/posterior_sample_17.pdf Graphic file (type QTm)
  <use  "./resources/img/posterior_sample_17.pdf" >
 File: ./resources/img/posterior_sample_23.pdf Graphic file (type QTm)
 
 <use  "./resources/img/posterior_sample_23.pdf" >
 
-LaTeX Warning: Reference `priorprofile' on page 30 undefined on input line 178.
+LaTeX Warning: Reference `priorprofile' on page 29 undefined on input line 177.
 
 
 
-LaTeX Warning: Reference `priorprofile' on page 30 undefined on input line 178.
+LaTeX Warning: Reference `priorprofile' on page 29 undefined on input line 177.
 
 
-[30]
+Missing character: There is no Ü in font cmbxti10!
 File: ./resources/img/00029_meansquares_fit.pdf Graphic file (type QTm)
- <use  "./resources/img/00029_meansquares_fit.pdf" >
+<use  "./resources/img/00029_meansquares_fit.pdf" >
 
-LaTeX Warning: Reference `overlap' on page 31 undefined on input line 194.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Reference `sec:optimization' on page 31 undefined on input line 
-195.
+LaTeX Warning: Reference `overlap' on page 29 undefined on input line 192.
 
+
+LaTeX Warning: Reference `sec:optimization' on page 29 undefined on input line 
+193.
+
+[29]
 ! Too many }'s.
 l.197 ...d from the next point on the target mesh}
                                                    However, as can be seen f...
@@ -1269,519 +1371,32 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-[31]
+[30]
 File: ./resources/img/00029_textured_target.pdf Graphic file (type QTm)
  <use  "./resources/img/00029_textured_target.pdf" >
 File: ./resources/img/00029_fit.pdf Graphic file (type QTm)
 
-<use  "./resources/img/00029_fit.pdf" >
+<use  "./resources/img/00029_fit.pdf" >) (./chapters/chapter5.tex [31]
+File: ./resources/img/linefeatures_eyes.pdf Graphic file (type QTm)
+
+<use  "./resources/img/linefeatures_eyes.pdf" >
+Underfull \hbox (badness 10000) in paragraph at lines 12--15
+
+ []
+
+[32
+
+]
+File: ./resources/img/00029_eyes_comparison.pdf Graphic file (type QTm)
+ <use  "./resources/img/00029_eyes_comparison.pdf" >
+File: ./resources/img/00029_left_ear_comparison.pdf Graphic file (type QTm)
+
+<use  "./resources/img/00029_left_ear_comparison.pdf" >
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./chapters/chapter5.tex [32] [33]
-! Undefined control sequence.
-<argument> ...ternumberline {\thechapter }\f@rtoc 
-                                                  }{\thepage }}
-l.1 \chapter{Results}
-                     
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument> \f@rtoc 
-                   
-l.1 \chapter{Results}
-                     
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 5--11
-
- []
-
-
-Overfull \hbox (12.77782pt too wide) in paragraph at lines 16--16
-[]\OT1/cmr/m/n/10 (a)
- []
-
-
-Overfull \hbox (22.77782pt too wide) in paragraph at lines 16--16
-|\OT1/cmr/m/n/10 with-
- []
-
-
-Overfull \hbox (14.44449pt too wide) in paragraph at lines 16--16
-\OT1/cmr/m/n/10 out
- []
-
-
-Overfull \hbox (15.55559pt too wide) in paragraph at lines 16--16
-\OT1/cmr/m/n/10 line
- []
-
-
-Overfull \hbox (15.83336pt too wide) in paragraph at lines 16--16
-\OT1/cmr/m/n/10 fea-
- []
-
-
-Overfull \hbox (24.52782pt too wide) in paragraph at lines 16--16
-\OT1/cmr/m/n/10 tures,
- []
-
-
-Overfull \hbox (19.44449pt too wide) in paragraph at lines 16--16
-\OT1/cmr/m/n/10 with
- []
-
-
-Overfull \hbox (16.94447pt too wide) in paragraph at lines 16--16
-\OT1/cmr/m/n/10 tex-
- []
-
-
-Overfull \hbox (17.80559pt too wide) in paragraph at lines 16--16
-\OT1/cmr/m/n/10 ture| 
- []
-
-
-Overfull \hbox (13.33337pt too wide) in paragraph at lines 17--17
-[]\OT1/cmr/m/n/10 (b)
- []
-
-
-Overfull \hbox (19.44449pt too wide) in paragraph at lines 17--17
-|\OT1/cmr/m/n/10 with
- []
-
-
-Overfull \hbox (15.55559pt too wide) in paragraph at lines 17--17
-\OT1/cmr/m/n/10 line
- []
-
-
-Overfull \hbox (15.83336pt too wide) in paragraph at lines 17--17
-\OT1/cmr/m/n/10 fea-
- []
-
-
-Overfull \hbox (24.52782pt too wide) in paragraph at lines 17--17
-\OT1/cmr/m/n/10 tures,
- []
-
-
-Overfull \hbox (19.44449pt too wide) in paragraph at lines 17--17
-\OT1/cmr/m/n/10 with
- []
-
-
-Overfull \hbox (16.94447pt too wide) in paragraph at lines 17--17
-\OT1/cmr/m/n/10 tex-
- []
-
-
-Overfull \hbox (17.80559pt too wide) in paragraph at lines 17--17
-\OT1/cmr/m/n/10 ture| 
- []
-
-
-Overfull \hbox (12.22224pt too wide) in paragraph at lines 18--18
-[]\OT1/cmr/m/n/10 (c)
- []
-
-
-Overfull \hbox (16.13892pt too wide) in paragraph at lines 18--18
-|\OT1/cmr/m/n/10 tar-
- []
-
-
-Overfull \hbox (13.33336pt too wide) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 get
- []
-
-
-Overfull \hbox (19.44449pt too wide) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 with
- []
-
-
-Overfull \hbox (16.94447pt too wide) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 tex-
- []
-
-
-Overfull \hbox (17.80559pt too wide) in paragraph at lines 18--18
-\OT1/cmr/m/n/10 ture| 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (12.77782pt too wide) in paragraph at lines 25--25
-[]\OT1/cmr/m/n/10 (a)
- []
-
-
-Overfull \hbox (22.77782pt too wide) in paragraph at lines 25--25
-|\OT1/cmr/m/n/10 with-
- []
-
-
-Overfull \hbox (14.44449pt too wide) in paragraph at lines 25--25
-\OT1/cmr/m/n/10 out
- []
-
-
-Overfull \hbox (15.55559pt too wide) in paragraph at lines 25--25
-\OT1/cmr/m/n/10 line
- []
-
-
-Overfull \hbox (15.83336pt too wide) in paragraph at lines 25--25
-\OT1/cmr/m/n/10 fea-
- []
-
-
-Overfull \hbox (21.75003pt too wide) in paragraph at lines 25--25
-\OT1/cmr/m/n/10 tures| 
- []
-
-
-Overfull \hbox (13.33337pt too wide) in paragraph at lines 26--26
-[]\OT1/cmr/m/n/10 (b)
- []
-
-
-Overfull \hbox (19.44449pt too wide) in paragraph at lines 26--26
-|\OT1/cmr/m/n/10 with
- []
-
-
-Overfull \hbox (15.55559pt too wide) in paragraph at lines 26--26
-\OT1/cmr/m/n/10 line
- []
-
-
-Overfull \hbox (15.83336pt too wide) in paragraph at lines 26--26
-\OT1/cmr/m/n/10 fea-
- []
-
-
-Overfull \hbox (21.75003pt too wide) in paragraph at lines 26--26
-\OT1/cmr/m/n/10 tures| 
- []
-
-
-Overfull \hbox (12.22224pt too wide) in paragraph at lines 27--27
-[]\OT1/cmr/m/n/10 (c)
- []
-
-
-Overfull \hbox (16.13892pt too wide) in paragraph at lines 27--27
-|\OT1/cmr/m/n/10 tar-
- []
-
-
-Overfull \hbox (13.33336pt too wide) in paragraph at lines 27--27
-\OT1/cmr/m/n/10 get| 
- []
-
-
-Overfull \hbox (13.33337pt too wide) in paragraph at lines 28--28
-[]\OT1/cmr/m/n/10 (d)
- []
-
-
-Overfull \hbox (22.77782pt too wide) in paragraph at lines 28--28
-|\OT1/cmr/m/n/10 with-
- []
-
-
-Overfull \hbox (14.44449pt too wide) in paragraph at lines 28--28
-\OT1/cmr/m/n/10 out
- []
-
-
-Overfull \hbox (15.55559pt too wide) in paragraph at lines 28--28
-\OT1/cmr/m/n/10 line
- []
-
-
-Overfull \hbox (15.83336pt too wide) in paragraph at lines 28--28
-\OT1/cmr/m/n/10 fea-
- []
-
-
-Overfull \hbox (24.52782pt too wide) in paragraph at lines 28--28
-\OT1/cmr/m/n/10 tures,
- []
-
-
-Overfull \hbox (19.44449pt too wide) in paragraph at lines 28--28
-\OT1/cmr/m/n/10 with
- []
-
-
-Overfull \hbox (16.94447pt too wide) in paragraph at lines 28--28
-\OT1/cmr/m/n/10 tex-
- []
-
-
-Overfull \hbox (17.80559pt too wide) in paragraph at lines 28--28
-\OT1/cmr/m/n/10 ture| 
- []
-
-
-Overfull \hbox (12.22224pt too wide) in paragraph at lines 29--29
-[]\OT1/cmr/m/n/10 (e)
- []
-
-
-Overfull \hbox (19.44449pt too wide) in paragraph at lines 29--29
-|\OT1/cmr/m/n/10 with
- []
-
-
-Overfull \hbox (15.55559pt too wide) in paragraph at lines 29--29
-\OT1/cmr/m/n/10 line
- []
-
-
-Overfull \hbox (15.83336pt too wide) in paragraph at lines 29--29
-\OT1/cmr/m/n/10 fea-
- []
-
-
-Overfull \hbox (24.52782pt too wide) in paragraph at lines 29--29
-\OT1/cmr/m/n/10 tures,
- []
-
-
-Overfull \hbox (19.44449pt too wide) in paragraph at lines 29--29
-\OT1/cmr/m/n/10 with
- []
-
-
-Overfull \hbox (16.94447pt too wide) in paragraph at lines 29--29
-\OT1/cmr/m/n/10 tex-
- []
-
-
-Overfull \hbox (17.80559pt too wide) in paragraph at lines 29--29
-\OT1/cmr/m/n/10 ture| 
- []
-
-
-Overfull \hbox (11.61116pt too wide) in paragraph at lines 30--30
-[]\OT1/cmr/m/n/10 (f)
- []
-
-
-Overfull \hbox (16.13892pt too wide) in paragraph at lines 30--30
-|\OT1/cmr/m/n/10 tar-
- []
-
-
-Overfull \hbox (13.33336pt too wide) in paragraph at lines 30--30
-\OT1/cmr/m/n/10 get
- []
-
-
-Overfull \hbox (19.44449pt too wide) in paragraph at lines 30--30
-\OT1/cmr/m/n/10 with
- []
-
-
-Overfull \hbox (16.94447pt too wide) in paragraph at lines 30--30
-\OT1/cmr/m/n/10 tex-
- []
-
-
-Overfull \hbox (17.80559pt too wide) in paragraph at lines 30--30
-\OT1/cmr/m/n/10 ture| 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (12.77782pt too wide) in paragraph at lines 38--38
-[]\OT1/cmr/m/n/10 (a)
- []
-
-
-Overfull \hbox (22.77782pt too wide) in paragraph at lines 38--38
-|\OT1/cmr/m/n/10 with-
- []
-
-
-Overfull \hbox (14.44449pt too wide) in paragraph at lines 38--38
-\OT1/cmr/m/n/10 out
- []
-
-
-Overfull \hbox (15.55559pt too wide) in paragraph at lines 38--38
-\OT1/cmr/m/n/10 line
- []
-
-
-Overfull \hbox (15.83336pt too wide) in paragraph at lines 38--38
-\OT1/cmr/m/n/10 fea-
- []
-
-
-Overfull \hbox (21.75003pt too wide) in paragraph at lines 38--38
-\OT1/cmr/m/n/10 tures| 
- []
-
-
-Overfull \hbox (13.33337pt too wide) in paragraph at lines 39--39
-[]\OT1/cmr/m/n/10 (b)
- []
-
-
-Overfull \hbox (19.44449pt too wide) in paragraph at lines 39--39
-|\OT1/cmr/m/n/10 with
- []
-
-
-Overfull \hbox (15.55559pt too wide) in paragraph at lines 39--39
-\OT1/cmr/m/n/10 line
- []
-
-
-Overfull \hbox (15.83336pt too wide) in paragraph at lines 39--39
-\OT1/cmr/m/n/10 fea-
- []
-
-
-Overfull \hbox (21.75003pt too wide) in paragraph at lines 39--39
-\OT1/cmr/m/n/10 tures| 
- []
-
-
-Overfull \hbox (12.22224pt too wide) in paragraph at lines 40--40
-[]\OT1/cmr/m/n/10 (c)
- []
-
-
-Overfull \hbox (22.77782pt too wide) in paragraph at lines 40--40
-|\OT1/cmr/m/n/10 with-
- []
-
-
-Overfull \hbox (14.44449pt too wide) in paragraph at lines 40--40
-\OT1/cmr/m/n/10 out
- []
-
-
-Overfull \hbox (15.55559pt too wide) in paragraph at lines 40--40
-\OT1/cmr/m/n/10 line
- []
-
-
-Overfull \hbox (15.83336pt too wide) in paragraph at lines 40--40
-\OT1/cmr/m/n/10 fea-
- []
-
-
-Overfull \hbox (24.52782pt too wide) in paragraph at lines 40--40
-\OT1/cmr/m/n/10 tures,
- []
-
-
-Overfull \hbox (19.44449pt too wide) in paragraph at lines 40--40
-\OT1/cmr/m/n/10 with
- []
-
-
-Overfull \hbox (16.94447pt too wide) in paragraph at lines 40--40
-\OT1/cmr/m/n/10 tex-
- []
-
-
-Overfull \hbox (17.80559pt too wide) in paragraph at lines 40--40
-\OT1/cmr/m/n/10 ture| 
- []
-
-
-Overfull \hbox (13.33337pt too wide) in paragraph at lines 41--41
-[]\OT1/cmr/m/n/10 (d)
- []
-
-
-Overfull \hbox (19.44449pt too wide) in paragraph at lines 41--41
-|\OT1/cmr/m/n/10 with
- []
-
-
-Overfull \hbox (15.55559pt too wide) in paragraph at lines 41--41
-\OT1/cmr/m/n/10 line
- []
-
-
-Overfull \hbox (15.83336pt too wide) in paragraph at lines 41--41
-\OT1/cmr/m/n/10 fea-
- []
-
-
-Overfull \hbox (24.52782pt too wide) in paragraph at lines 41--41
-\OT1/cmr/m/n/10 tures,
- []
-
-
-Overfull \hbox (19.44449pt too wide) in paragraph at lines 41--41
-\OT1/cmr/m/n/10 with
- []
-
-
-Overfull \hbox (16.94447pt too wide) in paragraph at lines 41--41
-\OT1/cmr/m/n/10 tex-
- []
-
-
-Overfull \hbox (17.80559pt too wide) in paragraph at lines 41--41
-\OT1/cmr/m/n/10 ture| 
- []
-
-
-Overfull \hbox (12.22224pt too wide) in paragraph at lines 42--42
-[]\OT1/cmr/m/n/10 (e)
- []
-
-
-Overfull \hbox (16.13892pt too wide) in paragraph at lines 42--42
-|\OT1/cmr/m/n/10 tar-
- []
-
-
-Overfull \hbox (13.33336pt too wide) in paragraph at lines 42--42
-\OT1/cmr/m/n/10 get
- []
-
-
-Overfull \hbox (19.44449pt too wide) in paragraph at lines 42--42
-\OT1/cmr/m/n/10 with
- []
-
-
-Overfull \hbox (16.94447pt too wide) in paragraph at lines 42--42
-\OT1/cmr/m/n/10 tex-
- []
-
-
-Overfull \hbox (17.80559pt too wide) in paragraph at lines 42--42
-\OT1/cmr/m/n/10 ture| 
- []
-
+File: ./resources/img/00029_mouth_comparison.pdf Graphic file (type QTm)
+<use  "./resources/img/00029_mouth_comparison.pdf" >
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1792,128 +1407,180 @@ File: ./resources/img/00029_fit.pdf Graphic file (type QTm)
 <use  "./resources/img/00029_fit.pdf" >
 File: ./resources/img/00029_distmap.pdf Graphic file (type QTm)
 
-<use  "./resources/img/00029_distmap.pdf" >
+<use  "./resources/img/00029_distmap.pdf" > [33]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [34
-
-]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (12.77782pt too wide) in paragraph at lines 63--63
+ [34]
+Overfull \hbox (12.77782pt too wide) in paragraph at lines 54--54
 []\OT1/cmr/m/n/10 (a)
  []
 
 
-Overfull \hbox (16.13892pt too wide) in paragraph at lines 63--63
+Overfull \hbox (16.13892pt too wide) in paragraph at lines 54--54
 |\OT1/cmr/m/n/10 tar-
  []
 
 
-Overfull \hbox (13.33336pt too wide) in paragraph at lines 63--63
+Overfull \hbox (13.33336pt too wide) in paragraph at lines 54--54
 \OT1/cmr/m/n/10 get
  []
 
 
-Overfull \hbox (21.13895pt too wide) in paragraph at lines 63--63
+Overfull \hbox (21.13895pt too wide) in paragraph at lines 54--54
 \OT1/cmr/m/n/10 front| 
  []
 
 
-Overfull \hbox (13.33337pt too wide) in paragraph at lines 64--64
+Overfull \hbox (13.33337pt too wide) in paragraph at lines 55--55
 []\OT1/cmr/m/n/10 (b)
  []
 
 
-Overfull \hbox (13.33334pt too wide) in paragraph at lines 64--64
+Overfull \hbox (13.33334pt too wide) in paragraph at lines 55--55
 |\OT1/cmr/m/n/10 de-
  []
 
 
-Overfull \hbox (30.30563pt too wide) in paragraph at lines 64--64
+Overfull \hbox (30.30563pt too wide) in paragraph at lines 55--55
 \OT1/cmr/m/n/10 formed
  []
 
 
-Overfull \hbox (23.33339pt too wide) in paragraph at lines 64--64
+Overfull \hbox (23.33339pt too wide) in paragraph at lines 55--55
 \OT1/cmr/m/n/10 mean| 
  []
 
 
-Overfull \hbox (12.22224pt too wide) in paragraph at lines 65--65
+Overfull \hbox (12.22224pt too wide) in paragraph at lines 56--56
 []\OT1/cmr/m/n/10 (c)
  []
 
 
-Overfull \hbox (15.61113pt too wide) in paragraph at lines 65--65
+Overfull \hbox (15.61113pt too wide) in paragraph at lines 56--56
 |\OT1/cmr/m/n/10 dis-
  []
 
 
-Overfull \hbox (23.33337pt too wide) in paragraph at lines 65--65
+Overfull \hbox (23.33337pt too wide) in paragraph at lines 56--56
 \OT1/cmr/m/n/10 tance| 
  []
 
 
-Overfull \hbox (13.33337pt too wide) in paragraph at lines 67--67
+Overfull \hbox (13.33337pt too wide) in paragraph at lines 58--58
 []\OT1/cmr/m/n/10 (d)
  []
 
 
-Overfull \hbox (16.13892pt too wide) in paragraph at lines 67--67
+Overfull \hbox (16.13892pt too wide) in paragraph at lines 58--58
 |\OT1/cmr/m/n/10 tar-
  []
 
 
-Overfull \hbox (13.33336pt too wide) in paragraph at lines 67--67
+Overfull \hbox (13.33336pt too wide) in paragraph at lines 58--58
 \OT1/cmr/m/n/10 get
  []
 
 
-Overfull \hbox (14.1667pt too wide) in paragraph at lines 67--67
+Overfull \hbox (14.1667pt too wide) in paragraph at lines 58--58
 \OT1/cmr/m/n/10 left| 
  []
 
 
-Overfull \hbox (12.22224pt too wide) in paragraph at lines 68--68
+Overfull \hbox (12.22224pt too wide) in paragraph at lines 59--59
 []\OT1/cmr/m/n/10 (e)
  []
 
 
-Overfull \hbox (13.33334pt too wide) in paragraph at lines 68--68
+Overfull \hbox (13.33334pt too wide) in paragraph at lines 59--59
 |\OT1/cmr/m/n/10 de-
  []
 
 
-Overfull \hbox (30.30563pt too wide) in paragraph at lines 68--68
+Overfull \hbox (30.30563pt too wide) in paragraph at lines 59--59
 \OT1/cmr/m/n/10 formed
  []
 
 
-Overfull \hbox (23.33339pt too wide) in paragraph at lines 68--68
+Overfull \hbox (23.33339pt too wide) in paragraph at lines 59--59
 \OT1/cmr/m/n/10 mean| 
  []
 
 
-Overfull \hbox (11.61116pt too wide) in paragraph at lines 69--69
+Overfull \hbox (11.61116pt too wide) in paragraph at lines 60--60
 []\OT1/cmr/m/n/10 (f)
  []
 
 
-Overfull \hbox (15.61113pt too wide) in paragraph at lines 69--69
+Overfull \hbox (15.61113pt too wide) in paragraph at lines 60--60
 |\OT1/cmr/m/n/10 dis-
  []
 
 
-Overfull \hbox (23.33337pt too wide) in paragraph at lines 69--69
+Overfull \hbox (23.33337pt too wide) in paragraph at lines 60--60
 \OT1/cmr/m/n/10 tance| 
  []
 
 
-Overfull \hbox (12.77782pt too wide) in paragraph at lines 71--71
+Overfull \hbox (12.77782pt too wide) in paragraph at lines 62--62
 []\OT1/cmr/m/n/10 (g)
+ []
+
+
+Overfull \hbox (16.13892pt too wide) in paragraph at lines 62--62
+|\OT1/cmr/m/n/10 tar-
+ []
+
+
+Overfull \hbox (13.33336pt too wide) in paragraph at lines 62--62
+\OT1/cmr/m/n/10 get
+ []
+
+
+Overfull \hbox (20.86116pt too wide) in paragraph at lines 62--62
+\OT1/cmr/m/n/10 right| 
+ []
+
+
+Overfull \hbox (13.33337pt too wide) in paragraph at lines 63--63
+[]\OT1/cmr/m/n/10 (h)
+ []
+
+
+Overfull \hbox (13.33334pt too wide) in paragraph at lines 63--63
+|\OT1/cmr/m/n/10 de-
+ []
+
+
+Overfull \hbox (30.30563pt too wide) in paragraph at lines 63--63
+\OT1/cmr/m/n/10 formed
+ []
+
+
+Overfull \hbox (23.33339pt too wide) in paragraph at lines 63--63
+\OT1/cmr/m/n/10 mean| 
+ []
+
+
+Overfull \hbox (10.55559pt too wide) in paragraph at lines 64--64
+[]\OT1/cmr/m/n/10 (i)
+ []
+
+
+Overfull \hbox (15.61113pt too wide) in paragraph at lines 64--64
+|\OT1/cmr/m/n/10 dis-
+ []
+
+
+Overfull \hbox (23.33337pt too wide) in paragraph at lines 64--64
+\OT1/cmr/m/n/10 tance| 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (12.77782pt too wide) in paragraph at lines 71--71
+[]\OT1/cmr/m/n/10 (a)
  []
 
 
@@ -1923,17 +1590,12 @@ Overfull \hbox (16.13892pt too wide) in paragraph at lines 71--71
 
 
 Overfull \hbox (13.33336pt too wide) in paragraph at lines 71--71
-\OT1/cmr/m/n/10 get
- []
-
-
-Overfull \hbox (20.86116pt too wide) in paragraph at lines 71--71
-\OT1/cmr/m/n/10 right| 
+\OT1/cmr/m/n/10 get| 
  []
 
 
 Overfull \hbox (13.33337pt too wide) in paragraph at lines 72--72
-[]\OT1/cmr/m/n/10 (h)
+[]\OT1/cmr/m/n/10 (b)
  []
 
 
@@ -1952,8 +1614,8 @@ Overfull \hbox (23.33339pt too wide) in paragraph at lines 72--72
  []
 
 
-Overfull \hbox (10.55559pt too wide) in paragraph at lines 73--73
-[]\OT1/cmr/m/n/10 (i)
+Overfull \hbox (12.22224pt too wide) in paragraph at lines 73--73
+[]\OT1/cmr/m/n/10 (c)
  []
 
 
@@ -1970,59 +1632,11 @@ Overfull \hbox (23.33337pt too wide) in paragraph at lines 73--73
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (12.77782pt too wide) in paragraph at lines 80--80
-[]\OT1/cmr/m/n/10 (a)
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Overfull \hbox (16.13892pt too wide) in paragraph at lines 80--80
-|\OT1/cmr/m/n/10 tar-
- []
-
-
-Overfull \hbox (13.33336pt too wide) in paragraph at lines 80--80
-\OT1/cmr/m/n/10 get| 
- []
-
-
-Overfull \hbox (13.33337pt too wide) in paragraph at lines 81--81
-[]\OT1/cmr/m/n/10 (b)
- []
-
-
-Overfull \hbox (13.33334pt too wide) in paragraph at lines 81--81
-|\OT1/cmr/m/n/10 de-
- []
-
-
-Overfull \hbox (30.30563pt too wide) in paragraph at lines 81--81
-\OT1/cmr/m/n/10 formed
- []
-
-
-Overfull \hbox (23.33339pt too wide) in paragraph at lines 81--81
-\OT1/cmr/m/n/10 mean| 
- []
-
-
-Overfull \hbox (12.22224pt too wide) in paragraph at lines 82--82
-[]\OT1/cmr/m/n/10 (c)
- []
-
-
-Overfull \hbox (15.61113pt too wide) in paragraph at lines 82--82
-|\OT1/cmr/m/n/10 dis-
- []
-
-
-Overfull \hbox (23.33337pt too wide) in paragraph at lines 82--82
-\OT1/cmr/m/n/10 tance| 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+ [35]
 File: ./resources/img/00029_caricature_1_3.pdf Graphic file (type QTm)
+
 <use  "./resources/img/00029_caricature_1_3.pdf" >
 File: ./resources/img/00029_caricature_1_6.pdf Graphic file (type QTm)
 
@@ -2032,13 +1646,13 @@ File: ./resources/img/00029_caricature_2.pdf Graphic file (type QTm)
 <use  "./resources/img/00029_caricature_2.pdf" >
 
 LaTeX Warning: File `./resources/img/00303_caricature_1_3.pdf' not found on inp
-ut line 96.
+ut line 88.
 
 ! Unable to load picture or PDF file './resources/img/00303_caricature_1_3.pdf'
 .
 <to be read again> 
                    }
-l.96 ..../resources/img/00303_caricature_1_3.pdf}}
+l.88 ..../resources/img/00303_caricature_1_3.pdf}}
                                                   \\
 The requested image couldn't be read because 
 it was not a recognized image format.
@@ -2050,7 +1664,7 @@ See the graphics package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.96 ..../resources/img/00303_caricature_1_3.pdf}}
+l.88 ..../resources/img/00303_caricature_1_3.pdf}}
                                                   \\
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2062,20 +1676,20 @@ File: ./resources/img/00303_caricature_1_3.pdf Graphic file (type QTm)
 .
 <to be read again> 
                    \GXT@clipend 
-l.96 ..../resources/img/00303_caricature_1_3.pdf}}
+l.88 ..../resources/img/00303_caricature_1_3.pdf}}
                                                   \\
 The requested image couldn't be read because 
 it was not a recognized image format.
 
 
 LaTeX Warning: File `./resources/img/00303_caricature_1_6.pdf' not found on inp
-ut line 97.
+ut line 89.
 
 ! Unable to load picture or PDF file './resources/img/00303_caricature_1_6.pdf'
 .
 <to be read again> 
                    }
-l.97 ..../resources/img/00303_caricature_1_6.pdf}}
+l.89 ..../resources/img/00303_caricature_1_6.pdf}}
                                                   \\
 The requested image couldn't be read because 
 it was not a recognized image format.
@@ -2087,7 +1701,7 @@ See the graphics package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.97 ..../resources/img/00303_caricature_1_6.pdf}}
+l.89 ..../resources/img/00303_caricature_1_6.pdf}}
                                                   \\
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2099,52 +1713,22 @@ File: ./resources/img/00303_caricature_1_6.pdf Graphic file (type QTm)
 .
 <to be read again> 
                    \GXT@clipend 
-l.97 ..../resources/img/00303_caricature_1_6.pdf}}
+l.89 ..../resources/img/00303_caricature_1_6.pdf}}
                                                   \\
 The requested image couldn't be read because 
 it was not a recognized image format.
 
-
-LaTeX Warning: File `./resources/img/00303_caricature_2.pdf' not found on input
- line 98.
-
-! Unable to load picture or PDF file './resources/img/00303_caricature_2.pdf'.
-<to be read again> 
-                   }
-l.98 ...]{./resources/img/00303_caricature_2.pdf}}
-                                                  
-The requested image couldn't be read because 
-it was not a recognized image format.
-
-
-! Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.98 ...]{./resources/img/00303_caricature_2.pdf}}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
 File: ./resources/img/00303_caricature_2.pdf Graphic file (type QTm)
 <use  "./resources/img/00303_caricature_2.pdf" >
-! Unable to load picture or PDF file './resources/img/00303_caricature_2.pdf'.
-<to be read again> 
-                   \GXT@clipend 
-l.98 ...]{./resources/img/00303_caricature_2.pdf}}
-                                                  
-The requested image couldn't be read because 
-it was not a recognized image format.
+
+LaTeX Warning: Float too large for page by 0.28642pt on input line 94.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [35] [36] [37] [38]
-\tf@toc=\write5
-\openout5 = `thesis.toc'.
+) [36] [37]
+\tf@toc=\write6
+\openout6 = `thesis.toc'.
 
  (./thesis.aux)
 
@@ -2155,12 +1739,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16413 strings out of 495724
- 280234 string characters out of 1189347
- 397310 words of memory out of 3000000
- 19208 multiletter control sequences out of 15000+50000
- 16196 words of font info for 61 fonts, out of 3000000 for 9000
+ 19610 strings out of 495724
+ 328640 string characters out of 1189347
+ 429269 words of memory out of 3000000
+ 22332 multiletter control sequences out of 15000+50000
+ 14611 words of font info for 54 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 69i,12n,60p,701b,659s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 69i,12n,60p,800b,671s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on thesis.pdf (38 pages).
+Output written on thesis.pdf (37 pages).

@@ -1,7 +1,7 @@
 \chapter{Gaussian Processes in 3D Face Registration}
-The first of our two objectives is to build a face registration pipeline. In this context we use a stochastic process, more specifically a Vector-valued Gaussian process or Gaussian random field as the registration algorithm. In this chapter we explain the theory behind the implementation of the registration pipeline. To begin with, we recapitulate the definition
+The first of our two objectives is to build a face registration pipeline. In this context we use a Gaussian Process as the registration algorithm. In this chapter we explain the theory behind the implementation of the registration pipeline. To begin with, we recapitulate the definition
 of stochastic processes and extend it to the definition of Gaussian processes. In the next step we introduce Gaussian Process Regression and finally explain how it can be applied 3D face mesh registration. 
-
+\begin{comment}a stochastic process, more specifically a Vector-valued Gaussian process or Gaussian random field as the registration algorithm\end{comment}
 \section{Stochastic Processes}
 \begin{comment}
 Assigns random variables to every point in time series or space 
@@ -29,14 +29,13 @@ Now incorporate definition on p. 13 of Gaussian processes for machine learning
 \end{comment}
 
 \section{1-dimensional Gaussian Processes}
-In order to familiarize the reader with Gaussian Processes, we start explaining the concept on the basis of an index set $\mathcal{X}$ of 1-dimensional inputs. To further simplify the concept it is possible to consider a Gaussian Process, or even any stochastic process, as a distribution over functions. Given a dataset, this circumstance allows us to look for inference in a space functions. Each random variable $X$ yields the value of a function $f(x)$ at a location $x \in
+In order to familiarize the reader with Gaussian Processes, we start explaining the concept on the basis of an index set $\mathcal{X}$ of 1-dimensional inputs. To further simplify the concept it is possible to consider a Gaussian Process, or even any stochastic process, as a distribution over functions. Given a dataset, this circumstance allows us to look for inference in a space of functions. Each random variable $f(x)$ yields the value of some underlying function at a location $x \in
 \mathcal{X}$ in the index set of possible inputs. The index set is denoted by $\mathcal{X}$ to stress that we are discussing Gaussian Processes defined over a space. In this function-space view a Gaussian Process at location $x$ is thus $f(x) \sim GP(\mu(x), k(x,x'))$ defined by its mean $\mu:\mathcal{X} \rightarrow \mathbb{R}$ and covariance $k:\mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$ functions which in turn are defined over the set of inputs. With $\mu(\mathcal{X})=(\mu(x))_{x \in \mathcal{X}}$ and $\Sigma(\mathcal{X})=(k(x,x'))_{x,x' \in \mathcal{X}}$ we obtain the full distribution of the process $GP(\mu(\mathcal{X}),
 \Sigma(\mathcal{X}))$. For the purpose of simplifying calculations we may assume that every random variable has zero mean without a loss of generality. (GP book)
 \begin{comment}
 Define Gaussian process for location x or for whole index set?
 \end{comment}
 
-\viscomment{define random variables as f or X now?}
 \paragraph{Covariance Functions}
 The key feature of a Gaussian Process is its covariance function also known as ``kernel''. It specifies the covariance $\mathbb{E}[f(x)f(x')]$ between pairs of random variables for two inputs $x$ and $x'$, allowing us to make assumptions about the input space by defining the spatial co-dependency of the modelled random variables. Note, that when assuming zero mean we can completely define the process' behaviour with the covariance function.\\
 A simple example of a covariance function is the squared exponential covariance function, defined by $cov(f(x),f(x'))=k(x,x')=\exp(-\frac{(x-x')}{2l^{2}})$. (derivation Rasmussen et al. p.83) \begin{comment}
@@ -47,7 +46,7 @@ It is possible to obtain different prior distributions by deploying different co
 \begin{figure}[h!]
     \subfloat[Samples drawn from the prior]{\includegraphics[width=.5\textwidth]{./resources/figures/gp_prior.eps}}
     \subfloat[Samples after a few observations]{\includegraphics[width=.5\textwidth]{./resources/figures/gp_posterior.eps}}
-\caption{In figure a) three functions have been drawn from the GP prior, each has a sample size of 1000 points. Figure b) again shows three functions, but this time the prediction incorporates the information of random values observed at seven points in the input space}
+\caption{In figure a) three functions have been drawn from the GP prior, each has a sample size of 1000 points. Figure b) again shows three functions, but this time the prediction incorporates the information of random values observed at seven points in the input space. The grey zone depicts the area of two standard deviations from the posterior mean.}
 \label{fig:GPPlot}
 % reference in text by \ref{$figure-name}
 \end{figure}
@@ -145,6 +144,7 @@ Von skalarwertiger Funktion zu vektorwertiger Funktion, siehe Block!
 \paragraph{Vector-valued Gaussian Processes}
 In order to use Gaussian Processes to model deformation fields of three dimensional vectors as intended, there is the need for a generalization of the definition from the function-space view. The random variables $X_{1}, X_{2}, \ldots, X_{k}, \ldots, X_{n}$ are now d-dimensional vectors, yielding a vector-valued covariance function of the form $k: \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}^{d \times d}$ and $k(x,x')=\mathbb{E}[X_{k}(x)^{T}X_{k}(x')]$ and mean function $\mu:
 \mathcal{X} \rightarrow \mathbb{R}^{d}$. 
+Mention vector field
 
 \paragraph{Reference Mesh Prior}
 As defined by the deformation field the output the regression problem is in $\mathbb{R}^3$ calling for the use of a Vector-valued Gaussian Process with random variables $\delta \subseteq \mathbb{R}^3$ where $\delta$ stands for deformation. 
@@ -180,7 +180,7 @@ meaning that a sample deformation field can be directly drawn from the prior dis
 \end{figure}
 \paragraph{Reference Mesh Posterior}
 The target landmarks also consist of a set $L_{\mathcal{T}} = \{l_{\mathcal{T}1},\cdots, l_{\mathcal{T}n}\} \subset \mathbb{R}^3$. 
-Fixing the prior output to the deformation vectors $\mathcal{Y}=\{\vect{t}-\vect{m}\vert \vect{t} \in L_{\mathcal{T}}, \vect{m} \in L_{\mathcal{M}}\}$ - defined by the difference vectors between the template and target landmarks - and assuming additive i.i.d Gaussian noise, the resulting posterior distribution is
+Fixing the prior output to the deformation vectors $\mathcal{Y}=\{\vect{t}-\vect{m}\vert \vect{t} \in L_{\mathcal{T}}, \vect{m} \in L_{\mathcal{M}}\}$ - defined by the difference vectors between the template and target landmarks - and assuming additive i.i.d Gaussian noise, the resulting joint distribution is
 \begin{equation}
     \begin{bmatrix}\mathcal{Y_{\varepsilon}}\\\mathcal{D}\end{bmatrix}
 \sim \mathcal{N}\left(\textbf{0},
@@ -217,20 +217,21 @@ We now have defined a distribution over our template mesh. Sampling the conditio
 
 \section{Fitting \& Optimization}
 \label{optimization}
-In the previous paragraph we modelled the space of feasible deformations as a vector-valued Gaussian Process. Due to the fact that the posterior model is fixed at the target landmarks it is possible to perform the registration by drawing a shape from the posterior model. The sample, however, has to be optimized according to the shape of the target face. 
-In order to find the deformation corresponding to the optimal fit $d_{*}$ a linear optimization is employed. \begin{equation}
+In the previous paragraph we modelled the space of feasible deformations as a vector-valued Gaussian Process. We now want to perform registration by optimizing a deformation field according to the shape of the target face. 
+In order to find the deformation corresponding to the optimal fit $d_{*}$ a linear optimization is employed, where $\mathbb{D}$ denotes the space of possible deformations in the posterior model.
+\begin{equation}
     d_{*} = \underset{d \in \mathbb{D}}{\textbf{arg min}}\quad L[\mathcal{T}, \mathcal{M }\circ d]+\lambda R[d]
 \end{equation}
-Therein the deformation vectors of the landmarks and the posterior process act as constraints in the regularization term R. Minimizing the loss function L - for example the mean square error (MSE) - on the target and the deformed template should provide us with the optimal deformation under the given constraints. $\mathbb{D}$ denotes the space of possible deformations in the posterior model.\\ 
+Therein the deformation vectors of the landmarks and the posterior process act as constraints in the regularization term R. Minimizing the loss function L - for example the mean squared error (MSE) - on the target and the deformed template should provide us with the optimal deformation under the given constraints.\\ 
 
 The problem with the above approach to optimization is that the deformations are modelled by a distribution and are therefore non-parametric. In order to properly perform optimization, however, we need a representation that can be controlled through/ is governed by a set of parameters. For this purpose we would like to specify a parametric model $\mathbb{M}[\alpha](x)=\mu(x)+ \sum^{n}_{i=1} \alpha_{i}\lambda_{i}\phi_{i}(x)$ which is defined over a finite set of basis
-functions. The question remains how the Gaussian Posterior Model can be expressed as a linear model. Fortunately, the answer lies in Mercer's Theorem. It states that a symmetric, non-negative definite, continuous function $k$ can be expressed by the following linear combination of a countable sequence of functions $\{\phi_{i}\}_{i \in \mathbb{N}}$
+functions. The question remains how the GP Posterior Distribution can be expressed as a linear model. Fortunately, the answer lies in Mercer's Theorem. It states that a symmetric, non-negative definite, continuous function $k$ can be expressed by the following linear combination of a countable sequence of functions $\{\phi_{i}\}_{i \in \mathbb{N}}$
 \begin{equation}
-    k(x,x') = \sum^{\infty}_{i=1}\lambda_{i}\phi_{i}(x)\phi_{i}(x') \in \mathbb{R}^{3 \times 3}
+    k(x,x') = \sum^{\infty}_{i=1}\lambda_{i}\phi_{i}(x)\phi_{i}(x')^{T} \in \mathbb{R}^{3 \times 3}
 \end{equation}
-Through the theorem we can define the covariance function of the our Gaussian Process Posterior in an infinite dimensional space made up of its eigenvalues $\lambda_{i}$ and eigenvectors $\phi_{i}: \mathbb{R}^3 \rightarrow \mathbb{R}^3$ which are functions in this case.
-This infinite basis of functions corresponds to all possible deformations at a specific vertex in the template mesh. By evaluating a basis function at every vertex we receive a basis deformation field. We can further use Mercer's theorem to obtain the sought parametric model by estimating the covariance function. In order to achieve this a low-rank approximation of the covariance function - in terms of the first leading terms of its Mercer expansion - is performed $k(x,x') =
-\sum^{n}_{i=1}\lambda_{i}\phi_{i}(x)\phi_{i}(x')$. For this to work the modelled deformations have to be sufficiently smooth, because we are disregarding a number of basis functions. Smoothness is guaranteed by the square exponential covariance function.
+Through the theorem we can define the covariance function of the Gaussian Process Posterior in an infinite dimensional space made up of its eigenvalues $\lambda_{i}$ and eigenvectors $\phi_{i}: \mathbb{R}^3 \rightarrow \mathbb{R}^3$ which are functions in this case.
+This infinite basis of functions corresponds to all possible deformations at a specific vertex in the template mesh. By evaluating a basis function at every vertex we receive a basis deformation field. We can further use Mercer's theorem to obtain the sought parametric model by estimating the covariance function. In order to achieve this, a low-rank approximation of the covariance function - in terms of the first leading terms of its Mercer expansion - is performed $k(x,x') =
+\sum^{n}_{i=1}\lambda_{i}\phi_{i}(x)\phi_{i}(x')$. For this to work, the modelled deformations have to be sufficiently smooth, because we are only using a fixed number of basis functions corresponding to the highest eigenvalues and disregard the rest of basis functions. Smoothness is guaranteed by the square exponential covariance function.
 We can further express the deformation at a given mesh vertex by a linear combination of the selected basis functions and their eigenvalues with $\alpha_{1} \cdots \alpha_{n} \in \mathbb{R}$ as the linear parameters
 \begin{equation}
 f(x) = \sum^{n}_{i=1} \alpha_{i}\lambda_{i}\phi_{i}(x)
@@ -241,10 +242,10 @@ In effect, we have formulated the Gaussian Process Registration problem in param
 \end{equation}
 where $f(x_{i})$ is the deformation function and $\varphi_{T}(x_{i})$ returns the nearest point on the target mesh. The optimization problem therefore becomes
 \begin{equation}
-    \alpha_{*} = \underset{\alpha \in \mathbb{R}^n}{\textbf{arg min}}\quad L[\mathcal{T}, \mathcal{M }\circ \mathbb{M}[\alpha]]+\lambda R[\alpha]
+    \alpha_{*} = \underset{\alpha \in \mathbb{R}^n}{\textbf{arg min}}\quad L[\mathcal{T}, \mathcal{M }\circ \mathbb{M}[\alpha]]+\lambda R[\left|\left|\alpha\right|\right|^{2}]
 \end{equation}
+For finding the parameters' minimum any standard optimization scheme can be employed.
 
-Write as statistical PCA based shape model
 
 \begin{comment}
 Yields the overall loss function $\Phi_{L}$ 
