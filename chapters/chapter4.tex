@@ -1,4 +1,5 @@
 \chapter{Registration Pipeline using Line Features}
+\label{cha:pipelinefeatures}
 In this chapter we describe how the Vector-valued Gaussian Model is utilized in our implementation of a 3D Face Registration Pipeline. To enhance the registration outcome of this pipeline we use additional annotations to extend the prior correspondences given initially by the landmarks described in \ref{section:}. The additional annotations are parametric curves, we call line features, that mark key regions on the 2D colored images of a face scan. In the following we provide a description of line features and their use
 as well as a description of the registration pipeline. 
 
@@ -103,15 +104,17 @@ The solution to this problem is based on the respective curve's arc-length, whic
 It is possible to get the arc length $L(t)=\int_{t_{0}}^{t_{1}} \left|C'(t)\right| dt$ for given parameters $t_{0}, t_{1}$ where $C'(t)$ is the derivative of the curve $C:t \in [0,1] \rightarrow \mathbb{R}^2$. We, however, want to find a reverse mapping from the length of a fraction of the curve $l$ to the curve parameter $t = L^{-1}(l)$. 
 Instead of deriving this function analytically we decided to use a numeric approximation.
 \paragraph{In practice}
-As we are not in need of a subpixel resolution, we can skip the formal math and use a lookup table to compute the arc-length. First, we calculate a large number of points on each segment of the curve using the parametrization of the corresponding B\'{e}zier curve. For each sampled point, we save a key-value-pair to a new entry of the lookup table. The approximate distance of the point from the origin of the segment is the key, while the point's coordinates is the value. 
+As we are not in need of a subpixel resolution, we can skip the formal math and use a lookup table to compute the arc-length. First, we calculate a large number of points on each segment of the curve using the parametrization of the corresponding B\'{e}zier curve. For each sampled point, we save a key-value-pair to a new entry of the lookup table. The approximate distance of the point from the origin of the segment is inserted as the key, while the point's coordinates are stored
+as the value. 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth]{./resources/figures/distance_computation.pdf}
 \label{fig:lookup}
-\caption{Visualization of euclidean distances between points computed with b\'{e}zier curve parametrization. This is an arbitrary line feature used solely for demonstration purposes.}
+\caption{Visualization of euclidean distances between points computed with a b\'{e}zier curve parametrization. This is an arbitrary line feature used solely for demonstration purposes.}
 \end{figure}
-The distance is approximated by summing up the euclidean distances of each point to its respective predecessor starting from the origin. The resulting lookup table contains the approximate distances and coordinates of a large number of points from the origin of a curve segment. Assembling the segments' lookup results in the lookup table of the whole curve where the last key represents the curve's arc-length.\\ 
-In a second step, the curve can easily be sampled by computing the length of parametric intervals $\frac{L}{N}$ for a specified number of points N. $l=k \cdot \frac{L}{N}$ returns the current length of the curve for the sampling point of index k, where $k=[0,\cdots,N]$ for open curves and $k=[0,\cdots,N-1]$ for closed curves.
+The distance is approximated by summing up the euclidean distances of each point to its respective predecessor starting from the origin. The resulting lookup table contains the approximate distances and coordinates of a large number of points from the origin of a curve segment. Assembling the segments' lookup results in the lookup table of the whole curve, where the last key represents the curve's arc-length. Through this procedure we have gained an indirect mapping from the length of a fraction of the curve to the parameters of the B\'{e}zier curve segments via the point coordinates.\\ 
+In a second step, the curve can easily be sampled by computing the length of parametric intervals $\frac{L}{N}$ for a specified number of points N.\\
+$l=k \cdot \frac{L}{N}$ returns the current length of the curve for the sampling point of index k, where $k=[0,\cdots,N]$ for open curves and $k=[0,\cdots,N-1]$ for closed curves.
 To get the point coordinates for a fraction of the curve, we now simply perform a binary search on the lookup table for its approximated distance from the origin $l$. We choose the index which returns the coordinates for the exact fraction length and if this requirement can't be met the index with the next smaller length. The returned point coordinates are used as the approximate coordinates of the sought sample point.
 \subsection{3D Mesh Projection of Sampled Points}
 Having implemented arc length parametrization it is possible to draw an arbitrary amount of sample points $p \in \mathbb{R}^2$ from the 2D line features. These are defined as a set of points $S \subset \mathbb{R}^2$. Our goal is, however, to use these additional points as landmarks describing the features on the 3D mesh of the corresponding face. For this to work, we have to project the sampled points of each line feature on to the corresponding face mesh in order to obtain their approximate 3D representation, because we have no information on the depth of the line features.  
@@ -160,7 +163,7 @@ model of the template mesh equaling the parametric representation of the Gaussia
 \subfloat[sample of the GP Prior]{\includegraphics[width=.8\textwidth]{./resources/img/prior_sample_2_profile.pdf}}\\
 \subfloat[sample of the GP Prior]{\includegraphics[width=.8\textwidth]{./resources/img/prior_sample_3_profile.pdf}}
 \label{fig:priorprofile}
-\caption{Prior faces computed from samples drawn from the Gaussian Process Prior Model. The deformations are not truely face-like, because they are modeled only through the covariance of the template mesh vertices.}
+\caption{Prior faces computed from samples drawn from the Gaussian Process Prior Model. The deformations are not truely face-like, because they are only modeled through the covariance of the template mesh vertices.}
 \end{figure}
 
 \section{Prior Model}

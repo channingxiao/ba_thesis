@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  25 JUL 2013 15:50
+This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  25 JUL 2013 23:44
 entering extended mode
  %&-line parsing enabled.
 **thesis.tex
@@ -1231,10 +1231,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 224--226
 
 [18]) (./chapters/chapter4.tex [19]
 
-LaTeX Warning: Reference `section:' on page 20 undefined on input line 2.
+LaTeX Warning: Reference `section:' on page 20 undefined on input line 3.
 
 
-LaTeX Warning: Reference `linefeatures' on page 20 undefined on input line 19.
+LaTeX Warning: Reference `linefeatures' on page 20 undefined on input line 20.
 
 [20
 
@@ -1254,34 +1254,28 @@ Underfull \vbox (badness 1097) has occurred while \output is active []
  [22]
 [23]
 File: ./resources/figures/projection.pdf Graphic file (type QTm)
- <use  "./resources/figures/projection.pdf" >
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+ <use  "./resources/figures/projection.pdf" > [24]
 File: ./resources/img/mean_msh.pdf Graphic file (type QTm)
+
 <use  "./resources/img/mean_msh.pdf" >
-Underfull \hbox (badness 10000) in paragraph at lines 132--132
+Underfull \hbox (badness 10000) in paragraph at lines 135--135
 []\OT1/cmr/m/n/12 Figure 4.6:
  []
 
 
-Underfull \hbox (badness 5022) in paragraph at lines 132--132
+Underfull \hbox (badness 5022) in paragraph at lines 135--135
 |[]\OT1/cmr/m/n/12 mean mesh of
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [24]
 [25]
 File: ./resources/img/overlap_mean_target.pdf Graphic file (type QTm)
  <use  "./resources/img/overlap_mean_target.pdf" >
-Underfull \hbox (badness 10000) in paragraph at lines 143--146
+Underfull \hbox (badness 10000) in paragraph at lines 146--149
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--146
+Underfull \hbox (badness 10000) in paragraph at lines 146--149
 
  []
 
@@ -1291,73 +1285,71 @@ File: ./resources/figures/pipeline.pdf Graphic file (type QTm)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Reference `bib:statismo' on page 26 undefined on input line 155.
+LaTeX Warning: Reference `bib:statismo' on page 26 undefined on input line 158.
 
 
 
 LaTeX Warning: Reference `sec:optimization' on page 26 undefined on input line 
-156.
+159.
 
 [26]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [27]
 File: ./resources/img/prior_sample_2_profile.pdf Graphic file (type QTm)
- <use  "./resources/img/prior_sample_2_profile.pdf" >
+
+<use  "./resources/img/prior_sample_2_profile.pdf" >
 File: ./resources/img/prior_sample_3_profile.pdf Graphic file (type QTm)
 
 <use  "./resources/img/prior_sample_3_profile.pdf" >
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: Reference `chapter:GP' on page 28 undefined on input line 170.
 
 
-LaTeX Warning: Reference `chapter:GP' on page 27 undefined on input line 167.
-
-
-Package caption Warning: \label before \caption on input line 162.
+Package caption Warning: \label before \caption on input line 165.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:priorprofile' on page 27 undefined on input line 
-167.
+LaTeX Warning: Reference `fig:priorprofile' on page 28 undefined on input line 
+170.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3088) has occurred while \output is active []
 
- [27]
-[28]
+ [28]
 File: ./resources/img/posterior_sample_17.pdf Graphic file (type QTm)
- <use  "./resources/img/posterior_sample_17.pdf" >
+
+<use  "./resources/img/posterior_sample_17.pdf" >
 File: ./resources/img/posterior_sample_23.pdf Graphic file (type QTm)
 
 <use  "./resources/img/posterior_sample_23.pdf" >
 
-LaTeX Warning: Reference `priorprofile' on page 29 undefined on input line 177.
+LaTeX Warning: Reference `priorprofile' on page 29 undefined on input line 180.
 
 
 
-LaTeX Warning: Reference `priorprofile' on page 29 undefined on input line 177.
+LaTeX Warning: Reference `priorprofile' on page 29 undefined on input line 180.
 
 
 Missing character: There is no Ü in font cmbxti10!
-File: ./resources/img/00029_meansquares_fit.pdf Graphic file (type QTm)
-<use  "./resources/img/00029_meansquares_fit.pdf" >
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Reference `overlap' on page 29 undefined on input line 192.
-
-
-LaTeX Warning: Reference `sec:optimization' on page 29 undefined on input line 
-193.
-
 [29]
+File: ./resources/img/00029_meansquares_fit.pdf Graphic file (type QTm)
+ <use  "./resources/img/00029_meansquares_fit.pdf" >
+
+LaTeX Warning: Reference `overlap' on page 30 undefined on input line 195.
+
+
+LaTeX Warning: Reference `sec:optimization' on page 30 undefined on input line 
+196.
+
 ! Too many }'s.
-l.197 ...d from the next point on the target mesh}
+l.200 ...d from the next point on the target mesh}
                                                    However, as can be seen f...
 You've closed more groups than you opened.
 Such booboos are generally harmless, so keep going.
 
 ! Extra }, or forgotten $.
-l.205 ...(x)=\frac{x}{1+\frac{\left|x\right|}{c}}}
+l.208 ...(x)=\frac{x}{1+\frac{\left|x\right|}{c}}}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1370,79 +1362,112 @@ File: ./resources/img/00029_textured_target.pdf Graphic file (type QTm)
  <use  "./resources/img/00029_textured_target.pdf" >
 File: ./resources/img/00029_fit.pdf Graphic file (type QTm)
 
-<use  "./resources/img/00029_fit.pdf" >) (./chapters/chapter5.tex [31]
+<use  "./resources/img/00029_fit.pdf" >) (./chapters/chapter5.tex [31] [32]
 File: ./resources/img/linefeatures_eyes.pdf Graphic file (type QTm)
 
 <use  "./resources/img/linefeatures_eyes.pdf" >
-Underfull \hbox (badness 10000) in paragraph at lines 13--16
+
+LaTeX Warning: Reference `sec:noisemodel' on page 33 undefined on input line 19
+.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--21
 
  []
 
-File: ./resources/img/00029_eyes_comparison.pdf Graphic file (type QTm)
-<use  "./resources/img/00029_eyes_comparison.pdf" > [32
+[33
 
 ]
+File: ./resources/img/00029_eyes_comparison.pdf Graphic file (type QTm)
+ <use  "./resources/img/00029_eyes_comparison.pdf" >
+File: ./resources/img/00029_mouth_comparison.pdf Graphic file (type QTm)
+
+<use  "./resources/img/00029_mouth_comparison.pdf" > [34]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [35]
 File: ./resources/img/00029_left_ear_comparison.pdf Graphic file (type QTm)
 
 <use  "./resources/img/00029_left_ear_comparison.pdf" >
+File: ./resources/img/00029_distmap.pdf Graphic file (type QTm)
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+<use  "./resources/img/00029_distmap.pdf" >
 
-File: ./resources/img/00029_mouth_comparison.pdf Graphic file (type QTm)
-<use  "./resources/img/00029_mouth_comparison.pdf" >
+Package caption Warning: \label before \caption on input line 234.
+See the caption package documentation for explanation.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Warning: Reference `fig:fitcomparison' on page 36 undefined on input line
+ 60.
+
+
+Package caption Warning: \label before \caption on input line 234.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:fitcomparison' on page 36 undefined on input line
+ 60.
+
+! Extra }, or forgotten \endgroup.
+\sf@endfloatbox ...gefalse \outer@nobreak \egroup 
+                                                  \color@endbox 
+l.62 \end{figure}
+                 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
 
 File: ./resources/img/00303_textured_target.pdf Graphic file (type QTm)
 <use  "./resources/img/00303_textured_target.pdf" >
 File: ./resources/img/00303_fit.pdf Graphic file (type QTm)
 
 <use  "./resources/img/00303_fit.pdf" >
-
-LaTeX Warning: File `./resources/img/00303_distmap.pdf' not found on input line
- 48.
-
-! Unable to load picture or PDF file './resources/img/00303_distmap.pdf'.
-<to be read again> 
-                   }
-l.48 ...width]{./resources/img/00303_distmap.pdf}}
-                                                  
-The requested image couldn't be read because 
-it was not a recognized image format.
-
-
-! Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.48 ...width]{./resources/img/00303_distmap.pdf}}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
 File: ./resources/img/00303_distmap.pdf Graphic file (type QTm)
+
 <use  "./resources/img/00303_distmap.pdf" >
-! Unable to load picture or PDF file './resources/img/00303_distmap.pdf'.
-<to be read again> 
-                   \GXT@clipend 
-l.48 ...width]{./resources/img/00303_distmap.pdf}}
-                                                  
-The requested image couldn't be read because 
-it was not a recognized image format.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: ./resources/img/00029_dist_mouth_0_1_cropped.pdf Graphic file (type QTm)
+<use  "./resources/img/00029_dist_mouth_0_1_cropped.pdf" >
+
+LaTeX Warning: Reference `fig:00029fit' on page 36 undefined on input line 75.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: Reference `fig:00029fit' on page 36 undefined on input line 75.
 
-[33]
-Overfull \vbox (21.06696pt too high) has occurred while \output is active []
+File: ./resources/img/00303_dist_mouth_0_1_cropped.pdf Graphic file (type QTm)
+<use  "./resources/img/00303_dist_mouth_0_1_cropped.pdf" >
+
+LaTeX Warning: Reference `fig:00303fit' on page 36 undefined on input line 76.
 
 
-[34]
+LaTeX Warning: Reference `fig:00303fit' on page 36 undefined on input line 76.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: ./resources/img/00029_dist_eyes_0_1_cropped.pdf Graphic file (type QTm)
+<use  "./resources/img/00029_dist_eyes_0_1_cropped.pdf" >
+File: ./resources/img/00303_dist_eyes_0_1_cropped.pdf Graphic file (type QTm)
+
+<use  "./resources/img/00303_dist_eyes_0_1_cropped.pdf" >
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[36]
+
+LaTeX Warning: Text page 37 contains only floats.
+
+[37]
+Underfull \vbox (badness 1406) has occurred while \output is active []
+
+ [38]
 File: ./resources/img/00029_caricature_1_3.pdf Graphic file (type QTm)
- <use  "./resources/img/00029_caricature_1_3.pdf" >
+
+<use  "./resources/img/00029_caricature_1_3.pdf" >
 File: ./resources/img/00029_caricature_1_6.pdf Graphic file (type QTm)
 
 <use  "./resources/img/00029_caricature_1_6.pdf" >
@@ -1450,7 +1475,10 @@ File: ./resources/img/00029_caricature_2.pdf Graphic file (type QTm)
 
 <use  "./resources/img/00029_caricature_2.pdf" >
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+LaTeX Warning: Reference `fig:00029fit' on page 39 undefined on input line 99.
+
+
+LaTeX Warning: Reference `fig:00029fit' on page 39 undefined on input line 99.
 
 File: ./resources/img/00303_caricature_1_3.pdf Graphic file (type QTm)
 <use  "./resources/img/00303_caricature_1_3.pdf" >
@@ -1461,9 +1489,21 @@ File: ./resources/img/00303_caricature_2.pdf Graphic file (type QTm)
 
 <use  "./resources/img/00303_caricature_2.pdf" >
 
+LaTeX Warning: Reference `fig:00303fit' on page 39 undefined on input line 109.
+
+
+
+LaTeX Warning: Reference `fig:00303fit' on page 39 undefined on input line 109.
+
+
+
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [35] [36] [37]
+) [39]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [40]
+[41]
 \tf@toc=\write6
 \openout6 = `thesis.toc'.
 
@@ -1476,12 +1516,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 19615 strings out of 495724
- 328776 string characters out of 1189347
- 429382 words of memory out of 3000000
- 22335 multiletter control sequences out of 15000+50000
- 14611 words of font info for 54 fonts, out of 3000000 for 9000
+ 19634 strings out of 495724
+ 329308 string characters out of 1189347
+ 432290 words of memory out of 3000000
+ 22349 multiletter control sequences out of 15000+50000
+ 14919 words of font info for 55 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 69i,12n,60p,800b,671s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 69i,12n,60p,1270b,671s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on thesis.pdf (37 pages).
+Output written on thesis.pdf (41 pages).
