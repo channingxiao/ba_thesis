@@ -3,6 +3,7 @@
 \section{Sampling Inacurracies}
 The faces in the set of given scans all contain large holes around the ears and the eyes. In effect, the projected sample points are often off target, because due to this circumstance the mesh vertex with the most similar direction is likely farther away at a suboptimal location. This leads to the projected line being distortet.
 \begin{figure}[h!]
+    \centering
     \includegraphics[width=.7\textwidth]{./resources/img/linefeatures_eyes.pdf}
     \caption{Line Features}
     \label{fig:linefeature_comparison}
@@ -42,35 +43,9 @@ In this section we will exhibit/illustrate the effect the incorporation of line 
 with line features
 \begin{figure}[h]
     \centering
-    \subfloat[target front]{\includegraphics[width=.8\textwidth]{./resources/img/00029_textured_target.pdf}}\\
-    \subfloat[deformed mean]{\includegraphics[width=.8\textwidth]{./resources/img/00029_fit.pdf}}\\
+    \subfloat[target front]{\includegraphics[width=.8\textwidth]{./resources/img/00303_textured_target.pdf}}\\
+    \subfloat[deformed mean]{\includegraphics[width=.8\textwidth]{./resources/img/00303_fit.pdf}}\\
     \subfloat[distance]{\includegraphics[width=.8\textwidth]{./resources/img/00029_distmap.pdf}}
-    \caption{}
-\label{fig:distmap}
-% reference in text by \ref{$figure-name}
-\end{figure}
-
-\begin{figure}[h!]
-    \subfloat[target front]{}
-    \subfloat[deformed mean]{}
-    \subfloat[distance]{}
-
-    \subfloat[target left]{}
-    \subfloat[deformed mean]{}
-    \subfloat[distance]{}
-
-    \subfloat[target right]{}
-    \subfloat[deformed mean]{}
-    \subfloat[distance]{}
-    \caption{}
-\label{fig:distmap}
-% reference in text by \ref{$figure-name}
-\end{figure}
-
-\begin{figure}[h!]
-    \subfloat[target]{}
-    \subfloat[deformed mean]{}
-    \subfloat[distance]{}
     \caption{}
 \label{fig:distmap}
 % reference in text by \ref{$figure-name}
@@ -85,11 +60,19 @@ Caricatures rendered by adding scaled displacement fields
     \subfloat[130\% scale]{\includegraphics[width=.8\textwidth]{./resources/img/00029_caricature_1_3.pdf}}\\
     \subfloat[160\% scale]{\includegraphics[width=.8\textwidth]{./resources/img/00029_caricature_1_6.pdf}}\\
     \subfloat[200\% scale]{\includegraphics[width=.8\textwidth]{./resources/img/00029_caricature_2.pdf}}\\
+    \caption{caricature yada yada}
+\label{fig:00029_caricature}
+% reference in text by \ref{$figure-name}
+\end{figure}
+
+
+\begin{figure}[h!]
+    \centering
     \subfloat[130\% scale]{\includegraphics[width=.8\textwidth]{./resources/img/00303_caricature_1_3.pdf}}\\
     \subfloat[160\% scale]{\includegraphics[width=.8\textwidth]{./resources/img/00303_caricature_1_6.pdf}}\\
     \subfloat[200\% scale]{\includegraphics[width=.8\textwidth]{./resources/img/00303_caricature_2.pdf}}
-   \caption{}
-\label{fig:caricature}
+   \caption{caricature yada yada}
+\label{fig:00303_caricature}
 % reference in text by \ref{$figure-name}
 \end{figure}
 
@@ -97,3 +80,7 @@ Caricatures rendered by adding scaled displacement fields
 A Gaussian Kernel
 00125 - scan of old man --> wrinkles can't be modelled through this smooth definition of covariance - adjust covariance function
 \section{Discussion \& Future Work}
+tried out new approach to 3D face registration
+work pretty well
+optimization of the Gaussian Process still in order
+as well as tweaking the optimization process 

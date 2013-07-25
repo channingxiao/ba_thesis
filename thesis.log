@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  25 JUL 2013 12:27
+This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  25 JUL 2013 14:40
 entering extended mode
  %&-line parsing enabled.
 **thesis.tex
@@ -1380,7 +1380,7 @@ File: ./resources/img/00029_fit.pdf Graphic file (type QTm)
 File: ./resources/img/linefeatures_eyes.pdf Graphic file (type QTm)
 
 <use  "./resources/img/linefeatures_eyes.pdf" >
-Underfull \hbox (badness 10000) in paragraph at lines 12--15
+Underfull \hbox (badness 10000) in paragraph at lines 13--16
 
  []
 
@@ -1400,238 +1400,17 @@ File: ./resources/img/00029_mouth_comparison.pdf Graphic file (type QTm)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-File: ./resources/img/00029_textured_target.pdf Graphic file (type QTm)
-<use  "./resources/img/00029_textured_target.pdf" >
-File: ./resources/img/00029_fit.pdf Graphic file (type QTm)
+File: ./resources/img/00303_textured_target.pdf Graphic file (type QTm)
+<use  "./resources/img/00303_textured_target.pdf" >
+File: ./resources/img/00303_fit.pdf Graphic file (type QTm)
 
-<use  "./resources/img/00029_fit.pdf" >
+<use  "./resources/img/00303_fit.pdf" >
 File: ./resources/img/00029_distmap.pdf Graphic file (type QTm)
 
 <use  "./resources/img/00029_distmap.pdf" > [33]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [34]
-Overfull \hbox (12.77782pt too wide) in paragraph at lines 54--54
-[]\OT1/cmr/m/n/10 (a)
- []
-
-
-Overfull \hbox (16.13892pt too wide) in paragraph at lines 54--54
-|\OT1/cmr/m/n/10 tar-
- []
-
-
-Overfull \hbox (13.33336pt too wide) in paragraph at lines 54--54
-\OT1/cmr/m/n/10 get
- []
-
-
-Overfull \hbox (21.13895pt too wide) in paragraph at lines 54--54
-\OT1/cmr/m/n/10 front| 
- []
-
-
-Overfull \hbox (13.33337pt too wide) in paragraph at lines 55--55
-[]\OT1/cmr/m/n/10 (b)
- []
-
-
-Overfull \hbox (13.33334pt too wide) in paragraph at lines 55--55
-|\OT1/cmr/m/n/10 de-
- []
-
-
-Overfull \hbox (30.30563pt too wide) in paragraph at lines 55--55
-\OT1/cmr/m/n/10 formed
- []
-
-
-Overfull \hbox (23.33339pt too wide) in paragraph at lines 55--55
-\OT1/cmr/m/n/10 mean| 
- []
-
-
-Overfull \hbox (12.22224pt too wide) in paragraph at lines 56--56
-[]\OT1/cmr/m/n/10 (c)
- []
-
-
-Overfull \hbox (15.61113pt too wide) in paragraph at lines 56--56
-|\OT1/cmr/m/n/10 dis-
- []
-
-
-Overfull \hbox (23.33337pt too wide) in paragraph at lines 56--56
-\OT1/cmr/m/n/10 tance| 
- []
-
-
-Overfull \hbox (13.33337pt too wide) in paragraph at lines 58--58
-[]\OT1/cmr/m/n/10 (d)
- []
-
-
-Overfull \hbox (16.13892pt too wide) in paragraph at lines 58--58
-|\OT1/cmr/m/n/10 tar-
- []
-
-
-Overfull \hbox (13.33336pt too wide) in paragraph at lines 58--58
-\OT1/cmr/m/n/10 get
- []
-
-
-Overfull \hbox (14.1667pt too wide) in paragraph at lines 58--58
-\OT1/cmr/m/n/10 left| 
- []
-
-
-Overfull \hbox (12.22224pt too wide) in paragraph at lines 59--59
-[]\OT1/cmr/m/n/10 (e)
- []
-
-
-Overfull \hbox (13.33334pt too wide) in paragraph at lines 59--59
-|\OT1/cmr/m/n/10 de-
- []
-
-
-Overfull \hbox (30.30563pt too wide) in paragraph at lines 59--59
-\OT1/cmr/m/n/10 formed
- []
-
-
-Overfull \hbox (23.33339pt too wide) in paragraph at lines 59--59
-\OT1/cmr/m/n/10 mean| 
- []
-
-
-Overfull \hbox (11.61116pt too wide) in paragraph at lines 60--60
-[]\OT1/cmr/m/n/10 (f)
- []
-
-
-Overfull \hbox (15.61113pt too wide) in paragraph at lines 60--60
-|\OT1/cmr/m/n/10 dis-
- []
-
-
-Overfull \hbox (23.33337pt too wide) in paragraph at lines 60--60
-\OT1/cmr/m/n/10 tance| 
- []
-
-
-Overfull \hbox (12.77782pt too wide) in paragraph at lines 62--62
-[]\OT1/cmr/m/n/10 (g)
- []
-
-
-Overfull \hbox (16.13892pt too wide) in paragraph at lines 62--62
-|\OT1/cmr/m/n/10 tar-
- []
-
-
-Overfull \hbox (13.33336pt too wide) in paragraph at lines 62--62
-\OT1/cmr/m/n/10 get
- []
-
-
-Overfull \hbox (20.86116pt too wide) in paragraph at lines 62--62
-\OT1/cmr/m/n/10 right| 
- []
-
-
-Overfull \hbox (13.33337pt too wide) in paragraph at lines 63--63
-[]\OT1/cmr/m/n/10 (h)
- []
-
-
-Overfull \hbox (13.33334pt too wide) in paragraph at lines 63--63
-|\OT1/cmr/m/n/10 de-
- []
-
-
-Overfull \hbox (30.30563pt too wide) in paragraph at lines 63--63
-\OT1/cmr/m/n/10 formed
- []
-
-
-Overfull \hbox (23.33339pt too wide) in paragraph at lines 63--63
-\OT1/cmr/m/n/10 mean| 
- []
-
-
-Overfull \hbox (10.55559pt too wide) in paragraph at lines 64--64
-[]\OT1/cmr/m/n/10 (i)
- []
-
-
-Overfull \hbox (15.61113pt too wide) in paragraph at lines 64--64
-|\OT1/cmr/m/n/10 dis-
- []
-
-
-Overfull \hbox (23.33337pt too wide) in paragraph at lines 64--64
-\OT1/cmr/m/n/10 tance| 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (12.77782pt too wide) in paragraph at lines 71--71
-[]\OT1/cmr/m/n/10 (a)
- []
-
-
-Overfull \hbox (16.13892pt too wide) in paragraph at lines 71--71
-|\OT1/cmr/m/n/10 tar-
- []
-
-
-Overfull \hbox (13.33336pt too wide) in paragraph at lines 71--71
-\OT1/cmr/m/n/10 get| 
- []
-
-
-Overfull \hbox (13.33337pt too wide) in paragraph at lines 72--72
-[]\OT1/cmr/m/n/10 (b)
- []
-
-
-Overfull \hbox (13.33334pt too wide) in paragraph at lines 72--72
-|\OT1/cmr/m/n/10 de-
- []
-
-
-Overfull \hbox (30.30563pt too wide) in paragraph at lines 72--72
-\OT1/cmr/m/n/10 formed
- []
-
-
-Overfull \hbox (23.33339pt too wide) in paragraph at lines 72--72
-\OT1/cmr/m/n/10 mean| 
- []
-
-
-Overfull \hbox (12.22224pt too wide) in paragraph at lines 73--73
-[]\OT1/cmr/m/n/10 (c)
- []
-
-
-Overfull \hbox (15.61113pt too wide) in paragraph at lines 73--73
-|\OT1/cmr/m/n/10 dis-
- []
-
-
-Overfull \hbox (23.33337pt too wide) in paragraph at lines 73--73
-\OT1/cmr/m/n/10 tance| 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [35]
@@ -1644,85 +1423,15 @@ File: ./resources/img/00029_caricature_1_6.pdf Graphic file (type QTm)
 File: ./resources/img/00029_caricature_2.pdf Graphic file (type QTm)
 
 <use  "./resources/img/00029_caricature_2.pdf" >
-
-LaTeX Warning: File `./resources/img/00303_caricature_1_3.pdf' not found on inp
-ut line 88.
-
-! Unable to load picture or PDF file './resources/img/00303_caricature_1_3.pdf'
-.
-<to be read again> 
-                   }
-l.88 ..../resources/img/00303_caricature_1_3.pdf}}
-                                                  \\
-The requested image couldn't be read because 
-it was not a recognized image format.
-
-
-! Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.88 ..../resources/img/00303_caricature_1_3.pdf}}
-                                                  \\
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
 File: ./resources/img/00303_caricature_1_3.pdf Graphic file (type QTm)
+
 <use  "./resources/img/00303_caricature_1_3.pdf" >
-! Unable to load picture or PDF file './resources/img/00303_caricature_1_3.pdf'
-.
-<to be read again> 
-                   \GXT@clipend 
-l.88 ..../resources/img/00303_caricature_1_3.pdf}}
-                                                  \\
-The requested image couldn't be read because 
-it was not a recognized image format.
-
-
-LaTeX Warning: File `./resources/img/00303_caricature_1_6.pdf' not found on inp
-ut line 89.
-
-! Unable to load picture or PDF file './resources/img/00303_caricature_1_6.pdf'
-.
-<to be read again> 
-                   }
-l.89 ..../resources/img/00303_caricature_1_6.pdf}}
-                                                  \\
-The requested image couldn't be read because 
-it was not a recognized image format.
-
-
-! Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.89 ..../resources/img/00303_caricature_1_6.pdf}}
-                                                  \\
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
 File: ./resources/img/00303_caricature_1_6.pdf Graphic file (type QTm)
+
 <use  "./resources/img/00303_caricature_1_6.pdf" >
-! Unable to load picture or PDF file './resources/img/00303_caricature_1_6.pdf'
-.
-<to be read again> 
-                   \GXT@clipend 
-l.89 ..../resources/img/00303_caricature_1_6.pdf}}
-                                                  \\
-The requested image couldn't be read because 
-it was not a recognized image format.
-
 File: ./resources/img/00303_caricature_2.pdf Graphic file (type QTm)
+
 <use  "./resources/img/00303_caricature_2.pdf" >
-
-LaTeX Warning: Float too large for page by 0.28642pt on input line 94.
-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1739,10 +1448,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 19610 strings out of 495724
- 328640 string characters out of 1189347
- 429269 words of memory out of 3000000
- 22332 multiletter control sequences out of 15000+50000
+ 19615 strings out of 495724
+ 328776 string characters out of 1189347
+ 429382 words of memory out of 3000000
+ 22335 multiletter control sequences out of 15000+50000
  14611 words of font info for 54 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  69i,12n,60p,800b,671s stack positions out of 5000i,500n,10000p,200000b,50000s
