@@ -196,7 +196,6 @@ deformations through this set of fixed targets, analogous to the case of eq. \re
     \includegraphics[width=\textwidth]{./resources/img/posterior_deformations.pdf}
     \caption{a sample \textbf{posterior} deformation field depicted with a set of \textcolor{blue}{blue arrows} on the textured template face. The white spheres are the landmarks of the template mesh which are mapped on to the \textcolor{red}{red landmarks} of the target.}
 \label{fig:posteriordeformations}
-\viscomment{make same images without line features and display instead}
 \end{figure}
 The posterior model is defined as the joint distribution of all template mesh points and the
 template landmarks, conditioned on the respective displacement vectors for every template landmark with added noise. 
@@ -207,13 +206,13 @@ template landmarks, conditioned on the respective displacement vectors for every
 \end{center}
 \begin{figure}[h!]
     \centering
-    \subfloat[Posterior mesh with target landmarks]{\includegraphics[width=.4\textwidth]{./resources/img/posterior_deformation_landmarks_front.pdf}}
+    \subfloat[Sample posterior mesh with target landmarks]{\includegraphics[width=.3\textwidth]{./resources/img/posterior_deformation_landmarks_front.pdf}}
     \quad\quad
-    \subfloat[Prior mesh]{\includegraphics[width=.4\textwidth]{./resources/img/deformation_prior_msh.pdf}}
+    \subfloat[Sample prior mesh]{\includegraphics[width=.3\textwidth]{./resources/img/deformation_prior_msh.pdf}}
     \caption{a) is a posterior mesh, obtained by adding a sample deformation field to the template. In comparison to the mesh in b) the mesh in a) is much more face-like. The reason for this that the displacement of the landmarks has constricted the space of deformations to solely admissible deformations}
 \label{fig:meshposterior}
 \end{figure}
-We now have defined a distribution over our template mesh. Sampling the conditional distribution and subsequently adding the resulting deformation onto the template creates deformed 3D surfaces of the template mesh which are fixed at the target landmarks \ref{fig:meshposterior}.
+We now have defined a distribution over our template mesh. Sampling the conditional distribution and subsequently adding the resulting deformation onto the template creates deformed 3D surfaces of the template mesh which are fixed at the target landmarks, see fig. \ref{fig:meshposterior}.
 
 \section{Fitting \& Optimization}
 \label{optimization}
