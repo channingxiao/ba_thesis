@@ -1,5 +1,5 @@
 \chapter{Results}
-
+\label{chap:results}
 \section{Line Feature Sampling Inacurracy}
 \label{sec:linefeature_inaccuracy}
 The faces in the set of given scans all contain large holes in the regions of the eyes and the ears. Some also have holes on top of the nose.
@@ -117,12 +117,3 @@ A Gaussian Kernel
 00125 - scan of old man --> wrinkles can't be modelled through this smooth definition of covariance - adjust covariance function
 \end{comment}
 
-\section{Discussion \& Future Work}
-In this thesis we discussed a new approach to 3D face registration with Gaussian Process Regression. As demonstrated in this chapter the quality of the registration was significantly enhanced through line features, which we discussed in \ref{cha:pipelinefeatures}. The registration pipeline yields deformed templates which have a significant likeness with the respective target. This is largely due to the attempted mapping of feature regions between template and target using the line
-features. For transforming the 2D line features we were obliged to use an approximative approach, the downsides of which we have already discussed in \ref{sec:linefeature_inaccuracy}. The ideal case would of course be to find a parametric 3D representation of the line features resulting in a perfect mapping. Given the restrictions inherent within the facial scans, this is however near impossible to achieve and we can therefore satisfied with the results for the time being.
-The constructed registration pipeline is a good basis to build upon and refine the registration algorithm which already yields fits of the template mesh resulting in profound likeness with the respective targets.
-In order to the pipeline to yield near-perfect results Gaussian Process Regression and the optimization process have to be further adapted an improved. The use of vector-valued Gaussian Processes can be further adapted to 3D face registration be either changing the covariance function or tweaking the parameters of the squared exponential covariance function, for example to make it less smooth and give it a smaller domain. Of course, the expressiveness of the fits has to be enhanced as
-well through the adaption of the optimization schema, but it is important to always pay respect to the ``outliers'' that are the overlap of the template mesh over the face scans. We were able to partially solve this problem through the use of robust estimators for the loss function. 
-Amount of basis functions
-In essence, the imperative must be to find a good balance of parameter settings in the covariance function, the parametric representation of the Gaussian Process Posterior and the loss function.
-In conclusion it can be said that given the time and data constraints this approach to 3D face registration yielded satisfactory results and especially the incorporation of the line features was a success. It is method worth refining in the near future.

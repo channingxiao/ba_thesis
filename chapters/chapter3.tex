@@ -1,4 +1,5 @@
 \chapter{Gaussian Processes in 3D Face Registration}
+\label{chap:GP}
 The first of our two objectives is to build a face registration pipeline. In this context we use a Gaussian Process as the registration algorithm. In this chapter we explain the theory behind the implementation of the registration pipeline. To begin with, we recapitulate the definition
 of stochastic processes and extend it to the definition of Gaussian processes. In the next step we introduce Gaussian Process Regression and finally explain how it can be applied 3D face mesh registration. 
 \begin{comment}a stochastic process, more specifically a Vector-valued Gaussian process or Gaussian random field as the registration algorithm\end{comment}
@@ -179,19 +180,18 @@ meaning that a sample deformation field can be directly drawn from the prior dis
 % reference in text by \ref{$figure-name}
 \end{figure}
 \paragraph{Reference Mesh Posterior}
-The target landmarks also consist of a set $L_{\mathcal{T}} = \{l_{\mathcal{T}1},\cdots, l_{\mathcal{T}n}\} \subset \mathbb{R}^3$. 
-Fixing the prior output to the deformation vectors $\mathcal{Y}=\{\vect{t}-\vect{m}\vert \vect{t} \in L_{\mathcal{T}}, \vect{m} \in L_{\mathcal{M}}\}$ - defined by the difference vectors between the template and target landmarks - and assuming additive i.i.d Gaussian noise, the resulting joint distribution is
+The joint distribution of template mesh vertices and template landmarks is given by the following equation where $\mathcal{D}_{L}$ is the vector returning the prior deformations of the template landmarks. 
 \begin{equation}
-    \begin{bmatrix}\mathcal{Y_{\varepsilon}}\\\mathcal{D}\end{bmatrix}
+    \begin{bmatrix}\mathcal{D}_{L}\\\mathcal{D}\end{bmatrix}
 \sim \mathcal{N}\left(\textbf{0},
 \begin{bmatrix}
-    \Sigma(\mathcal{Y}) + \sigma^2\mathcal{I}_{3\left|\mathcal{Y} \right|} & \Sigma(\mathcal{Y},X_{*})\\
-    \Sigma(X_{*},\mathcal{Y}) & \Sigma(X_{*})\\
+    \Sigma(L_{\mathcal{M}}) + \sigma^2\mathcal{I}_{3\left|L_{\mathcal{M}} \right|} & \Sigma(L_{\mathcal{T}},X_{*})\\
+    \Sigma(X_{*},L_{\mathcal{M}}) & \Sigma(X_{*})\\
 \end{bmatrix}
 \right)
 \end{equation}
-
-The deformation model is now rendered approximately fixed at the landmarks in the target mesh and the goal is to find valid deformations through this set of fixed targets, analogous to the case of eq. \ref{eq:3.5a}. In other words the known respective displacements at the template landmarks co-define the distribution of possible deformations of all vertices in the template mesh.
+We assume additive i.i.d Gaussian noise to model the ambiguity in the placement of the landmarks. The target landmarks also consist of a set $L_{\mathcal{T}} = \{l_{\mathcal{T}1},\cdots, l_{\mathcal{T}n}\} \subset \mathbb{R}^3$ and the corresponding deformation vectors $\mathcal{Y}=\{\vect{t}-\vect{m}\vert \vect{t} \in L_{\mathcal{T}}, \vect{m} \in L_{\mathcal{M}}\}$ - are defined by the difference vectors between the template and target landmarks. The goal is to find valid
+deformations through this set of fixed targets, analogous to the case of eq. \ref{eq:3.5a}. These deformations are obtained by approximately fixing the joint distribution at the landmarks in the target mesh. In other words, the known respective displacements at the template landmarks co-define the distribution of possible deformations of all vertices in the template mesh.
 \begin{figure}[h!]
     \includegraphics[width=\textwidth]{./resources/img/posterior_deformations.pdf}
     \caption{a sample \textbf{posterior} deformation field depicted with a set of \textcolor{blue}{blue arrows} on the textured template face. The white spheres are the landmarks of the template mesh which are mapped on to the \textcolor{red}{red landmarks} of the target.}
@@ -202,7 +202,7 @@ The posterior model is defined as the joint distribution of all template mesh po
 template landmarks, conditioned on the respective displacement vectors for every template landmark with added noise. 
 \begin{center}
 \begin{equation}
-    \mathcal{D}\vert \mathcal{X} \rightarrow \mathcal{Y}_{\varepsilon}. 
+    \mathcal{D}\vert \mathcal{D}_{L} = \mathcal{Y}_{\varepsilon} 
 \end{equation}
 \end{center}
 \begin{figure}[h!]
@@ -213,7 +213,7 @@ template landmarks, conditioned on the respective displacement vectors for every
     \caption{a) is a posterior mesh, obtained by adding a sample deformation field to the template. In comparison to the mesh in b) the mesh in a) is much more face-like. The reason for this that the displacement of the landmarks has constricted the space of deformations to solely admissible deformations}
 \label{fig:meshposterior}
 \end{figure}
-We now have defined a distribution over our template mesh. Sampling the conditional distribution and adding the resulting deformation onto the template creates deformed 3D surfaces of the template mesh which are fixed at the target landmarks \ref{fig:meshposterior}.
+We now have defined a distribution over our template mesh. Sampling the conditional distribution and subsequently adding the resulting deformation onto the template creates deformed 3D surfaces of the template mesh which are fixed at the target landmarks \ref{fig:meshposterior}.
 
 \section{Fitting \& Optimization}
 \label{optimization}

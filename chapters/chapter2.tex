@@ -56,16 +56,17 @@ The face textures are obtained from the color images.
 \begin{figure}[h!]
     \subfloat[3D shells]{\includegraphics[width=.7\textwidth]{./resources/figures/shells.eps}}
     \subfloat[merged shells]{\includegraphics[width=.3\textwidth]{./resources/figures/scan.eps}}
-\caption{\ldots}
+\caption{In a) the four separate shells of a scan are displayed in the b) they are merged in a one coherent mesh of the scan surface.}
 \label{fig:scan}
 \end{figure}
 To obtain a whole mesh the 3D shells first have to be cleaned and then merged.
 The scans are further manually annotated with a set of so called landmarks \ref{fig:landmarks}. 
-\begin{wrapfigure}{r}{.4\textwidth}
+\begin{figure}[h!]
     \centering
     \includegraphics[width=.3\textwidth]{./resources/figures/schema_marked.eps}
+    \caption{This schema shows the feature location of the landmarks that are given in the data for every scan.}
     \label{fig:landmarks}
-\end{wrapfigure}
+\end{figure}
 Furthermore, they are used to create 2D parametric curves that describe key regions of the face, i.e. the eyes. The line features will be fully introduced together with the registration pipeline. In the next chapter we will elaborate on the approach of using Gaussian Processes to solving the problem 3D face registration and then describe how to incorporate the annotations.
 \begin{comment}
 From these scans we want to create fully textured 3D faces, which can be used to build a new face model.
