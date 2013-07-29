@@ -10,4 +10,4 @@
 \beamer@subsectionintoc {3}{3}{GP Posterior}{25}{0}{3}
 \beamer@subsectionintoc {3}{4}{Application to 3D Face Registration}{27}{0}{3}
 \beamer@subsectionintoc {3}{5}{Optimization}{34}{0}{3}
-\beamer@sectionintoc {4}{Results}{39}{0}{4}
+\beamer@sectionintoc {4}{Results}{40}{0}{4}

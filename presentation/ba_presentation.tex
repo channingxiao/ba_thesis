@@ -21,6 +21,7 @@
     \title[Bachelor Thesis]{Using Line Features for 3D Face Registration}
 \subtitle{\scshape Bachelor Thesis Presentation}
     \author{Fabian Brix\\
+        \bigskip
         Department of Mathematics and Computer Science\\
         \includegraphics[width=.4\textwidth]{../resources/img/LogoUniBasel.pdf}}
         \date{
@@ -83,7 +84,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{frame}{Pipeline}
         \begin{figure}
-            \includegraphics[width=.5\textwidth]{../resources/figures/pipeline.pdf}
+            \includegraphics[width=.5\textwidth]{../resources/figures/pipeline_linefeature.pdf}
         \end{figure}
     \end{frame}
 
@@ -120,7 +121,7 @@
             \centering
             \includegraphics[width=.5\textwidth]{../resources/img/linefeaturemapping.pdf}
         \end{figure}
-        What about correspondence?
+        \textit{What about correspondence?}
     \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -134,15 +135,15 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{frame}{B\'{e}zier curves}
-        Problem: Line features consist of B\'{e}zier curve segments\\
-        $\rightarrow$ underlying parameter t is not linear
-
+        Line features consist of B\'{e}zier curve segments\\
+        $\rightarrow$ underlying parameter is not linear\\
+        \bigskip
         Approximate arc-length of curve through euclidean distance of sampled points\\
         \begin{figure}
             \centering
             \includegraphics[width=.7\textwidth]{../resources/figures/distance_computation.pdf}
         \end{figure}
-        $Rrightarrow$ map point coordinates to approximated fractional length of curve
+        $\Rightarrow$ map point coordinates to approximated fractional length of curve
     \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -250,7 +251,7 @@ definition of Vector-valued GP
 \end{align*}
  \begin{figure}
         \centering
-        \includegraphics[width=.5\textwidth]{../resources/img/mean_msh.pdf}
+        \includegraphics[width=.4\textwidth]{../resources/img/mean_msh.pdf}
     \end{figure}
 \end{frame}
 
@@ -267,7 +268,8 @@ definition of Vector-valued GP
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Deformation Prior}
 build GP Prior from template mesh vertices\\
-$\rightarrow$ GP defines a distribution of possible deformations of the template 
+\bigskip
+$\Rightarrow$ GP defines a distribution of possible deformations of the template mesh 
 \begin{figure}
     \centering
 \includegraphics[width=.8\textwidth]{../resources/img/prior_deformations.pdf}
@@ -300,9 +302,10 @@ $\rightarrow$ GP defines a distribution of possible deformations of the template
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{3D GP Posterior}
 inference in the space of possible template surface deformations\\
+\bigskip
 training data: residuals of the line feature sample coordinates:        
 \begin{equation*}
-R = \{t - m \vert t \in L_{T}, l \in L_{M}\} 
+R = \{t - m \vert t \in L_{T}, m \in L_{M}\} 
 \end{equation*}
 \begin{figure}   
 \centering
@@ -330,10 +333,12 @@ R = \{t - m \vert t \in L_{T}, l \in L_{M}\}
 \end{frame}
 \begin{frame}{Parametric Model}
     GP Posterior distribution of admissible deformations\\
+    \bigskip
     How to optimize deformation samples?\\
     \bigskip
     Mercer's theorem: distribution $\rightarrow$ parametric model\\
-    $\Rightarrow$ optimize model parameters
+    \bigskip
+    $\Rightarrow$ optimize model parameters\\ verify with loss function
 \end{frame}
 
 \begin{frame}{Mean Squared Error}
@@ -365,13 +370,19 @@ R = \{t - m \vert t \in L_{T}, l \in L_{M}\}
     \end{figure}
 \end{frame}
 
+\begin{frame}{Pipeline: check}
+\begin{figure}
+    \includegraphics[width=.5\textwidth]{../resources/figures/pipeline_checked.pdf}
+\end{figure}
+\end{frame}
+
 \section{Results}
 \begin{frame}{Results}
-\begin{center}
-    {\scshape Comparison: with $\Leftrightarrow$ without line features}
+\begin{itemize}
+    \item    {\scshape Comparison: with $\Leftrightarrow$ without line features}
     \vfill
-    {\scshape Caricatures}
-\end{center}
+\item {\scshape Caricatures}
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Comparison - Mouth}
@@ -398,17 +409,26 @@ R = \{t - m \vert t \in L_{T}, l \in L_{M}\}
     \movie[width=6cm, height=6cm, autostart]{hi}{00029_warp_animation.avi}
 \end{frame}
 
+\begin{frame}{Expressiveness}
+    \begin{figure}
+        \centering
+        \includegraphics[width=.8\textwidth]{../resources/img/00041_expressiveness.pdf}
+    \end{figure}
+\end{frame}
 \begin{frame}{Conclusion}
-    \begin{center}
-    Incorporation of line features rendered good registration results\\
-    \vfill  
-    Optimization process has to be further adapted for more expressiveness\\
-    \end{center}
+\begin{itemize}
+\item Incorporation of line features rendered good registration results\\
+\vfill  
+\item Optimization process has to be further adapted for more expressiveness\\
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Future Work}
-    detect ``outlier regions'' - template regions corresponding to holes in target\\
-    by registering template on to target\\
+    detect template regions corresponding to \textbf{holes} in target\\
+    detect template regions \textbf{missing} in target\\
+    \bigskip
+    by registering target on to template\\
+    \vfill
     $\Rightarrow$ use Mean Squared Error to perform optimization without artifacts
 \end{frame}
 \begin{frame}{Thank you for listening!}
