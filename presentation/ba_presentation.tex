@@ -83,7 +83,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{frame}{Pipeline}
         \begin{figure}
-            \includegraphics[width=.9\textwidth]{../resources/figures/pipeline.pdf}
+            \includegraphics[width=.5\textwidth]{../resources/figures/pipeline.pdf}
         \end{figure}
     \end{frame}
 
@@ -203,7 +203,7 @@
     \section{\scshape Gaussian Process Regression}
     \subsection{Gaussian Process}
     \begin{frame}{Gaussian Process}
-        intuitive: a generalization of the normal distribution to functions
+        intuitive: a generalization of the normal distribution to functions\\
         \bigskip
         a stochastic process where each random variable represents possible function values at a specific input point
     \end{frame}
@@ -245,7 +245,7 @@
 \begin{frame}{GPR in 3D Face Registration}
 definition of Vector-valued GP
 \begin{align*}
-    & \mu: \mathcal{M} \rightarrow \mathbb{R}^3\\
+    & \mu: \mathcal{M} \rightarrow 0\\
     & k: \mathcal{M} \times \mathcal{M} \rightarrow \mathbb{R}^3 \times \mathbb{R}^3
 \end{align*}
  \begin{figure}
@@ -299,8 +299,8 @@ $\rightarrow$ GP defines a distribution of possible deformations of the template
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{3D GP Posterior}
-Training data for inference in the space of possible template surface deformations:\\
-comprised of the residuals of the line feature sample coordinates        
+inference in the space of possible template surface deformations\\
+training data: residuals of the line feature sample coordinates:        
 \begin{equation*}
 R = \{t - m \vert t \in L_{T}, l \in L_{M}\} 
 \end{equation*}
@@ -311,7 +311,7 @@ R = \{t - m \vert t \in L_{T}, l \in L_{M}\}
 
 \end{frame}
 
-\begin{frame}{Posterior Meshs}
+\begin{frame}{Posterior Faces}
     \begin{figure}
         \centering
         \includegraphics[width=.9\textwidth]{../resources/img/posterior_sample_17.pdf}
@@ -346,17 +346,6 @@ R = \{t - m \vert t \in L_{T}, l \in L_{M}\}
 \begin{frame}{Robust Estimator}
     \begin{figure}
         \centering
-        \includegraphics[width=.8\textwidth]{../resources/img/00303_fit.pdf}
-    \end{figure}
-    \begin{figure}
-        \centering
-        \includegraphics[width=.8\textwidth]{../resources/img/00303_textured_target.pdf}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{Robust Estimator}
-    \begin{figure}
-        \centering
         \includegraphics[width=.8\textwidth]{../resources/img/00029_fit.pdf}
     \end{figure}
     \begin{figure}
@@ -365,21 +354,40 @@ R = \{t - m \vert t \in L_{T}, l \in L_{M}\}
     \end{figure}
 \end{frame}
 
+\begin{frame}{Robust Estimator}
+    \begin{figure}
+        \centering
+        \includegraphics[width=.8\textwidth]{../resources/img/00303_fit.pdf}
+    \end{figure}
+    \begin{figure}
+        \centering
+        \includegraphics[width=.8\textwidth]{../resources/img/00303_textured_target.pdf}
+    \end{figure}
+\end{frame}
+
 \section{Results}
-\begin{frame}{Results - Mouth}
+\begin{frame}{Results}
+\begin{center}
+    {\scshape Comparison: with $\Leftrightarrow$ without line features}
+    \vfill
+    {\scshape Caricatures}
+\end{center}
+\end{frame}
+
+\begin{frame}{Comparison - Mouth}
     \begin{figure}
         \centering
         \includegraphics[width=.5\textwidth]{../resources/img/00029_mouth_comparison.pdf}
     \end{figure}
 \end{frame}
-\begin{frame}{Results - Eyes}
+\begin{frame}{Comparison - Eyes}
     \begin{figure}
         \centering
         \includegraphics[width=.8\textwidth]{../resources/img/00029_eyes_comparison.pdf}
     \end{figure}
 \end{frame}
 
-\begin{frame}{Results - Ears}
+\begin{frame}{Comparison - Ears}
     \begin{figure}
         \centering
         \includegraphics[width=.8\textwidth]{../resources/img/00029_left_ear_comparison.pdf}
@@ -390,9 +398,17 @@ R = \{t - m \vert t \in L_{T}, l \in L_{M}\}
     \movie[width=6cm, height=6cm, autostart]{hi}{00029_warp_animation.avi}
 \end{frame}
 
+\begin{frame}{Conclusion}
+    \begin{center}
+    Incorporation of line features rendered good registration results\\
+    \vfill  
+    Optimization process has to be further adapted for more expressiveness\\
+    \end{center}
+\end{frame}
+
 \begin{frame}{Future Work}
     detect ``outlier regions'' - template regions corresponding to holes in target\\
-    by registering target on to template\\
+    by registering template on to target\\
     $\Rightarrow$ use Mean Squared Error to perform optimization without artifacts
 \end{frame}
 \begin{frame}{Thank you for listening!}
