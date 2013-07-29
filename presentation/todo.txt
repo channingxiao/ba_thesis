@@ -1,0 +1,13 @@
+Pipeline next to Outline
+contributions:
+what did I do?
+
+1 folie alignment mit landmarks grösser
+
+GP: generalizes distribution to functions
+
+prior = bg grau
+samples iterativ
+
+get rid of joint distribution
+get rid of posterior distributions

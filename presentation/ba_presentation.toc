@@ -3,11 +3,11 @@
 \beamer@sectionintoc {2}{\scshape Using Line Features}{13}{0}{2}
 \beamer@subsectionintoc {2}{1}{Sampling Line Features}{13}{0}{2}
 \beamer@subsectionintoc {2}{2}{Projection: 2D to 3D}{16}{0}{2}
-\beamer@subsectionintoc {2}{3}{Results of 3D representation}{19}{0}{2}
-\beamer@sectionintoc {3}{\scshape Gaussian Process Regression}{21}{0}{3}
-\beamer@subsectionintoc {3}{1}{Gaussian Process}{21}{0}{3}
-\beamer@subsectionintoc {3}{2}{GP Prior}{22}{0}{3}
-\beamer@subsectionintoc {3}{3}{GP Posterior}{23}{0}{3}
-\beamer@subsectionintoc {3}{4}{Application to 3D Face Registration}{26}{0}{3}
-\beamer@subsectionintoc {3}{5}{Optimization}{32}{0}{3}
-\beamer@sectionintoc {4}{Results}{35}{0}{4}
+\beamer@subsectionintoc {2}{3}{Results of 3D representation}{20}{0}{2}
+\beamer@sectionintoc {3}{\scshape Gaussian Process Regression}{23}{0}{3}
+\beamer@subsectionintoc {3}{1}{Gaussian Process}{23}{0}{3}
+\beamer@subsectionintoc {3}{2}{GP Prior}{24}{0}{3}
+\beamer@subsectionintoc {3}{3}{GP Posterior}{25}{0}{3}
+\beamer@subsectionintoc {3}{4}{Application to 3D Face Registration}{27}{0}{3}
+\beamer@subsectionintoc {3}{5}{Optimization}{34}{0}{3}
+\beamer@sectionintoc {4}{Results}{39}{0}{4}

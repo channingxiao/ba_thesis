@@ -14,7 +14,7 @@
 
 \begin{document}
 
-\LLCornerWallPaper{0.2}{../resources/img/SignetUniBasel.pdf}
+\LLCornerWallPaper{0.15}{../resources/img/SignetUniBasel2.pdf}
 
 \begin{frame}
     \vspace*{\fill}
@@ -81,8 +81,10 @@
     \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{frame}{Outline}
-        \tableofcontents
+    \begin{frame}{Pipeline}
+        \begin{figure}
+            \includegraphics[width=.9\textwidth]{../resources/figures/pipeline.pdf}
+        \end{figure}
     \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -133,14 +135,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{frame}{B\'{e}zier curves}
         Problem: Line features consist of B\'{e}zier curve segments\\
-        underlying parameter t is not linear
+        $\rightarrow$ underlying parameter t is not linear
 
-        Approximate arc-length of curve through euclidean distance of sampled points
+        Approximate arc-length of curve through euclidean distance of sampled points\\
         \begin{figure}
             \centering
             \includegraphics[width=.7\textwidth]{../resources/figures/distance_computation.pdf}
         \end{figure}
-        $\rightarrow$ map point coordinates to approximated fractional length of curve
+        $Rrightarrow$ map point coordinates to approximated fractional length of curve
     \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -159,6 +161,13 @@
         \end{figure}
     \end{frame}
 
+    \begin{frame}{Target Mesh Holes}
+        \begin{figure}
+            \centering
+            \includegraphics[width=.8\textwidth]{../resources/img/holes.pdf}
+        \end{figure}
+    \end{frame}
+
     \begin{frame}{Projection: holes}
         \begin{figure}
             \centering
@@ -168,8 +177,11 @@
 
 
     \subsection{Results of 3D representation}
-    \begin{frame}{Results of 3D representation}
-        show images of projected line features
+    \begin{frame}{3D representation}
+         \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth]{../resources/img/linefeatures_eyes.pdf}
+        \end{figure}
     \end{frame}
 
     \begin{frame}{Template/Target Alignment}
@@ -179,29 +191,31 @@
         \end{figure}
     \end{frame}
 
+    \begin{frame}{Template/Target Alignment}
+        \begin{figure}   
+            \centering
+            \includegraphics[width=.6\textwidth]{../resources/img/alignment.pdf}
+        \end{figure}
+    \end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \section{\scshape Gaussian Process Regression}
     \subsection{Gaussian Process}
     \begin{frame}{Gaussian Process}
-        a stochastic process where a finite set of random variables has a normal distribution
-        defined by mean and covariance function
-
-        \begin{align*}
-            GP \sim (\mu, \Sigma)
-        \end{align*}
+        intuitive: a generalization of the normal distribution to functions
+        \bigskip
+        a stochastic process where each random variable represents possible function values at a specific input point
     \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \subsection{GP Prior}
     \begin{frame}{GP Prior}
-        view Gaussian Process as a distribution over functions,\\
-        each random variable represents possible function values at specified input points
-        $\mu : \mathbb{R} \rightarrow 0$ to simplify computations
-
+        sample functions from the space of possible inputs\\
+        these functions are defined by the covariance of the input points\\
         \begin{figure}
             \centering
-            \includegraphics[width=.6\textwidth]{../resources/figures/gp_prior.pdf}
+            \includegraphics[width=.6\textwidth]{../resources/figures/gp_prior_new.pdf}
             \caption{normal distribution over 1000 input points}
         \end{figure}
 
@@ -209,33 +223,15 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \subsection{GP Posterior}
-    \begin{frame}{GP Posterior}
-        infer a set of possible functions by conditioning the distribution on the outputs $y_{i}$ of a training set
-        \begin{equation*}
-            S = \{(x_{1}, y_{1}), \cdots, (x_{n},y_{n})\}
-        \end{equation*}
-        add noise $y = f(x) + \varepsilon$?
+    \begin{frame}{GP Posterior Distribution}
+\begin{figure}
+\centering
+\includegraphics[width=.6\textwidth]{../resources/figures/gp_posterior_2.pdf}
+\caption{posterior distribution fixed at 2 input points}
+\end{figure}
     \end{frame}
 
-\begin{frame}{Joint Distribution}
-\begin{equation*}
-\begin{bmatrix}\textbf{f}\\\textbf{f}_{*}\end{bmatrix}
-\sim \mathcal{N}\left(\textbf{0},
-\begin{bmatrix}
-    \Sigma(X) & \Sigma(X,X_{*})\\
-    \Sigma(X_{*},X) & \Sigma(X_{*})\\
-\end{bmatrix}
-\right)
-\end{equation*}
-\end{frame}
-
-\begin{frame}{Posterior Distribution}
-\begin{align*}
- & p(\textbf{f}_{*}\vert\textbf{f} =\textbf{y})
- & \mu = 
- & K = 
-\end{align*}
-
+\begin{frame}{GP Posterior Distribution}
 \begin{figure}
 \centering
 \includegraphics[width=.6\textwidth]{../resources/figures/gp_posterior.pdf}
@@ -249,9 +245,13 @@
 \begin{frame}{GPR in 3D Face Registration}
 definition of Vector-valued GP
 \begin{align*}
-& \mu: \mathbb{R}^3 \rightarrow \mathbb{R}^3\\
-& k: \mathbb{R}^3 \rightarrow \mathbb{R}^3 \times \mathbb{R}^3
+    & \mu: \mathcal{M} \rightarrow \mathbb{R}^3\\
+    & k: \mathcal{M} \times \mathcal{M} \rightarrow \mathbb{R}^3 \times \mathbb{R}^3
 \end{align*}
+ \begin{figure}
+        \centering
+        \includegraphics[width=.5\textwidth]{../resources/img/mean_msh.pdf}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{Pipeline: Deformation Prior}
@@ -267,13 +267,24 @@ definition of Vector-valued GP
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Deformation Prior}
 build GP Prior from template mesh vertices\\
-$\rightarrow$ GP defines deformation on every vertex of the template
+$\rightarrow$ GP defines a distribution of possible deformations of the template 
 \begin{figure}
     \centering
-\includegraphics[width=.6\textwidth]{../resources/img/prior_deformations.pdf}
+\includegraphics[width=.8\textwidth]{../resources/img/prior_deformations.pdf}
 \end{figure}
 \end{frame}
 
+\begin{frame}{Prior faces}
+    \begin{figure}
+    \centering
+    \includegraphics[width=.9\textwidth]{../resources/img/prior_sample_2_profile.pdf}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=.9\textwidth]{../resources/img/prior_sample_3_profile.pdf}
+\end{figure}
+
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Pipeline: Deformation Posterior}
 \begin{figure}   
@@ -295,7 +306,7 @@ R = \{t - m \vert t \in L_{T}, l \in L_{M}\}
 \end{equation*}
 \begin{figure}   
 \centering
-\includegraphics[width=.6\textwidth]{../resources/img/posterior_deformations.pdf}
+\includegraphics[width=.8\textwidth]{../resources/img/posterior_deformations.pdf}
 \end{figure}
 
 \end{frame}
@@ -303,27 +314,90 @@ R = \{t - m \vert t \in L_{T}, l \in L_{M}\}
 \begin{frame}{Posterior Meshs}
     \begin{figure}
         \centering
-        \includegraphics[width=.6\textwidth]{../resources/img/posterior_sample_17.pdf}
+        \includegraphics[width=.9\textwidth]{../resources/img/posterior_sample_17.pdf}
+    \end{figure}
+    \begin{figure}
+        \centering
+        \includegraphics[width=.9\textwidth]{../resources/img/posterior_sample_23.pdf}
     \end{figure}
 \end{frame}
 
 \subsection{Optimization}
+\begin{frame}{Fitting \& Optimization}
+\begin{figure}
+    \includegraphics[width=.5\textwidth]{../resources/figures/pipeline.pdf}
+\end{figure}
+\end{frame}
 \begin{frame}{Parametric Model}
     GP Posterior distribution of admissible deformations\\
     How to optimize deformation samples?\\
+    \bigskip
     Mercer's theorem: distribution $\rightarrow$ parametric model\\
-    $\rightarrow$ optimize model parameters
+    $\Rightarrow$ optimize model parameters
 \end{frame}
 
-\begin{frame}{Loss function}
-
+\begin{frame}{Mean Squared Error}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{../resources/img/00029_meansquares_fit.pdf}
+    \end{figure}
 \end{frame}
 
-\begin{frame}{Robust Estimators}
+\begin{frame}{Robust Estimator}
+    \begin{figure}
+        \centering
+        \includegraphics[width=.8\textwidth]{../resources/img/00303_fit.pdf}
+    \end{figure}
+    \begin{figure}
+        \centering
+        \includegraphics[width=.8\textwidth]{../resources/img/00303_textured_target.pdf}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Robust Estimator}
+    \begin{figure}
+        \centering
+        \includegraphics[width=.8\textwidth]{../resources/img/00029_fit.pdf}
+    \end{figure}
+    \begin{figure}
+        \centering
+        \includegraphics[width=.8\textwidth]{../resources/img/00029_textured_target.pdf}
+    \end{figure}
 \end{frame}
 
 \section{Results}
-\begin{frame}{Results}
+\begin{frame}{Results - Mouth}
+    \begin{figure}
+        \centering
+        \includegraphics[width=.5\textwidth]{../resources/img/00029_mouth_comparison.pdf}
+    \end{figure}
+\end{frame}
+\begin{frame}{Results - Eyes}
+    \begin{figure}
+        \centering
+        \includegraphics[width=.8\textwidth]{../resources/img/00029_eyes_comparison.pdf}
+    \end{figure}
+\end{frame}
 
+\begin{frame}{Results - Ears}
+    \begin{figure}
+        \centering
+        \includegraphics[width=.8\textwidth]{../resources/img/00029_left_ear_comparison.pdf}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Caricatures}
+    \movie[width=6cm, height=6cm, autostart]{hi}{00029_warp_animation.avi}
+\end{frame}
+
+\begin{frame}{Future Work}
+    detect ``outlier regions'' - template regions corresponding to holes in target\\
+    by registering target on to template\\
+    $\Rightarrow$ use Mean Squared Error to perform optimization without artifacts
+\end{frame}
+\begin{frame}{Thank you for listening!}
+    \begin{center}
+    \Large Any questions? 
+    \end{center}
 \end{frame}
 \end{document}
