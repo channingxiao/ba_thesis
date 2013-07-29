@@ -1,6 +1,6 @@
 \chapter{Registration Pipeline using Line Features}
 \label{chap:pipelinefeatures}
-In this chapter we describe how the Vector-valued Gaussian Model is utilized in our implementation of a 3D Face Registration Pipeline. To enhance the registration outcome of this pipeline we use additional annotations to extend the prior correspondences given initially by the landmarks described in \ref{section:}. The additional annotations are parametric curves, we call line features, that mark key regions on the 2D colored images of a face scan. In the following we provide a description of line features and their use
+In this chapter we describe how the Vector-valued Gaussian Model is utilized in our implementation of a 3D Face Registration Pipeline. To enhance the registration outcome of this pipeline we use additional annotations to extend the prior correspondences given initially by the landmarks described in \ref{chap:modelbuilding}. The additional annotations are parametric curves, we call line features, that mark key regions on the 2D colored images of a face scan. In the following we provide a description of line features and their use
 as well as a description of the registration pipeline. 
 
 \section{Line Features}
@@ -17,7 +17,7 @@ where $B_{i,n}(t)$ is a Bernstein polynomial
 \begin{equation}
     B_{i,n}(t)=\begin{pmatrix} n \\ \\ i \end{pmatrix}(1-t)^{n-i}t^i
 \end{equation}
-and $t \in [0,1]$ is the curve parameter. The line features consists of multiple segments of B\'{e}zier curves. Due to the nature of the objects depicted there are open as well as closed curves, see fig. \ref{linefeatures}. 
+and $t \in [0,1]$ is the curve parameter. The line features consists of multiple segments of B\'{e}zier curves. Due to the nature of the objects depicted there are open as well as closed curves, see fig. \ref{fig:linefeatures}. 
 
 \begin{figure}[h!]
     \centering
@@ -127,10 +127,7 @@ the line feature. In order to find vertices with similar directions to the sampl
 \caption{shows the projection of a sample point - on a 2D line feature - from the viewport onto a triangulated 3D mesh. The distance vector of the vertex with the most similar direction vector (orange) is projected (red) onto the direction of the sample point (black arrow), resulting in the projected vertex (green)}
 \end{figure}
 \subsection{Preparing the Template Mesh}
-For the line features projected on to the scans to be of use, line features also have to be marked on the template mesh. We use the mean mesh of a 3D Morphable Model [http://gravis.cs.unibas.ch/publications/2009/BFModel09.pdf] as the template mesh.
-
-We render three different images, similar to those taken during the scanning of the faces, for marking the line features.
-The 2D line features can then be projected back onto the mesh using the rendering parameters. With the projection we obtain the corresponding, equidistant samples of the line features on the template. They obtained additional prior information is used in the registration algorithm to define the posterior deformation model and to produce better registration results.
+For the line features projected on to the scans to be of use, line features also have to be marked on the template mesh. We use the mean mesh of a 3D Morphable Model \cite{bfm} as the template mesh. We render three different images, similar to those taken during the scanning of the faces, for marking the line features. The 2D line features can then be projected back onto the mesh using the rendering parameters. With the projection we obtain the corresponding, equidistant samples of the line features on the template. They obtained additional prior information is used in the registration algorithm to define the posterior deformation model and to produce better registration results.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=.3\textwidth]{./resources/img/mean_msh.pdf}
@@ -157,8 +154,8 @@ of landmarks pairs whose identifiers exist for both meshs. The targets are clipp
 \caption{An overview of the different stages of the registration pipeline with an examplary visualization of face meshs at every stage.}
 \end{figure}
 
-We are now set for the actual registration involving the computation of the Prior and Posterior Gaussian Models and the Fitting of the Posterior Model to a face scan. For the definition of the Gaussian Process distributions we use statismo \ref{bib:statismo}. It is a framework for PCA based statistical models. These are used to describe the variability of an object within a population, learned from a set of training samples. We use it to generate a statistical
-model of the template mesh equaling the parametric representation of the Gaussian Process Posterior described in sec. \ref{sec:optimization}. 
+We are now set for the actual registration involving the computation of the Prior and Posterior Gaussian Models and the Fitting of the Posterior Model to a face scan. For the definition of the Gaussian Process distributions we use statismo \cite{statismo}. It is a framework for PCA based statistical models. These are used to describe the variability of an object within a population, learned from a set of training samples. We use it to generate a statistical
+model of the template mesh equaling the parametric representation of the Gaussian Process Posterior described in section \ref{sec:optimization}. 
 
 \begin{figure}[h]
 \centering
@@ -183,58 +180,60 @@ The deformations generated by the GP Prior are of course not admissible. We rece
 \end{figure}
 
 \section{Optimization of the Posterior}
-In order to optimize the respective GP Posterior Models of the template according to the target scans, we obtain the parametric representation of the GP Posterior Model using statismo. We then use the limited-memory BFGS optimization build into the Insight Toolkit (ITK). Optimize parameters for the set of chosen basics functions in the parametric model. First we used the Mena Squared Error as the loss function. However, this estimator did not yield desirable results, as can be seen in \ref{fig:msquaresfit}.
-\begin{comment}
-\viscomment{Überarbeiten}
-Before starting the optimization we again use the statismo framework to obtain the parametric representation of the GP Posterior Model of the template. This part of statismo framework built on the Insight Toolkit (ITK) is used to optimize the parameters for the set of chosen basis functions. In each step the optimizer computes the parameters that cause a minimum in a specified similarity measure. We used the mean squared error (MSE) as a similarity measure. This process is reiterated until the similarity measure stays within a tolerance interval for a fixed
-number of iterations.
-\viscomment{Schema of ITK optimizer?}
-\end{comment}
+In order to optimize the respective GP Posterior Models of the template according to the target scans, we obtain the parametric representation of the GP Posterior Model using statismo. We then use the limited-memory BFGS optimizer of the Insight Toolkit (ITK) to optimize the parameters for the set of chosen basics functions in the parametric model. First, we used the Mean Squared Error as the loss function to minimize the distance between template and target vertices. However, this estimator did not yield the desired results, as can be seen in \ref{fig:msquaresfit}.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=.8\textwidth]{./resources/img/00029_meansquares_fit.pdf}
 \caption{A fit of the template mesh obtained using the Mean Squared Error as the distance metric. The deformation in the regions where template and target do not overlap cause major distortions in the resulting fit.}
 \label{fig:msquaresfit}
 \end{figure}
-The reason for the bad performance of MSE is that after the alignment of template and target mesh, the template protrudes over the target on both sides of the head, consult fig. \ref{overlap}. Performing optimization as described in \ref{sec:optimization} using the simple MSE as a distance measure between the template and target mesh penalizes the portruding regions of the template with a strong gradient towards the rims of the template and therefore causes strong distortions. 
+The reason for the bad performance of MSE is that it penalizes the portruding regions to both sides of the head of the template, see fig. \ref{fig:overlap}, with a strong gradient towards the rims of the target and thereby causes strong distortions in all parts of the face. 
 
 \section{Robust Loss Functions}
 To overcome the problems described above, we tried a range of different robust estimators, namely the Tukey, Huber, and Fair estimators. The advantage of these
-estimators lies therein that they are less sensitive to outliers, reducing registration artifacts considerably. Outliers are in this case template mesh points that are farther away than a certain threshold from the next point on the target mesh. However, these techniques require parameter tuning to first which produce reasonable/acceptable visual results.
-
-Fair
+estimators lies therein that they are less sensitive to outliers, reducing registration artifacts considerably. Outliers are in this case template mesh points that are farther away than a certain threshold from the next point on the target mesh. Implementing the estimators listed in the following equations requires parameter tuning in order to achieve acceptable results.\\
 \begin{subequations}
+    \textbf{Fair estimator}
 \begin{equation}
-\rho(x)=c^2\left[\frac{\left|x\right|}{c}-log(1+\frac{\left|x\right|}{c})\right]
+    \text{loss function}\quad \rho(x)=c^2\left[\frac{\left|x\right|}{c}-log(1+\frac{\left|x\right|}{c})\right]
 \end{equation}
 \begin{equation}
-    \psi(x)=\frac{x}{1+\frac{\left|x\right|}{c}}}
+    \text{derivative or influence function}\quad \psi(x)=\frac{x}{1+\frac{\left|x\right|}{c}}}
 \end{equation}
 \end{subequations}
-Huber
+\newline
 \begin{subequations}
+    \textbf{Huber estimator}
 \begin{equation}
     \rho(x) = \twopartdef {\frac{x^2}{2}} {\left|x\right|<k} {k(\left|x\right|-\frac{k}{2})} {\left|x\right|\geq k}
 \end{equation}
 \begin{equation}
-    \psi(x) = \twopartdef {x} {} {k sgn(x)}{} 
+    \psi(x) = \twopartdef {x} {\left|x\right|<k} {k sgn(x)}{\left|x\right|\geq k} 
 \end{equation}
 \end{subequations}
-Tukey
+\begin{figure}[h!]
+\centering
+\subfloat[Target with mean texture applied]{\includegraphics[width=.7\textwidth]{./resources/img/00029_textured_target.pdf}}\\
+\subfloat[Fit of the deformed mean using Huber estimator]{\includegraphics[width=.7\textwidth]{./resources/img/00029_huber_fit.pdf}}
+\caption{This figure displays a fit obtained using the Huber estimator in b). The texture of the mean mesh has been applied to the target in a) to make fit and target meshs more comparable.}
+\label{fig:huberfit}
+\end{figure}
+
 \begin{subequations}
+    \textbf{Tukey estimator}
 \begin{equation}
     \rho(x) = \twopartdef {\frac{c^2}{6}\left(1-\left[1-\left(\frac{x}{c}\right)^2\right]^3\right)} {\left|x\right|\leq c} {\frac{c^2}{6}} {\left|x\right| > c}
 \end{equation}
 \begin{equation}
-    \psi(x) = \twopartdef {x\left[1-\left(\frac{x}{c}\right)^2\right]^2} {} {0} {}
+    \psi(x) = \twopartdef {x\left[1-\left(\frac{x}{c}\right)^2\right]^2} {\left|x\right|\leq c} {0} {\left|x\right| > c}
 \end{equation}
 \end{subequations}
 
 \begin{figure}[h!]
 \centering
-\subfloat[target with mean texture applied]{\includegraphics[width=.8\textwidth]{./resources/img/00029_textured_target.pdf}}\\
-\subfloat[optimized mean posterior fit]{\includegraphics[width=.8\textwidth]{./resources/img/00029_fit.pdf}}
-\caption{The fitting result in a) was obtained with the Tukey estimator, parameter c=7.0. The texture of the mean mesh has been applied to the target to make the meshs comparable. The fit in a) has considerable likeness to the target b), although it lacks expressiveness}
+\subfloat[Target with mean texture applied]{\includegraphics[width=.7\textwidth]{./resources/img/00029_textured_target.pdf}}\\
+\subfloat[Fit of the deformed mean using Tukey estimator]{\includegraphics[width=.7\textwidth]{./resources/img/00029_fit.pdf}}
+\caption{The fit in b) was obtained using the Tukey estimator and parameter c=7.0. The fit in a) has considerable likeness to the target in b), although for example the chin is too rendered too pointy in the fit. Compared to the Huber estimator, the tuned Tukey estimator is less sensitive to outliers, for example the regions to the side of the head.}
 \label{fig:00029fit}
 \end{figure}
 

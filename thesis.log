@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  26 JUL 2013 16:48
+This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2013.7.6)  26 JUL 2013 23:14
 entering extended mode
  %&-line parsing enabled.
 **thesis.tex
@@ -809,7 +809,7 @@ See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.127 }
+l.128 }
        %}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -821,7 +821,7 @@ See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.127 }
+l.128 }
        %}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -842,7 +842,7 @@ See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.132 }
+l.133 }
        
 The following languages weren't loadable:
     ,c++java$
@@ -1151,7 +1151,7 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [3])
 (./chapters/chapter1.tex [4]
 
-LaTeX Warning: Characters dropped after `\end{comment}' on input line 10.
+LaTeX Warning: Characters dropped after `\end{comment}' on input line 9.
 
 [5
 
@@ -1166,7 +1166,7 @@ Package Fancyhdr Warning: \headheight is too small (14.0pt):
 
 ]
 
-LaTeX Warning: Characters dropped after `\end{comment}' on input line 42.
+LaTeX Warning: Characters dropped after `\end{comment}' on input line 43.
 
 [8]
 File: ./resources/figures/scanner.pdf Graphic file (type QTm)
@@ -1178,6 +1178,9 @@ File: ./resources/figures/scan.eps Graphic file (type eps)
 <./resources/figures/scan.eps>
 File: ./resources/figures/schema_marked.eps Graphic file (type eps)
  <./resources/figures/schema_marked.eps>)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 [9] (./chapters/chapter3.tex [10] [11
 
 ]
@@ -1189,9 +1192,13 @@ File: ./resources/figures/gp_posterior.eps Graphic file (type eps)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[12] [13] [14]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12]
+[13] [14]
 ! Undefined control sequence.
-l.141 ...and is to register a reference or \textbb
+l.137 ...and is to register a reference or \textbb
                                                   {template} face mesh with ...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1200,25 +1207,22 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (0.3216pt too wide) in paragraph at lines 146--149
+Overfull \hbox (0.3216pt too wide) in paragraph at lines 141--144
 \OT1/cmr/bx/n/12 Vector-valued Gaus-sian Pro-cesses[] \OT1/cmr/m/n/12 In or-der
  to use Gaus-sian Pro-cesses to model
  []
 
-
-LaTeX Warning: Reference `chapter 4' on page 15 undefined on input line 152.
-
 [15]
 File: ./resources/img/prior_deformations.pdf Graphic file (type QTm)
- <use  "./resources/img/prior_deformations.pdf" > [16]
+ <use  "./resources/img/prior_deformations.pdf" >
 File: ./resources/img/posterior_deformations.pdf Graphic file (type QTm)
 
-<use  "./resources/img/posterior_deformations.pdf" >
+<use  "./resources/img/posterior_deformations.pdf" > [16]
 File: ./resources/img/posterior_deformation_landmarks_front.pdf Graphic file (t
 ype QTm)
 
 <use  "./resources/img/posterior_deformation_landmarks_front.pdf" >
-Underfull \hbox (badness 1596) in paragraph at lines 209--209
+Underfull \hbox (badness 1596) in paragraph at lines 202--202
 []\OT1/cmr/m/n/10 (a) |Sam-ple pos-te-rior mesh
  []
 
@@ -1228,22 +1232,16 @@ File: ./resources/img/deformation_prior_msh.pdf Graphic file (type QTm)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 223--225
+Underfull \hbox (badness 10000) in paragraph at lines 216--218
 
  []
 
-[18]) (./chapters/chapter4.tex [19]
-
-LaTeX Warning: Reference `section:' on page 20 undefined on input line 3.
-
-
-LaTeX Warning: Reference `linefeatures' on page 20 undefined on input line 20.
-
-[20
+[18]) (./chapters/chapter4.tex [19] [20
 
 ]
 File: ./resources/img/eyebrow_left.jpeg Graphic file (type QTm)
- <use  "./resources/img/eyebrow_left.jpeg" > [21]
+
+<use  "./resources/img/eyebrow_left.jpeg" > [21]
 File: ./resources/figures/ears_diffparam.pdf Graphic file (type QTm)
 
 <use  "./resources/figures/ears_diffparam.pdf" >
@@ -1264,12 +1262,12 @@ File: ./resources/img/mean_msh.pdf Graphic file (type QTm)
 File: ./resources/img/overlap_mean_target.pdf Graphic file (type QTm)
 
 <use  "./resources/img/overlap_mean_target.pdf" >
-Underfull \hbox (badness 10000) in paragraph at lines 148--151
+Underfull \hbox (badness 10000) in paragraph at lines 145--148
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 148--151
+Underfull \hbox (badness 10000) in paragraph at lines 145--148
 
  []
 
@@ -1278,14 +1276,6 @@ File: ./resources/figures/pipeline.pdf Graphic file (type QTm)
  <use  "./resources/figures/pipeline.pdf" >
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Reference `bib:statismo' on page 27 undefined on input line 160.
-
-
-
-LaTeX Warning: Reference `sec:optimization' on page 27 undefined on input line 
-161.
 
 File: ./resources/img/prior_sample_2_profile.pdf Graphic file (type QTm)
 <use  "./resources/img/prior_sample_2_profile.pdf" >
@@ -1305,14 +1295,6 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 File: ./resources/img/00029_meansquares_fit.pdf Graphic file (type QTm)
 <use  "./resources/img/00029_meansquares_fit.pdf" >
-
-LaTeX Warning: Reference `overlap' on page 27 undefined on input line 199.
-
-
-LaTeX Warning: Reference `sec:optimization' on page 27 undefined on input line 
-199.
-
-
 Underfull \vbox (badness 2495) has occurred while \output is active []
 
  [27]
@@ -1330,7 +1312,7 @@ Underfull \vbox (badness 3514) has occurred while \output is active []
 
  [30]
 ! Extra }, or forgotten $.
-l.211 ...(x)=\frac{x}{1+\frac{\left|x\right|}{c}}}
+l.201 ...(x)=\frac{x}{1+\frac{\left|x\right|}{c}}}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1340,41 +1322,40 @@ deleted material, e.g., by typing `I$}'.
 
 File: ./resources/img/00029_textured_target.pdf Graphic file (type QTm)
 <use  "./resources/img/00029_textured_target.pdf" >
+File: ./resources/img/00029_huber_fit.pdf Graphic file (type QTm)
+
+<use  "./resources/img/00029_huber_fit.pdf" > [31]
+File: ./resources/img/00029_textured_target.pdf Graphic file (type QTm)
+
+<use  "./resources/img/00029_textured_target.pdf" >
 File: ./resources/img/00029_fit.pdf Graphic file (type QTm)
 
-<use  "./resources/img/00029_fit.pdf" >
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) (./chapters/chapter5.tex [31] [32]
+<use  "./resources/img/00029_fit.pdf" >) (./chapters/chapter5.tex [32]
 File: ./resources/img/linefeatures_eyes.pdf Graphic file (type QTm)
 
 <use  "./resources/img/linefeatures_eyes.pdf" >
+File: ./resources/img/00029_eyes_comparison.pdf Graphic file (type QTm)
 
-LaTeX Warning: Reference `sec:noisemodel' on page 33 undefined on input line 16
-.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 5--18
-
- []
-
-[33
+<use  "./resources/img/00029_eyes_comparison.pdf" > [33
 
 ]
-File: ./resources/img/00029_eyes_comparison.pdf Graphic file (type QTm)
- <use  "./resources/img/00029_eyes_comparison.pdf" >
 File: ./resources/img/00029_mouth_comparison.pdf Graphic file (type QTm)
 
-<use  "./resources/img/00029_mouth_comparison.pdf" > [34]
+<use  "./resources/img/00029_mouth_comparison.pdf" >
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [35]
+ [34]
 File: ./resources/img/00029_left_ear_comparison.pdf Graphic file (type QTm)
 
 <use  "./resources/img/00029_left_ear_comparison.pdf" >
-File: ./resources/img/00029_distmap.pdf Graphic file (type QTm)
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: ./resources/img/00029_distmap.pdf Graphic file (type QTm)
 <use  "./resources/img/00029_distmap.pdf" >
 File: ./resources/img/00303_textured_target.pdf Graphic file (type QTm)
 
@@ -1385,6 +1366,9 @@ File: ./resources/img/00303_fit.pdf Graphic file (type QTm)
 File: ./resources/img/00303_distmap.pdf Graphic file (type QTm)
 
 <use  "./resources/img/00303_distmap.pdf" >
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [35]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1416,11 +1400,10 @@ File: ./resources/img/00029_caricature_2.pdf Graphic file (type QTm)
 LaTeX Warning: Text page 37 contains only floats.
 
 [37]
-Underfull \vbox (badness 1521) has occurred while \output is active []
 
- [38]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 File: ./resources/img/00303_caricature_1_3.pdf Graphic file (type QTm)
-
 <use  "./resources/img/00303_caricature_1_3.pdf" >
 File: ./resources/img/00303_caricature_1_6.pdf Graphic file (type QTm)
 
@@ -1431,32 +1414,33 @@ File: ./resources/img/00303_caricature_2.pdf Graphic file (type QTm)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (./chapters/chapter6.tex [39] [40]
+) (./chapters/chapter6.tex [38] [39] [40]
 Underfull \hbox (badness 10000) in paragraph at lines 2--11
 
  []
 
 [41
 
-]) [42]
+]) (./bibliography.tex [42]
+bibitemlist
+) [43
+
+]
 \tf@toc=\write6
 \openout6 = `thesis.toc'.
 
  (./thesis.aux)
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 19630 strings out of 495724
- 329276 string characters out of 1189347
- 434510 words of memory out of 3000000
- 22343 multiletter control sequences out of 15000+50000
- 13945 words of font info for 52 fonts, out of 3000000 for 9000
+ 19644 strings out of 495724
+ 329497 string characters out of 1189347
+ 435791 words of memory out of 3000000
+ 22354 multiletter control sequences out of 15000+50000
+ 14292 words of font info for 53 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  69i,12n,60p,1270b,671s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on thesis.pdf (42 pages).
+Output written on thesis.pdf (43 pages).

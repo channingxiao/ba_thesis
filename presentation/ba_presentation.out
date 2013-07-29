@@ -1,0 +1,12 @@
+\BOOKMARK [2][]{Outline0.1}{Data and Correspondence}{}
+\BOOKMARK [2][]{Outline0.2}{Using Line Features}{}
+\BOOKMARK [3][]{Outline0.2.1.13}{Sampling Line Features}{Outline0.2}
+\BOOKMARK [3][]{Outline0.2.2.16}{Projection: 2D to 3D}{Outline0.2}
+\BOOKMARK [3][]{Outline0.2.3.19}{Results of 3D representation}{Outline0.2}
+\BOOKMARK [2][]{Outline0.3}{Gaussian Process Regression}{}
+\BOOKMARK [3][]{Outline0.3.1.21}{Gaussian Process}{Outline0.3}
+\BOOKMARK [3][]{Outline0.3.2.22}{GP Prior}{Outline0.3}
+\BOOKMARK [3][]{Outline0.3.3.23}{GP Posterior}{Outline0.3}
+\BOOKMARK [3][]{Outline0.3.4.26}{Application to 3D Face Registration}{Outline0.3}
+\BOOKMARK [3][]{Outline0.3.5.32}{Optimization}{Outline0.3}
+\BOOKMARK [2][]{Outline0.4}{Results}{}

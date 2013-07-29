@@ -2,19 +2,16 @@
 \label{chap:results}
 \section{Line Feature Projection Inacurracy}
 \label{sec:linefeature_inaccuracy}
-The scanned faces contain large holes in the regions of the eyes and the ears. Due to this circumstance the vertices with the most similar directions to that of the sample point may be farther away from the desired project location along the visual line from the focal point of the camera model. 
-Consequently, the projected sample points of the line features may distorted along the visual line if the holes are very large and protrude in to the areas where the line features are defined, see fig. \ref{fig:linefeature_comparison}. 
+The scanned faces contain large holes in the regions of the eyes and the ears. Due to this circumstance there is no depth information on the visual line of a line feature sample from the perspective of the focal point in the camera model. Consequently, if the holes are very large and protrude in to the areas where the line features are defined, the projected sample points of the line features may be distorted along the visual line, see fig. \ref{fig:linefeature_comparison}. 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{./resources/img/linefeatures_eyes.pdf}
     \caption{Line Features}
     \label{fig:linefeature_comparison}
 \end{figure}
-On the different scans the quality of the projected line features varies significantly, because each scan has different holes. If a scan contains large holes one can say overall that the distortion of the projected line features increases with the amount of sampled points. 
-An easy workaround to this problem is to reduce the amount of sampled points. By using only 5-10 sample points per curve most datasets rendered near perfect results. 
-However, when the holes are too large this workaround also fails, slight distortions can be made out in fig. \ref{fig:linefeature_comparison} top right. This means that only one or two points are a bit off the desired position.
-If the distortions are moderate they are accounted for by the additive Gaussian Noise in the joint distribution \ref{sec:noisemodel}.
-However, as long as the method is dependent on the data from the scans - the size of the holes in the meshs - it lacks generality and generality is exactly the basis for feasible and reproducable registration results.\\
+On the different scans the quality of the projected line features varies significantly, because each scan contains different holes. If a scan contains large holes one can say overall that the distortion of the projected line features increases with the amount of sampled points. 
+An easy workaround to this problem is to reduce the amount of sampled points. By using only 5-10 sample points per curve most datasets rendered very accurate sample representations of the curves. This means that only one or two points are a bit off the desired position. If the distortions are moderate they are accounted for by the additive Gaussian Noise in the joint distribution of eq. \ref{eq:3Djointdist}. However, if the holes are too large this workaround also has its boundaries, slight distortions can be made out in the top right image of fig. \ref{fig:linefeature_comparison}.
+\begin{comment} However, as long as the method is dependent on the data from the scans - the size of the holes in the meshs - it lacks generality and generality is exactly the basis for feasible and reproducable registration results. \end{comment}
 
 \section{The Effect of Line Features}
 In this section we illustrate the effect of the line features on the registration results.
